@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pcb on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/pcb/</link>
+    <description>Recent content in pcb on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/pcb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Brewtag</title>
+      <link>https://tiliaradix.com/builds/build-brewtag/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
+      <description>Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
+The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
+The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: DigiDev</title>
+      <link>https://tiliaradix.com/builds/build-digidev/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-digidev/</guid>
+      <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
+The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
+The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ethernet CC1310 Gateway - eth1310</title>
+      <link>https://tiliaradix.com/builds/build-eth1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
+      <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
+The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
+The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
+Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: SLIP CC1310 Gateway - slip1310</title>
+      <link>https://tiliaradix.com/builds/build-slip1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
+      <description>Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Wi-Fi CC1310 Gateway - wifi1310</title>
+      <link>https://tiliaradix.com/builds/build-wifi1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Vector graphics for your PCBs</title>
+      <link>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</link>
+      <pubDate>Fri, 14 Mar 2014 22:10:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</guid>
+      <description>TLDR 🔗This tool converts SVG vector graphics to Cadsoft Eagle polygon. Get it here.
+Why 🔗Technology can even in its most raw and bare form certainly be beautiful. The bottom of a motherboard, with long, parallell, impedance-matched traces from PCI-connectors is a good example. A large BGA is another, with traces extending in every direction.
+I&#39;ve long wanted to make my PCBs more beautiful, taking the few &amp;quot;colors&amp;quot; into full use.</description>
+    </item>
+    
+    <item>
+      <title>Clock with retro display</title>
+      <link>https://tiliaradix.com/posts/clock-with-retro-display/</link>
+      <pubDate>Thu, 06 Jun 2013 15:05:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/clock-with-retro-display/</guid>
+      <description>HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &amp;quot;smart four-character 16-segment alphanumeric&amp;quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.</description>
+    </item>
+    
+  </channel>
+</rss>

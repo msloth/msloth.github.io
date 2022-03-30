@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>builds on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/builds/</link>
+    <description>Recent content in builds on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/builds/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Subwoofer base</title>
+      <link>https://tiliaradix.com/builds/build-subwooferbase/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-subwooferbase/</guid>
+      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won&amp;rsquo;t hit it.</description>
+    </item>
+    
+    <item>
+      <title>Build: Clicker</title>
+      <link>https://tiliaradix.com/builds/build-clicker/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-clicker/</guid>
+      <description>Buildlog: Clicker 🔗Sneak peek 🔗Clicker diorama.
+Meta 🔗The Clicker is a creature (?) in the world of The Last of Us, made by Naughty Dog.
+Clicker.
+The Clickers are originally humans, that have fallen to a fungus infection. The fungus, of the Cordyceps genus, affects, takes over, control over the body. It is famously documented on insects in the Planet Earth documentary, however the human infection is a fictious extrapolation as a plot device.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ohmu</title>
+      <link>https://tiliaradix.com/builds/build-ohmu/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-ohmu/</guid>
+      <description>Buildlog: Ohmu 🔗This is the buildlog for my Ohmu diorama.
+Sneak peek 🔗Hello, Ohmu.
+Meta 🔗The Ohmu is a creature from the 1984 anime Nausicaä of the Valley of the Wind.
+It was directed by Hayao Miyazaki, who co-founded Studio Ghibli.
+Brief synopsis courtesy of Wikipedia:
+ Taking place in a future post-apocalyptic world, the film tells the story of Nausicaä (Shimamoto), the young princess of the Valley of the Wind.</description>
+    </item>
+    
+    <item>
+      <title>Build: Barnfind</title>
+      <link>https://tiliaradix.com/builds/build-barnfind/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-barnfind/</guid>
+      <description>Buildlog: Barnfind 🔗Sneak peek 🔗Meta 🔗Tiger II 🔗3D print 🔗Cover 🔗Paint 🔗Base 🔗The base is a rectangular piece of plain MDF, 18 mm thick. It is sealed by a couple of layers of PVA glue (wood glue). Then painted black on the sides, and rubber feet on the bottom.
+Barn 🔗House frame 🔗Roof 🔗Roof 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Brewtag</title>
+      <link>https://tiliaradix.com/builds/build-brewtag/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
+      <description>Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
+The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
+The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: DigiDev</title>
+      <link>https://tiliaradix.com/builds/build-digidev/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-digidev/</guid>
+      <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
+The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
+The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ethernet CC1310 Gateway - eth1310</title>
+      <link>https://tiliaradix.com/builds/build-eth1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
+      <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
+The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
+The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
+Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: SLIP CC1310 Gateway - slip1310</title>
+      <link>https://tiliaradix.com/builds/build-slip1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
+      <description>Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Wi-Fi CC1310 Gateway - wifi1310</title>
+      <link>https://tiliaradix.com/builds/build-wifi1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Designing a Wireless Device that Lives Forever</title>
+      <link>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We have previously looked at how to make a wireless device live for years on one tiny coin cell battery. This time we up the game and make it live forever, using solar power and off-the-shelf hardware.
+We build a prototype of our device and go through the technical details involved in designing for solar power.</description>
+    </item>
+    
+    <item>
+      <title>Vector graphics for your PCBs</title>
+      <link>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</link>
+      <pubDate>Fri, 14 Mar 2014 22:10:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</guid>
+      <description>TLDR 🔗This tool converts SVG vector graphics to Cadsoft Eagle polygon. Get it here.
+Why 🔗Technology can even in its most raw and bare form certainly be beautiful. The bottom of a motherboard, with long, parallell, impedance-matched traces from PCI-connectors is a good example. A large BGA is another, with traces extending in every direction.
+I&#39;ve long wanted to make my PCBs more beautiful, taking the few &amp;quot;colors&amp;quot; into full use.</description>
+    </item>
+    
+    <item>
+      <title>Clock with retro display</title>
+      <link>https://tiliaradix.com/posts/clock-with-retro-display/</link>
+      <pubDate>Thu, 06 Jun 2013 15:05:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/clock-with-retro-display/</guid>
+      <description>HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &amp;quot;smart four-character 16-segment alphanumeric&amp;quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.</description>
+    </item>
+    
+    <item>
+      <title>New HTPC with NES</title>
+      <link>https://tiliaradix.com/posts/new-htpc-with-nes/</link>
+      <pubDate>Sat, 02 Apr 2011 11:35:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/new-htpc-with-nes/</guid>
+      <description>So Roger (a friend of mine) and I each bought ourselves a new HTPC. It is based on an Asus AT3IonT-I deluxe Mini-ITX motherboard in a NES chassis. The mobo has hardware accelerated decoding of HD material, built in WiFi, Bluetooth, comes with an IR remote, is fanless and uses a power brick instead of an ATX PSU. This last point (and HW decoding of course) is key. This way, the mobo can be fitted in a very small case, the Nintendo 8-bit NES being of ideal size, fitting the mobo, a 2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wireless on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/wireless/</link>
+    <description>Recent content in wireless on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Brewtag</title>
+      <link>https://tiliaradix.com/builds/build-brewtag/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
+      <description>Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
+The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
+The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: DigiDev</title>
+      <link>https://tiliaradix.com/builds/build-digidev/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-digidev/</guid>
+      <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
+The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
+The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ethernet CC1310 Gateway - eth1310</title>
+      <link>https://tiliaradix.com/builds/build-eth1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
+      <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
+The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
+The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
+Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: SLIP CC1310 Gateway - slip1310</title>
+      <link>https://tiliaradix.com/builds/build-slip1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
+      <description>Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Wi-Fi CC1310 Gateway - wifi1310</title>
+      <link>https://tiliaradix.com/builds/build-wifi1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>How We Do It: Offline IoT</title>
+      <link>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+When the wireless mesh is unavailable, store data locally.
+A wireless mesh network reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.
+But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.</description>
+    </item>
+    
+    <item>
+      <title>IoT Antenna Design: Three Ways Your Antenna Deceives You</title>
+      <link>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</link>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Every single Internet of Things (IoT) device needs an antenna.
+The antenna is crucial: it may make or break the communication with your devices. A good antenna will give you a good wireless range. A bad antenna may cause your devices to not even be reachable in the field.
+IoT devices are designed to be small, have a long wireless range, and have a long battery life.</description>
+    </item>
+    
+    <item>
+      <title>What is a Good sub-GHz Range? A Reality Check</title>
+      <link>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+What is the range of my sub-GHz IoT device?
+Do the theoretical predictions of wireless range match the real world? We took a walk around the neighborhood to find out.
+The answer to this question isn&amp;rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world.</description>
+    </item>
+    
+    <item>
+      <title>Four Reasons for 3D Printing IoT Prototypes</title>
+      <link>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Make them good looking, robust, functional, and sellable.
+At Thingsquare we use 3D printing for many of the IoT prototypes we build for customers.
+Here are the top 4 reasons why we do it, and why you should do it too:
+ Hide the electronics Make it more functional Make it easier to sell Make it robust  What is 3D Printing?</description>
+    </item>
+    
+    <item>
+      <title>A New Way to Measure the Power Consumption of Really Low-Power Hardware (for Software People)</title>
+      <link>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We recently got a new tool at Thingsquare, which helps us ensure that we have extremely low power consumption of our software: the Otii Arc current and voltage measurement box, by Qoitech. This little box quickly lets us – a bunch of software persons – measure and understand the power consumption of the software that we run on our low-power hardware.</description>
+    </item>
+    
+    <item>
+      <title>How to Design Thingsquare-Compatible Hardware</title>
+      <link>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.
+Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.
+Behind every successful product is a successful hardware design.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Wireless Device that Lives Forever</title>
+      <link>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We have previously looked at how to make a wireless device live for years on one tiny coin cell battery. This time we up the game and make it live forever, using solar power and off-the-shelf hardware.
+We build a prototype of our device and go through the technical details involved in designing for solar power.</description>
+    </item>
+    
+    <item>
+      <title>Simple yet efficient wireless with Contiki</title>
+      <link>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</link>
+      <pubDate>Sun, 26 May 2013 09:21:46 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</guid>
+      <description>SimpleRDC 🔗This is a step forward in making wireless communication more easy and viable for extremely small systems. There already exist a number of protocols for low-power wireless. Most of them are quite complex and hence use much RAM and ROM which makes them unfeasible for the Launchpad and similarly constrained systems. This is a simple yet efficient radio duty-cycling protocol for Contiki that achieves 3% idle listening duty cycle while allowing for an average 65 ms latency with no prior contact or synchronization.</description>
+    </item>
+    
+    <item>
+      <title>Contiki for TI MSP430 Launchpad</title>
+      <link>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</link>
+      <pubDate>Sun, 26 May 2013 09:09:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</guid>
+      <description>Contiki port for Launchpad 🔗Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and &#39;2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it&#39;s a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM.</description>
+    </item>
+    
+  </channel>
+</rss>

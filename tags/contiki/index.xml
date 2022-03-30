@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>contiki on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/contiki/</link>
+    <description>Recent content in contiki on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Jun 2013 15:05:41 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/contiki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clock with retro display</title>
+      <link>https://tiliaradix.com/posts/clock-with-retro-display/</link>
+      <pubDate>Thu, 06 Jun 2013 15:05:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/clock-with-retro-display/</guid>
+      <description>HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &amp;quot;smart four-character 16-segment alphanumeric&amp;quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.</description>
+    </item>
+    
+    <item>
+      <title>Simple yet efficient wireless with Contiki</title>
+      <link>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</link>
+      <pubDate>Sun, 26 May 2013 09:21:46 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</guid>
+      <description>SimpleRDC 🔗This is a step forward in making wireless communication more easy and viable for extremely small systems. There already exist a number of protocols for low-power wireless. Most of them are quite complex and hence use much RAM and ROM which makes them unfeasible for the Launchpad and similarly constrained systems. This is a simple yet efficient radio duty-cycling protocol for Contiki that achieves 3% idle listening duty cycle while allowing for an average 65 ms latency with no prior contact or synchronization.</description>
+    </item>
+    
+    <item>
+      <title>Contiki for TI MSP430 Launchpad</title>
+      <link>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</link>
+      <pubDate>Sun, 26 May 2013 09:09:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</guid>
+      <description>Contiki port for Launchpad 🔗Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and &#39;2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it&#39;s a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM.</description>
+    </item>
+    
+    <item>
+      <title>Contiki debugging in Cooja</title>
+      <link>https://tiliaradix.com/posts/contiki-debugging-in-cooja/</link>
+      <pubDate>Sun, 01 Jul 2012 08:53:37 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-debugging-in-cooja/</guid>
+      <description>A while ago I co-held a Contiki bootcamp. My part consisted mainly of showing the Contiki serial shell, the network simulator Cooja, Mobility plugin for Cooja, and some debugging features. This post will go through those topics. This will be a long post&amp;hellip; :)
+To get started, you might want and/or need the following:
+ the talk in handout-format a few slides source: Makefile source: a silent node source: a periodic broadcasting node  and finally a working Contiki copy (check out the Instant Contiki virtual machine with all tools set up from the beginning).</description>
+    </item>
+    
+    <item>
+      <title>Piggie parts</title>
+      <link>https://tiliaradix.com/posts/piggie-parts/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:34 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/piggie-parts/</guid>
+      <description>It was fun in the taxi on the way to the venue where we were to talk, FUDAN Uni. I felt quite &#39;up&#39; by then, excited and positive. I felt like I kept noticing small details around me, as if I was very attentive, but lacked impulse suppressive skills. Like a kid on speed. Poor Alexa had to answer many insightful and nuanced questions about electric mopeds, trees dressed with ropes etc.</description>
+    </item>
+    
+    <item>
+      <title>Verrrry, verrrry important persons</title>
+      <link>https://tiliaradix.com/posts/verrrry-verrrry-important-persons/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/verrrry-verrrry-important-persons/</guid>
+      <description>I got a quite nice hotel room :), 19th floor, Fuxuan hotel.
+Very mixed messages.
+The second day, Nov 2nd, was the beginning of the event with a grand opening and unveiling of some plaquette or sth. We, Thiemo and I, didn&#39;t really understand everything. There were 400 Chinese and 3 Swedes. Prof Kalle from KTH were there as well and held a talk about IoT they were involved in. Everything else was in Chinese but we had headphones with real time translation by two translators.</description>
+    </item>
+    
+    <item>
+      <title>Back in an old track</title>
+      <link>https://tiliaradix.com/posts/back-in-an-old-track/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:09 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/back-in-an-old-track/</guid>
+      <description>So, last time I was in China (for Ubicomp), I was supposed to hold a Contiki-tutorial in Shanghai afterwards but for different reasons it was postponed, or something. The Chinese organizers never decided on a date until it was too late. Nvm.
+A week after returning home they had apparently decided and I was asked if I could go back go China and take care of it. Of course I&#39;ll do it!</description>
+    </item>
+    
+    <item>
+      <title>Error uploading to JCreate</title>
+      <link>https://tiliaradix.com/posts/error-uploading-to-jcreate/</link>
+      <pubDate>Fri, 11 Mar 2011 16:01:11 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/error-uploading-to-jcreate/</guid>
+      <description>I had this error a while ago in a new virtual machine, where I was trying to compile and upload to a Sentilla JCreate, an obsolete sensor node similar to the Tmote Sky but without some of the sensors and added an accelerometer. This was the error,
+$make myfile.upload ...text something like: only pure serial drivers exist ... -bsl=revb Now, trying with the same this as super user worked,
+$ sudo make myfile.</description>
+    </item>
+    
+    <item>
+      <title>TI Launchpad makefile</title>
+      <link>https://tiliaradix.com/posts/ti-launchpad-makefile/</link>
+      <pubDate>Thu, 10 Mar 2011 14:20:59 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/ti-launchpad-makefile/</guid>
+      <description>[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;300&amp;quot; caption=&amp;quot;TI Launchpad&amp;quot;]&amp;lt;a href=&amp;quot;http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_%28MSP-EXP430G2%29?DCMP=launchpad&amp;amp;HQS=Other+OT+launchpadwiki&amp;quot;&amp;gt;
+&amp;lt;img title=&amp;quot;TI Launchpad&amp;quot; src=&amp;quot;http://processors.wiki.ti.com/images/thumb/a/ad/LaunchPad_wireframe.PNG/300px-LaunchPad_wireframe.PNG&amp;quot; alt=&amp;quot;TI Launchpad&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;351&amp;quot; /&amp;gt; [/caption]
+The TI Launchpad is a small fun developers platform, perhaps most suited for beginners to microcontrollers. It retails for $4.30, comes with two simple MSP430 microcontrollers, a small PCB with two LEDs, pushbuttons, pin headers etc. It can be programmed via USB, either by the TI provided software, or, as I do, with msp-gcc and mspdebug in Linux.</description>
+    </item>
+    
+  </channel>
+</rss>

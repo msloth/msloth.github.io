@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>What is a Good sub-GHz Range? A Reality Check | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+What is the range of my sub-GHz IoT device?
+Do the theoretical predictions of wireless range match the real world? We took a walk around the neighborhood to find out.
+The answer to this question isn&rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">What is a Good sub-GHz Range? A Reality Check</h1>
+
+    <div class="tip">
+        <time datetime="2020-10-09 00:00:00 &#43;0000 UTC">Oct 9, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1482 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          7 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>(<strong>This is a repost of a blog post made for <a href="thingsquare.com">thingsquare.com</a>, slightly edited to fit this format.</strong>)</p>
+<p>What is the range of my sub-GHz IoT device?</p>
+<p>Do the theoretical predictions of wireless range match the real world? We took a walk around the neighborhood to find out.</p>
+<p>The answer to this question isn&rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world. So, we took a walk in the neighborhood to test the theory with our <a href="https://www.thingsquare.com/blog/articles/sub-ghz-signal-strength-rssi-coverage/" target="_blank" rel="noopener">sub-GHz signal strength tester</a>.</p>
+<p>Here is where we walked.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/googlemaps.png" alt="Picture of a street"  />
+</p></p>
+<p>And here are our results:</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/coveragemap.png" alt="Wireless range coverage map"  />
+</p></p>
+<p>The resulting connectivity map.</p>
+<h2 id="wireless-communication-must-be-reliable">Wireless Communication Must be Reliable <a href="#wireless-communication-must-be-reliable" class="anchor">🔗</a></h2><p>Building a wireless product involves more unknowns than just market fit and return on investment. Some are more grounded in physics, but they still affect the economics of a product.</p>
+<p>Range is one such unknown. But what is range?</p>
+<p>Let&rsquo;s put it simply: how far between can we place two devices and still have working communication between them.</p>
+<p>Why does the wireless range matter? Because if we exceed the wireless range, the network quality will suffer.</p>
+<p>We want to avoid:</p>
+<ul>
+<li>Data loss,</li>
+<li>Late delivery of data,</li>
+<li>A reduction in the number of devices we can support,</li>
+<li>&hellip; and potentially even losing control of our devices – because they are out of range.</li>
+</ul>
+<p>If we know what range to expect, we can answer questions like:</p>
+<ul>
+<li>How far between can you place devices?</li>
+<li>How many devices can you have in a network?</li>
+<li>How much data can you send in the network?</li>
+<li>What will the installation procedures look like?</li>
+</ul>
+<p>These are questions are highly important from a business perspective. How important? In one instance, wireless range led up to a <a href="https://arstechnica.com/tech-policy/2012/04/how-the-aussie-government-invented-wifi-and-sued-its-way-to-430-million/" target="_blank" rel="noopener">430 million lawsuit</a>.</p>
+<h2 id="theoretical-predictions-what-are-they">Theoretical Predictions: What are They? <a href="#theoretical-predictions-what-are-they" class="anchor">🔗</a></h2><p>Let&rsquo;s first look at what the theory tells us.</p>
+<p>The theory was developed in the early 1940:ies and is called the <a href="https://en.wikipedia.org/wiki/Friis_transmission_equation" target="_blank" rel="noopener">Friis equation</a>. Loosely put, the Friis equation predicts the transmission range for a given transmission power.</p>
+<p>Wireless chip producer <a href="https://www.ti.com/" target="_blank" rel="noopener">Texas Instruments</a> published a <a href="https://www.ti.com/tool/RF-RANGE-ESTIMATOR" target="_blank" rel="noopener">range estimator tool (swsc002a)</a> to make it easier for people using their chips to use the Friis equation to predict the wireless range. It is a great way to see what the theory says.</p>
+<p>You set the approximate conditions of two devices, the antenna you use, data rate and so on, and it will give you an estimated range based on the Friis transmission formula.</p>
+<p>There is an exhaustingly large amount of factors coming into play, and we barely scratch the surface here. It&rsquo;s impossible to account for everything at this stage. And this is the point - any such tool will ultimately lack simply due to all the unknowns.</p>
+<p>But not so fast!</p>
+<p>In the real world, radio waves are reflected, attenuated, interfered with, and the conditions will be different for each and every device you put out there. Even moving a few centimeters can mean the difference of being heard and not being heard.</p>
+<p>The theoretical models does not account for these real-world effects.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/rangetool.png" alt="The range tool gave estimates of 1.6 to 2.5 km range."  />
+</p></p>
+<p>The theoretical range estimator tool gave estimates of 1.6 to 2.5 km range.</p>
+<h2 id="when-the-theory-doesnt-match-reality">When the Theory doesn&rsquo;t match Reality <a href="#when-the-theory-doesnt-match-reality" class="anchor">🔗</a></h2><p>While Friis equation gives us an ok ballpark starting point, it&rsquo;s impossible to apply it to the devices you deploy in the real world.</p>
+<p>There are simply too many unknowns. And the unknowns will be different for every device. To make matters even worse, the unknowns change over time. This is just how the real world works.</p>
+<p>So let&rsquo;s see what the real world tells us!</p>
+<p>Let&rsquo;s use our <a href="https://www.thingsquare.com/blog/articles/sub-ghz-signal-strength-rssi-coverage/" target="_blank" rel="noopener">Thingsquare sub-GHz signal strength tester</a>.</p>
+<p>By using the signal strength tester when we deploy our devices, we can avoid the worst spots from the get-go. It is a great alternative is to blindly move devices and hope to find a good spot. It is an end-to-end test, sending meaningful data in both directions, meaning asymmetric links are detected early.</p>
+<p>And once the devices are deployed, the device will continuously monitor and report its wireless conditions so that we can see in real-time, remotely, how the network health fares.</p>
+<p>This information is used automatically to form <a href="https://www.thingsquare.com/blog/articles/why-iot-mesh/" target="_blank" rel="noopener">self-healing, efficient mesh networks</a> where no device is left stranded and the network is efficiently utilized.</p>
+<h2 id="lets-go-for-a-walk">Let&rsquo;s go for a Walk! <a href="#lets-go-for-a-walk" class="anchor">🔗</a></h2><p>To test the theory, we took a walk with a piece of hardware in hand.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/googlemaps.png" alt="Picture of a map"  />
+</p></p>
+<p>Where we went.</p>
+<p>The hardware we use is the <a href="https://www.thingsquare.com/blog/articles/lpstk-iot-projects/" target="_blank" rel="noopener">Texas Instruments LPSTK development board</a>. It is powered by two AAA-batteries and we use the included <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">whip antenna</a>.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/lpstk.png" alt="TI LPSTK device"  />
+</p></p>
+<p>We used the TI LPSTK hardware as the hand held tester device.</p>
+<p>The LPSTK was connected to an access point placed behind a window at the third floor with a view across the roofs of adjacent buildings. We used the <a href="https://www.thingsquare.com/blog/articles/what-is-subghz-networking/" target="_blank" rel="noopener">868 MHz frequency band</a>.</p>
+<h3 id="what-does-the-theory-predict">What does the Theory Predict? <a href="#what-does-the-theory-predict" class="anchor">🔗</a></h3><p>We ran the Friis equations on a set of realistic parameters for transmission power, antenna gain, and antenna losses. Because those parameters are hard to know with certainty, we varied the parameters to get a range of results.</p>
+<p>The theoretical result: we should expect a range of approximately 1800 to 2600 meters.</p>
+<h3 id="do-the-theoretical-results-hold-in-practice">Do the Theoretical Results Hold in Practice? <a href="#do-the-theoretical-results-hold-in-practice" class="anchor">🔗</a></h3><p>As always, reality has the final say.</p>
+<p>We were not able to reach the results that the theory predicted.</p>
+<p>The maximum range we achieved was just below 850 meters – less than half of what the theory predicted.</p>
+<p>The location with maximum range had an almost clear line-of-sight to the access point, but still had a concrete overpass in the way. We also walked across the street to see what would happen: the connection was completely cut off. There was no connectivity at all.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/viadukt.png" alt="The maximum range was 850 meters achieved at a location close to line of sight."  />
+</p></p>
+<p>The location of maximum range, 850 meters. The access point is circled red, on the third floor of the tall building.</p>
+<p>This also tells us that the range by itself is not always a meaningful metric. When we walked across the street, we didn&rsquo;t change the distance much, but it drastically impacted the connectivity.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/rangetool-thsq.jpg" alt="Signal strength varies a lot even by moving just a little."  />
+</p></p>
+<p>Signal strength varies a lot even by moving just a little.</p>
+<p>Another observation is the extent of how the signal is reflected by buildings. Thanks to this phenomena, connectivity was found in surprising places. This is something that is very hard to express in theoretical tools such as the range estimator.</p>
+<p>While the real world results are pretty far from the theory, the practical results aligned with our experience: urban environments are unpredictable.</p>
+<h2 id="so-i-know-the-range-now-what">So I know the Range: Now What? <a href="#so-i-know-the-range-now-what" class="anchor">🔗</a></h2><p>Now that you know the approximate range for your devices, you may want to increase it. Or at least make the best out of the range that you already have.</p>
+<p>There are many things one can do as a product designer or installer to increase range. Best of all, none of the following tips will require upheaval of known science.</p>
+<h3 id="chose-location-wisely">Chose Location Wisely <a href="#chose-location-wisely" class="anchor">🔗</a></h3><p>The easiest way to get a good coverage is simply to choose the location of devices wisely.</p>
+<p>Avoid the worst spots using on-site measurements like we just did. Sometimes it&rsquo;s enough just to move a couple of decimeters.</p>
+<p>Analyze your use case so a typical installation is defined, so the RF path can be properly tuned taking this into account.</p>
+<h3 id="leverage-meshing">Leverage Meshing <a href="#leverage-meshing" class="anchor">🔗</a></h3><p>The wireless mesh will automatically extend itself when new devices are added. This can be used to increase the range – by placing new devices in strategic locations.</p>
+<p>Radio frequency matters too. We at Thingsquare prefer using <a href="https://www.thingsquare.com/blog/articles/what-is-subghz-networking/" target="_blank" rel="noopener">sub-GHz networking</a> since it inherently comes with longer range and less contention than other frequencies, such as the 2.4 GHz frequency band.</p>
+<h3 id="use-a-better-antenna">Use a Better Antenna <a href="#use-a-better-antenna" class="anchor">🔗</a></h3><p>The choice of antenna matters a lot too. Sometimes you can have a replaceable antenna and <a href="https://www.thingsquare.com/blog/articles/iot-antenna-design-challenges/" target="_blank" rel="noopener">choose the antenna</a> for each deployment.</p>
+<p>Pick an antenna that has a proper radiation pattern that suits the deployment scenario. Note that a highly directional antenna may not be better since you need to lower the transmission output power for regulatory compliance (ETSI, FCC 15.247, and so on). It also lowers the ability for the mesh network to automatically pick a better route if the path worsens.</p>
+<h2 id="conclusions">Conclusions <a href="#conclusions" class="anchor">🔗</a></h2><p>Long range networking is not easy, and even harder with all the unknowns.</p>
+<p>Theoretical models may give a ballpark, but it is only valid for a narrow use case and it is hard to define for the real installation. Thus, it is a very coarse tool with limited usability.</p>
+<p>The best results come when we evaluate each and every installation and refrain from using poor spots, but what is really essential is to have capabilities for run-time detection and adjustment.</p>
+<p>If conditions deteriorate, the system must be able to detect, adjust, and cope.</p>
+<p>The Thingsquare IoT platform gives you the tools you need to handle challenging situations, such as urban environments.</p>
+<p><a href="https://www.thingsquare.com/">Thingsquare</a> helps companies develop IoT products that just work – get in touch with us today to learn more!</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/electronics">electronics</a>
+            
+                <a href="https://tiliaradix.com/tags/embedded">embedded</a>
+            
+                <a href="https://tiliaradix.com/tags/wireless">wireless</a>
+            
+                <a href="https://tiliaradix.com/tags/thingsquare">thingsquare</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

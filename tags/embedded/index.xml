@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>embedded on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/embedded/</link>
+    <description>Recent content in embedded on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/embedded/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How We Do It: Offline IoT</title>
+      <link>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+When the wireless mesh is unavailable, store data locally.
+A wireless mesh network reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.
+But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.</description>
+    </item>
+    
+    <item>
+      <title>IoT Antenna Design: Three Ways Your Antenna Deceives You</title>
+      <link>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</link>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Every single Internet of Things (IoT) device needs an antenna.
+The antenna is crucial: it may make or break the communication with your devices. A good antenna will give you a good wireless range. A bad antenna may cause your devices to not even be reachable in the field.
+IoT devices are designed to be small, have a long wireless range, and have a long battery life.</description>
+    </item>
+    
+    <item>
+      <title>What is a Good sub-GHz Range? A Reality Check</title>
+      <link>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+What is the range of my sub-GHz IoT device?
+Do the theoretical predictions of wireless range match the real world? We took a walk around the neighborhood to find out.
+The answer to this question isn&amp;rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world.</description>
+    </item>
+    
+    <item>
+      <title>Four Reasons for 3D Printing IoT Prototypes</title>
+      <link>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Make them good looking, robust, functional, and sellable.
+At Thingsquare we use 3D printing for many of the IoT prototypes we build for customers.
+Here are the top 4 reasons why we do it, and why you should do it too:
+ Hide the electronics Make it more functional Make it easier to sell Make it robust  What is 3D Printing?</description>
+    </item>
+    
+    <item>
+      <title>A New Way to Measure the Power Consumption of Really Low-Power Hardware (for Software People)</title>
+      <link>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We recently got a new tool at Thingsquare, which helps us ensure that we have extremely low power consumption of our software: the Otii Arc current and voltage measurement box, by Qoitech. This little box quickly lets us – a bunch of software persons – measure and understand the power consumption of the software that we run on our low-power hardware.</description>
+    </item>
+    
+    <item>
+      <title>How to Design Thingsquare-Compatible Hardware</title>
+      <link>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.
+Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.
+Behind every successful product is a successful hardware design.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Wireless Device that Lives Forever</title>
+      <link>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We have previously looked at how to make a wireless device live for years on one tiny coin cell battery. This time we up the game and make it live forever, using solar power and off-the-shelf hardware.
+We build a prototype of our device and go through the technical details involved in designing for solar power.</description>
+    </item>
+    
+    <item>
+      <title>Error uploading to JCreate</title>
+      <link>https://tiliaradix.com/posts/error-uploading-to-jcreate/</link>
+      <pubDate>Fri, 11 Mar 2011 16:01:11 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/error-uploading-to-jcreate/</guid>
+      <description>I had this error a while ago in a new virtual machine, where I was trying to compile and upload to a Sentilla JCreate, an obsolete sensor node similar to the Tmote Sky but without some of the sensors and added an accelerometer. This was the error,
+$make myfile.upload ...text something like: only pure serial drivers exist ... -bsl=revb Now, trying with the same this as super user worked,
+$ sudo make myfile.</description>
+    </item>
+    
+  </channel>
+</rss>

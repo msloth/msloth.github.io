@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>How to Design Thingsquare-Compatible Hardware | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.
+Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.
+Behind every successful product is a successful hardware design.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">How to Design Thingsquare-Compatible Hardware</h1>
+
+    <div class="tip">
+        <time datetime="2017-10-17 00:00:00 &#43;0000 UTC">Oct 17, 2017</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2327 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          11 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>(<strong>This is a repost of a blog post made for <a href="thingsquare.com">thingsquare.com</a>, slightly edited to fit this format.</strong>)</p>
+<p>Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.</p>
+<p>Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/finished-product.jpg" alt=""  />
+</p></p>
+<p>Behind every successful product is a successful hardware design.</p>
+<h2 id="supported-wireless-chips">Supported Wireless Chips <a href="#supported-wireless-chips" class="anchor">🔗</a></h2><p>Each wireless hardware design is is based on a wireless System-on-a-Chip (SoC) or combination of wireless chips.</p>
+<p>Thingsquare supports the following chips in the CC13xx / CC26xx family, all 128 kB flash and 20 kB RAM variants:</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/cc1350.jpg" alt="The TI CC1350 System-on-a-Chip."  />
+</p></p>
+<p>The TI CC1350 System-on-a-Chip.</p>
+<ul>
+<li><a href="http://www.ti.com/product/CC1310" target="_blank" rel="noopener">CC1310</a> sub-GHz
+<ul>
+<li>RGZ package with 30 GPIOs</li>
+<li>RHB package with 15 GPIOs</li>
+<li>RSM package with 10 GPIOs</li>
+</ul>
+</li>
+<li><a href="http://www.ti.com/product/CC1350" target="_blank" rel="noopener">CC1350</a> sub-GHz, with BLE beacon support
+<ul>
+<li>RGZ package with 30 GPIOs</li>
+<li>RHB package with 15 GPIOs</li>
+<li>RSM package with 10 GPIOs</li>
+</ul>
+</li>
+<li><a href="http://www.ti.com/product/CC1350" target="_blank" rel="noopener">CC2650</a> 2.4 GHz, with BLE beacon support
+<ul>
+<li>RGZ package with 31 GPIOs</li>
+<li>RHB package with 15 GPIOs</li>
+<li>RSM package with 10 GPIOs</li>
+</ul>
+</li>
+<li><a href="http://www.ti.com/product/CC2538" target="_blank" rel="noopener">CC2538</a> 2.4 GHz, in the 512kB variant.</li>
+</ul>
+<p>We also support the combination of a CC2538 with a <a href="http://www.ti.com/product/CC1200" target="_blank" rel="noopener">CC1200</a>, for sub-GHz applications where flash space of the CC13xx-family is not enough.</p>
+<p>(<strong>edit 2022:</strong> we now also support the CC1312R, CC1352R, CC1352P, CC1311 and CC1351).</p>
+<p>For questions on other chips or combinations, please contact us.</p>
+<h2 id="buy-or-design">Buy or Design? <a href="#buy-or-design" class="anchor">🔗</a></h2><p>Designing high-frequency radio hardware comes with a particular set of challenges that can be hard to nail down. Using a module is a convenient shortcut to save time and risk, since the RF parts are already designed and tested. The module must still follow the guidelines though (eg crystal oscillators), and you may need to add an external flash in the rest of the design.</p>
+<p>The product owner typically must consider the cost-benefit trade-off in this decision. Generally speaking, when manufacturing in low volume, it makes sense to buy modules from a 3rd party vendor. When volume increases, it might start making sense to design the RF parts yourself, either as a one-off, or designing a module.</p>
+<h3 id="third-party-modules">Third-party Modules <a href="#third-party-modules" class="anchor">🔗</a></h3><p>Third-party modules are typically designed according to the reference design by vendors with a high degree of expertise in RF. Many come with integrated <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">PCB- or chip-antenna</a>, making the rest of the hardware design a breeze. Examples of modules include the <a href="http://www.ti.com/product/CC2650MODA" target="_blank" rel="noopener">CC2650Moda</a>.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/2650moda.png" alt="Picture of a CC2650MODA module."  />
+</p></p>
+<p>The CC2650MODA is a 2.4 GHz radio module based on CC2650 and a chip antenna.</p>
+<h4 id="pros">Pros <a href="#pros" class="anchor">🔗</a></h4><ul>
+<li>Pre-certified, meaning lower risk of failing certification</li>
+<li>Shorter time to market due to simpler hardware design</li>
+<li>Lower risk</li>
+</ul>
+<h4 id="cons">Cons <a href="#cons" class="anchor">🔗</a></h4><ul>
+<li>More expensive per unit</li>
+<li>Dependence on another party for supplies and long-term support</li>
+</ul>
+<h3 id="one-off-designs">One-off Designs <a href="#one-off-designs" class="anchor">🔗</a></h3><p>This is when you design hardware that is fully integrated. All components, antennas, traces, etc are located on one single PCB.</p>
+<h4 id="pros-1">Pros <a href="#pros-1" class="anchor">🔗</a></h4><ul>
+<li>Lower cost per unit in volume</li>
+</ul>
+<h4 id="cons-1">Cons <a href="#cons-1" class="anchor">🔗</a></h4><ul>
+<li>RF design can be hard and take a lot of time</li>
+<li>Can&rsquo;t re-use the design certifications in another product</li>
+</ul>
+<h3 id="designing-your-own-module">Designing Your own Module <a href="#designing-your-own-module" class="anchor">🔗</a></h3><p>If you plan on releasing more than one product, it might be beneficial to design a radio module yourself. That way, you design and certify the module itself, which is then incorporated in the designs of the products.</p>
+<p>For example, if you want to sell a light sensor product, a lamp product, and a light switch product, it is better to design and certify a radio module, which is then used in all the products. That way, the certification of the products is simplified and thus cheaper.</p>
+<h4 id="pros-2">Pros <a href="#pros-2" class="anchor">🔗</a></h4><ul>
+<li>Lowest cost per unit in volume, over a product line</li>
+<li>Certification and ev Bluetooth listing can be re-used across products</li>
+</ul>
+<h4 id="cons-2">Cons <a href="#cons-2" class="anchor">🔗</a></h4><ul>
+<li>RF design can be hard and take a lot of time</li>
+</ul>
+<h2 id="wireless-hardware-design-and-regulations">Wireless Hardware Design and Regulations <a href="#wireless-hardware-design-and-regulations" class="anchor">🔗</a></h2><p>For wireless electronics, there are several regulations that must be met. To be able to meet these regulations, there are a number of hardware design details that must be be paid extra attention to:</p>
+<ul>
+<li>Substrate (material, thickness).</li>
+<li>Copper layer(-s) thickness.</li>
+<li>Signal trace dimensions, form, shape.</li>
+<li>Ground planes, decoupling, vias.</li>
+<li>High and low frequency crystal oscillators.</li>
+</ul>
+<p>This is important since errors may result in failing regulations due to spurious emissions, worse RF performance due to impedance mismatch, and otherwise hard to debug errors due to EMI or clock glitches.</p>
+<p>The crystal oscillators must have the same specification as in the reference design, with the same nominal frequency and accuracy (typically expressed in ppm) across the temperature range. This goes for both low (typically 32.768 kHz) and high (commonly 24 MHz) frequency oscillators. You must use external crystal oscillators for both low and high frequency, not the internal oscillators.</p>
+<p>Using a reference design in a good way to avoid problems with regulatory requirements.</p>
+<h2 id="reference-designs">Reference Designs <a href="#reference-designs" class="anchor">🔗</a></h2><p>There are reference designs available for free and without any associated royalty costs (subject to the respective owners) from the device manufacturers. See the respective manufacturer for up to date rules and conditions. Follow the links below to find design documents on the following reference designs.</p>
+<h3 id="based-on-the-texas-instruments-launchpad">Based on the Texas Instruments Launchpad <a href="#based-on-the-texas-instruments-launchpad" class="anchor">🔗</a></h3><p><p class="markdown-image">
+  <img src="/img/thsq/cc1310lp-assy.png" alt="The Texas Instruments Launchpad reference design."  />
+</p></p>
+<p>The Texas Instruments Launchpad reference design.</p>
+<h4 id="based-on-the-cc1310-launchpad">Based on the CC1310 Launchpad <a href="#based-on-the-cc1310-launchpad" class="anchor">🔗</a></h4><p>The <a target="_blank" href="http://www.ti.com/tool/LAUNCHXL-CC1310">CC1310 Launchpad </a> has a differential antenna output, by default routed to the PCB antenna. By changing a couple of SMD components in the signal path, it routes the signal to a Hirose U.FL connector instead.</p>
+<h4 id="based-on-the-cc1350-launchpad">Based on the CC1350 Launchpad <a href="#based-on-the-cc1350-launchpad" class="anchor">🔗</a></h4><p>Same as the CC1310 Launchpad, but the <a target="_blank" href="http://www.ti.com/tool/LAUNCHXL-CC1350">CC1350 Launchpad</a> has also a 2.4 GHz PCB antenna for BLE functionality. The antenna output is also differential, with an external RF switch to select the antenna path.</p>
+<h4 id="based-on-the-cc2650-launchpad">Based on the CC2650 Launchpad <a href="#based-on-the-cc2650-launchpad" class="anchor">🔗</a></h4><p>Similar to the CC1310 Launchpad, but <a target="_blank" href="http://www.ti.com/tool/LAUNCHXL-CC2650">CC2650 Launchpad</a> has a 2.4 GHz antenna instead.</p>
+<h3 id="based-on-the-texas-instruments-sensortag">Based on the Texas Instruments Sensortag <a href="#based-on-the-texas-instruments-sensortag" class="anchor">🔗</a></h3><h4 id="based-on-the-cc2650-sensortag">Based on the CC2650 Sensortag <a href="#based-on-the-cc2650-sensortag" class="anchor">🔗</a></h4><p>The <a target="_blank" href="http://www.ti.com/tool/cc2650stk">CC2650 Sensortag</a> is very similar to the CC2650 Launchpad, but adds a number of sensors.</p>
+<h4 id="based-on-the-cc1350-sensortag">Based on the CC1350 Sensortag <a href="#based-on-the-cc1350-sensortag" class="anchor">🔗</a></h4><p>The <a target="_blank" href="http://www.ti.com/tool/cc1350stk">CC1350 Sensortag</a> is very similar to the CC2650 Sensortag, but it has a sub-GHz <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">antenna</a>, and a 2.4 GHz antenna. In contrast to the CC1350 Launchpad, this design has single-ended antenna outputs, one for the sub-GHz antenna, one for the 2.4 GHz antenna, and no antenna switch. This makes for a smaller BOM cost and lower power consumption, at the price of lower range (the reduction is on the order of 3 dB).</p>
+<h3 id="based-on-the-cc2538em">Based on the CC2538EM <a href="#based-on-the-cc2538em" class="anchor">🔗</a></h3><p>The <a target="_blank" href="http://www.ti.com/tool/CC2538EM-RD">CC2538EM</a> is a bare-bones reference design.</p>
+<h3 id="based-on-the-cc2538-em-and-the-cc1200">Based on the CC2538 em and the CC1200 <a href="#based-on-the-cc2538-em-and-the-cc1200" class="anchor">🔗</a></h3><p>Combination of the CC2538em and <a target="_blank" href="http://www.ti.com/tool/CC120XEM-868-930-RD">CC1200em</a> sub-GHz radio transceiver.</p>
+<p>Preferably, follow the pinout as follows,</p>
+<pre tabindex="0"><code>CC1200      CC2538
+SPI CLK     PB2
+SPI MOSI    PB1
+SPI MISO    PB3
+SPI CS      PB5
+GPIO0       PB4
+RESET       PC7
+</code></pre><h2 id="hardware-components">Hardware Components <a href="#hardware-components" class="anchor">🔗</a></h2><h3 id="rf-components">RF Components <a href="#rf-components" class="anchor">🔗</a></h3><p>We strongly recommend to <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">think about the antenna</a> from the start of the design. This is a trade-off, like everything else. Design, enclosure, environment, cost, size, performance, COTS availability factors in. A certification may be bound to using a specific antenna too, creating a dependence on availability of the antenna.</p>
+<h4 id="pcb-antenna">PCB Antenna <a href="#pcb-antenna" class="anchor">🔗</a></h4><p>The TI Launchpad, TI 2.4 GHz Sensortag, and TI sub-GHz Sensortag use PCB antennas. Ie, the antenna is a printed directly on the PCB as part of the copper layer. This kind of antenna is inexpensive and simple. It does have a limited radiation pattern and limited range but price/performance is very good. Even very slight dimension changes, or not following the guidelines regarding ground plane and via stitching, will affect performance so follow the reference design with great care.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/1350pcb2.png" alt=""  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/2650tag-assy.png" alt=""  />
+</p></p>
+<p>The Texas Instruments Sensortags show three different PCB antennas. First, the CC1350 Sensortag has a <a href="http://www.ti.com/lit/an/swra117d/swra117d.pdf" target="_blank">&ldquo;Small Size 2.4 GHz PCB antenna&rdquo;</a>, together with a <a href="http://www.ti.com/lit/an/swra416/swra416.pdf" target="_blank">&ldquo;Miniature Helical PCB Antenna&rdquo;</a>. The CC2650 Sensortag has a <a href="http://www.ti.com/lit/an/swru120c/swru120c.pdf" target="_blank">inverted-F antenna</a>.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/subantenna-2.png" alt=""  />
+</p></p>
+<p>There are many antenna designs <a href="http://www.ti.com/lit/an/swra351a/swra351a.pdf" target="_blank">available</a>. Dimensions and other important factors are found in the application note respectively.</p>
+<h4 id="chip-antenna">Chip Antenna <a href="#chip-antenna" class="anchor">🔗</a></h4><p>Chip antennas are SMD components that uses a smaller PCB area than a <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">PCB antenna</a>, at a higher BOM cost. Chip antennas are supported too, follow directions for the SOC in use and the chip antenna to design a matching network of supporing components.</p>
+<h4 id="externally-mounted-antenna">Externally Mounted Antenna <a href="#externally-mounted-antenna" class="anchor">🔗</a></h4><p>Many products - especially the ones less likely to end up prominently featured in peoples homes - feature a whip antenna. A whip antenna is basically a length of wire molded inside plastic. It takes up more space and costs more, but can be easier to design for, and has in general better performance than PCB or chip antennas.</p>
+<p>Similarly, externally mounted antennas (eg using U.FL mounts, or regular SMA antenna connectors) are also supported. There are reference designs and application notes on this too.</p>
+<h4 id="rf-switch">RF Switch <a href="#rf-switch" class="anchor">🔗</a></h4><p>The CC1350 supports both sub-GHz and 2.4 GHz operation (BLE beacons). The best range is achieved through using a RF switch and differential antenna output. For what RF switch to use, refer to Texas Instruments on a compatible RF switch. The CC1350 Launchpad reference design uses a Murata XMSSJE3G0PA-003 antenna switch.</p>
+<p>By default, all CC1350 platforms assume an RF switch with the following default pins,</p>
+<pre tabindex="0"><code>rf switch     CC1350
+power         IOID_30
+select        IOID_1
+</code></pre><p>The <code>power</code> pin is for providing power to the switch, and <code>select</code> to select antenna path. The <code>power</code> pin is optional and does not have to be in use. If the target hardware does not have an RF switch, the user application has to override this by providing an empty <code>void init_radio(void);</code> function.</p>
+<h4 id="external-lna-pa">External LNA, PA <a href="#external-lna-pa" class="anchor">🔗</a></h4><p>To extend range, a product can incorporate external power amplifier (PA) and/or low noise amplifier (LNA). This can be configured in customer application on bootup. Contact us for more information.</p>
+<h3 id="external-flash">External Flash <a href="#external-flash" class="anchor">🔗</a></h3><p>In order to accomodate firmware updates over the air (FOTA), hardware building on CC13xx or CC26xx hardware must have an external flash chip. We support two main kinds: Macronix and Winbond. The storage area should be at least 512 kB large, but since the cost difference is very small, larger ones are preferred for flexibility reasons.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/extflash.png" alt=""  />
+</p></p>
+<h4 id="macronix">Macronix <a href="#macronix" class="anchor">🔗</a></h4><p>Macronix external flash chips are preferred since they have lower steady-state power consumption than Winbond. The Launchpad and (newer) Sensortag reference designs make use of the <code>MX25R8035FZUIL0</code> chip. The package is of no importance to the system, only that the command set is the same, and factors such as sector size etc.</p>
+<h4 id="winbond">Winbond <a href="#winbond" class="anchor">🔗</a></h4><p>Old CC2650 sensortag designs use the Winbond <code>W25X40CLUXI</code> chip. It has slightly higher power consumption than the Macronix. Base new designs on the Macronix chip per above.</p>
+<h4 id="spi-pinout">SPI Pinout <a href="#spi-pinout" class="anchor">🔗</a></h4><p>The pins used for the SPI communication with the external flash chip is configurable. The default pins are,</p>
+<pre tabindex="0"><code>flash          CC13xx/CC26xx
+SPI CLK        IOID_10
+SPI CS         IOID_20
+SPI MISO       IOID_8
+SPI MOSI       IOID_9
+</code></pre><h3 id="gateway-designs">Gateway Designs <a href="#gateway-designs" class="anchor">🔗</a></h3><p>The system supports two kinds of gateways: an Ethernet-based gateway, and a serial gateway.</p>
+<h4 id="serial-gateway">Serial Gateway <a href="#serial-gateway" class="anchor">🔗</a></h4><p>A serial gateway uses a serial port to communicate with a host, eg a SBC. To connect the two, UART RX and UART TX has to be connected. By default, the following pinout is used,</p>
+<pre tabindex="0"><code>host function       CC13xx/CC26xx function and pin
+UART RX             UART TX IOID_3
+UART TX             UART RX IOID_2
+</code></pre><h4 id="ethernet-gateway">Ethernet Gateway <a href="#ethernet-gateway" class="anchor">🔗</a></h4><p>The Ethernet gateway uses an Microchip ENC28J60 ethernet chip. It can be used in combination with all the supported SOCs. By default, the following pinout is used,</p>
+<pre tabindex="0"><code>enc28j60       CC13xx/CC26xx
+SPI CLK        IOID_21
+SPI CS         IOID_1
+SPI MISO       IOID_12
+SPI MOSI       IOID_15
+
+enc28j60       CC2538
+SPI CLK        PA2
+SPI CS         PD5
+SPI MISO       PA4
+SPI MOSI       PA5
+</code></pre><h2 id="other-components-and-guidelines">Other Components and Guidelines <a href="#other-components-and-guidelines" class="anchor">🔗</a></h2><h3 id="buttons">Buttons <a href="#buttons" class="anchor">🔗</a></h3><p><p class="markdown-image">
+  <img src="/img/thsq/buttons.png" alt=""  />
+</p></p>
+<h4 id="reset-button">Reset Button <a href="#reset-button" class="anchor">🔗</a></h4><p>Including a reset button is always good, at least during the development phase. We suggest that if you leave out the reset button in production, you must ensure the reset line is strongly held so that no unintentional reset on the system is caused by EMI.</p>
+<h4 id="user-button">User Button <a href="#user-button" class="anchor">🔗</a></h4><p>User buttons are not necessary as far as the system goes. You may add such for user-interfacing activities though.</p>
+<h3 id="uart-serial-output">UART Serial Output <a href="#uart-serial-output" class="anchor">🔗</a></h3><p>We strongly advise to include a way to get UART debugging information out. The design does not have to include a UART-to-USB chip (such as FTDI or CP2102 or CH340G), but can just have test points or pin headers to attach to. UART can be configured on bootup. The default pinout is,</p>
+<pre tabindex="0"><code>UART    CC13xx/CC26xx
+RX      IOID_2
+TX      IOID_3
+CTS     not used
+RTS     not used
+
+default settings: 115200/8/n/1
+</code></pre><h3 id="leds">LEDs <a href="#leds" class="anchor">🔗</a></h3><h4 id="power-led">Power LED <a href="#power-led" class="anchor">🔗</a></h4><p>Feel free to include a LED to indicate when power is applied, if the product so needs to. This can also be a helpful during development and can be left unpopulated in production.</p>
+<h4 id="status-leds">Status LEDs <a href="#status-leds" class="anchor">🔗</a></h4><p>The system has APIs and support for a red, a green, and a blue LED. Which ones are present, their pins, and whether they are active high or low (CC13xx/CC26xx only) are configurable. All such LEDs must use the same high or low convention. You need to take the LED current into consideration when designing since too much current routed through the SOC might damage it.</p>
+<p>The defaults are,</p>
+<pre tabindex="0"><code>LED     CC13xx/CC26xx
+Red     IOID_6
+Green   IOID_7
+Blue    IOID_UNUSED
+
+active high by default
+</code></pre><h4 id="other-leds">Other LEDs <a href="#other-leds" class="anchor">🔗</a></h4><p>LEDs for eg Lighting applications are typically driven with a customer-specific driver for this purpose, and as such is not limited to the API or conventions.</p>
+<h3 id="jtag-programming-header">JTAG Programming Header <a href="#jtag-programming-header" class="anchor">🔗</a></h3><p>Unless you buy pre-programmed SOCs, you need to have a way to program the device during manufacturing. This is done over the JTAG interface. For simplicity, we suggest using the standard JTAG 2-by-5 pin connector with 1.27 mm pitch. Include a footprint for a male pin header, or receptables for pogo-pin fixture.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/jtag.png" alt=""  />
+</p></p>
+<p>The firmware locks down all debug and programming interfaces. To reprogram the device after flashing with a Thingsquare firmware image, you need to perform a full erase before being able to program it again. This can only be done over the JTAG interface.</p>
+<p>Regarding JTAG, do make sure that it is not susceptible to reasonable EMI. Refer to the <a target="_blank" href="http://www.ti.com/lit/pdf/swcu117">CC13xx/CC26xx technical reference manual</a>, sections 5.4 and 5.6.</p>
+<h3 id="test-points">Test Points <a href="#test-points" class="anchor">🔗</a></h3><p>In case of small pitch components, or pads hard to reach with a probe, do consider adding test points for debugging.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/electronics">electronics</a>
+            
+                <a href="https://tiliaradix.com/tags/embedded">embedded</a>
+            
+                <a href="https://tiliaradix.com/tags/wireless">wireless</a>
+            
+                <a href="https://tiliaradix.com/tags/thingsquare">thingsquare</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

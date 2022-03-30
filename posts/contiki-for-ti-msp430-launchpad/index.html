@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Contiki for TI MSP430 Launchpad | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Contiki port for Launchpad 🔗Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and &#39;2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it&#39;s a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Contiki for TI MSP430 Launchpad</h1>
+
+    <div class="tip">
+        <time datetime="2013-05-26 09:09:08 &#43;0000 UTC">May 26, 2013</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          946 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h1 id="contiki-port-for-launchpad">Contiki port for Launchpad <a href="#contiki-port-for-launchpad" class="anchor">🔗</a></h1><p><p class="markdown-image">
+  <img src="/img/bithappens/LP&#43;cc2500&#43;picoscope.jpg" alt=""  />
+</p></p>
+<p>Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and '2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it's a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM. Now I have ported Contiki to the Launchpad, with plenty of space for applications. I had to make a few sacrifices though, mostly due to the very limited amount of RAM, and some things (like serial output over UART) is only available when you use a 'g2553 mcu.</p>
+<p>Using this port, the 'Blink' example (blinking an LED periodically, no serial output) is just 3.3 kB ROM and 194 bytes RAM (data + bss). The serial output example is a little bit bigger: 6.4 kB ROM, 222 bytes RAM. If adding a CC2500 radio, we must then remove the UART as we get 9.3 kB ROM and 440 bytes RAM. Due to the layered nature of the network stack, we need quite some RAM so while still having 512 - 440 = 72 bytes RAM left, much of this is needed for the call stack (saving return address, registers etc on each function call). Thus, using lots of large automatic variables in the radio callbacks would likely crash the device.</p>
+<p>To make this port, I started out by copying the Sky port. Sky uses a msp430f1611 MCU with 16 kB RAM and 48 kB ROM. I then minimized it until it was small enough to fit on a g'2553, mostly by reducing buffers and removing features. The features I have removed are for example queue-buf (queues up packets for transmission), energest (energy estimation), and regrettably uIP. Energest would have been nifty, it is a software based, low overhead, mechanism for estimating the amount of time the MCU spends in various modes, such as in interrupts, radio listening for traffic, or having a LED on. Removing uIP was unfortunate but basically unavoidable.</p>
+<h2 id="radio-driver">Radio driver <a href="#radio-driver" class="anchor">🔗</a></h2><p>I had already some cheap (2$ each) radio modules I bought on Aliexpress, with the TI CC2500 radio. They are small and cheap, and I already had experience in working with this family of radios (very similar to CC2420 etc). The radio driver is more or less written from scratch to be low complexity and kind on resources, especially RAM. Next step was a radio duty-cycling layer. There was already some existing RDCs, such as ContikiMAC but they take too much space, are complex and thus overkill. So, I wrote the SimpleRDC RDC based on ContikiMAC but it is also similar to the Thingsquare Drowsie RDC. Removing uIP was not with an easy heart but we can use the Rime stack with all the primitives in it, such as broadcast, unicast, trickle etc.</p>
+<p><p class="markdown-image">
+  <img src="/img/bithappens/LP&#43;cc2500&#43;picoscope-2.jpg" alt=""  />
+</p></p>
+<h2 id="radio-duty-cycling">Radio duty-cycling <a href="#radio-duty-cycling" class="anchor">🔗</a></h2><p>With SimpleRDC, which I will elaborate further on in another blog post, I get around 3% radio duty-cycle with a 65 ms latency. This equates to an average power consumption for the radio and being able to communicate of a measly 2 mW (as compared with ca 60 mW for and always-on RDC). When developing SimpleRDC I had good use of Cooja, the network simulator, simulating the RDC on Sky-devices. The radio driver and the RDC are very easy to port to your own custom board, just define what pins are what.</p>
+<p>After having this basic support and features, I wanted more features. So I wrote drivers for stuff like ADC, PWM, some display drivers, a button driver, serial output over UART, servo motor drivers, etc etc. Switching between including serial output (printf's) and not including it is easy, just set a define to 0 or 1 in a configuration file.</p>
+<p>To make it simpler for a Contiki-noob to start using it, I wrote a bunch of examples and plenty of comments in the source code.</p>
+<h2 id="how-to-start-using-it">How to start using it <a href="#how-to-start-using-it" class="anchor">🔗</a></h2><p>You need a few things to start using this port. In parenthesis is what I have been using, but you might be fine off something else.</p>
+<ul>
+<li>The port itself (download from Github)</li>
+<li>Drivers for TI Launchpad (get from TI)</li>
+<li>a compiler (mspgcc)</li>
+<li>a tool to upload the compiled binary with (mspdebug)</li>
+</ul>
+<p>The most simple way may be to download the Instant Contiki Ubuntu virtual machine (VM) with mspgcc, java, and lots of drivers etc pre-installed. Then run the VM in eg VirtualBox or VMWare Player. You will need to download this port though, and probably install drivers for TI Launchpad to Linux.</p>
+<p>I use Instant Contiki for several reasons, one being that I then have a common environment no matter what computer I'm at for the moment.</p>
+<p>To download the source files, clone (or download a zip) the port on <a href="https://github.com/msloth/contiki-launchpad" target="_blank" rel="noopener">Github</a> or do a</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone git://github.com/msloth/contiki-launchpad.git
+</span></span></code></pre></div><p>Then, check your setup by going to the <code>contiki/examples/launchpad/blink/</code> folder and enter the following command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make blink.upload
+</span></span></code></pre></div><p>This will compile the Blink-example and upload it to the device. You need to have the compiler (mspgcc) and the programming tool (mspdebug) in the path.</p>
+<p>If you get error-messages, check your path with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>which msp430-gcc
+</span></span><span style="display:flex;"><span>msp430-gcc --version
+</span></span><span style="display:flex;"><span>which mspdebug
+</span></span></code></pre></div><p>Another nice example to try out is the serial output and input located in <code>contiki/examples/launchpad/readserial-printf/</code>. Upload it with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make serialtests.upload
+</span></span></code></pre></div><p>then log in to the serial connection with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make login
+</span></span></code></pre></div><p>For the rest of the examples, check the folders in the <code>contiki/examples/launchpad/</code> folder. If you are new to Contiki programming, the examples are a great start to get to know how to use processes, timers, events, etc.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/contiki">contiki</a>
+            
+                <a href="https://tiliaradix.com/tags/msp430">msp430</a>
+            
+                <a href="https://tiliaradix.com/tags/programming">programming</a>
+            
+                <a href="https://tiliaradix.com/tags/wireless">wireless</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

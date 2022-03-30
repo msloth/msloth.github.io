@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Contiki debugging in Cooja | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="A while ago I co-held a Contiki bootcamp. My part consisted mainly of showing the Contiki serial shell, the network simulator Cooja, Mobility plugin for Cooja, and some debugging features. This post will go through those topics. This will be a long post&hellip; :)
+To get started, you might want and/or need the following:
+ the talk in handout-format a few slides source: Makefile source: a silent node source: a periodic broadcasting node  and finally a working Contiki copy (check out the Instant Contiki virtual machine with all tools set up from the beginning).">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Contiki debugging in Cooja</h1>
+
+    <div class="tip">
+        <time datetime="2012-07-01 08:53:37 &#43;0000 UTC">Jul 1, 2012</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1835 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          9 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>A while ago I co-held a Contiki bootcamp. My part consisted mainly of showing the Contiki serial shell, the network simulator Cooja, Mobility plugin for Cooja, and some debugging features. This post will go through those topics. This will be a long post&hellip; :)</p>
+<p>To get started, you might want and/or need the following:</p>
+<ul>
+<li><a href="/files/contiki-bootcamp/20120217-ContikiBootcamp-Handout.pdf">the talk in handout-format</a></li>
+<li>a <a href="/files/contiki-bootcamp/20120217-ContikiBootcamp-Slides.pdf">few slides</a></li>
+<li>source: <a href="/files/contiki-bootcamp/Makefile">Makefile</a></li>
+<li>source: <a href="/files/contiki-bootcamp/silent.c">a silent node</a></li>
+<li>source: <a href="/files/contiki-bootcamp/broadcaster.c">a periodic broadcasting node</a></li>
+</ul>
+<p>and finally a working <a href="http://www.contiki-os.org" target="_blank" rel="noopener">Contiki copy</a> (check out the Instant Contiki virtual machine with all tools set up from the beginning).</p>
+<p>In short this is what I&rsquo;ll discuss:</p>
+<ul>
+<li>Serial Shell</li>
+<li>MSPSim</li>
+<li>Cooja</li>
+<li>the Mobility plugin</li>
+</ul>
+<p>All set? Let's get going!</p>
+<h2 id="contiki-serial-shell">Contiki Serial Shell <a href="#contiki-serial-shell" class="anchor">🔗</a></h2><p>The Contiki Serial Shell is a UNIX-style shell that allows for text‐based interaction, including features such as piping data, run in background etc. Having shell running on a mote allows for simple interaction and testing. The drawback is that it uses precious ROM/RAM space; hence it is not used in Contiki per default but must be added in the following way.</p>
+<p>In your <code>project sourcefile</code>,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;shell.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;serial-shell.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>...
+</span></span><span style="display:flex;"><span>serial_shell_init();
+</span></span><span style="display:flex;"><span>shell_sky_init();
+</span></span><span style="display:flex;"><span>shell_text_init();
+</span></span><span style="display:flex;"><span>shell_file_init();
+</span></span><span style="display:flex;"><span>shell_time_init();
+</span></span><span style="display:flex;"><span>shell_ps_init();
+</span></span><span style="display:flex;"><span>shell_coffee_init();
+</span></span></code></pre></div><p>In your <code>Makefile</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>APPS<span style="color:#f92672">=</span>serial<span style="color:#f92672">-</span>shell
+</span></span></code></pre></div><p>Note: If you get an error like <code>no rule for make all</code> when compiling, try moving that line up or down in the Makefile.</p>
+<p>Each <code>shell_X_init()</code> adds a set of features to shell, hence if you run out of space on the mote try removing these. They (above are examples, there are more) are located in <code>contiki-2.x/apps/shell/</code> in files like <code>shell-file.c</code>. For what features they come with, check the source file.</p>
+<p>Basic shell commands and usage, using shell_coffee (the Coffee file system), shell-time and shell-sky as examples:</p>
+<ul>
+<li>List available commands: <code>?</code></li>
+<li>List running processes: <code>ps</code></li>
+<li>Read sensors and convert to human readable format: <code>sense | senseconv</code></li>
+<li>Same, write to file: <code>sense | senseconv | write logfile.txt</code></li>
+<li>Periodically (every 2 seconds), forever (0), read sensors and append to <code>logfile.txt</code>, in background: <code>repeat 0 2 {Sense | senseconv | append logfile.txt} &amp;</code></li>
+</ul>
+<p>This is how you create your own shell commands: first you need a process that is the actual command, then declare a SHELL_COMMAND and finally register that command with the serial shell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>PROCESS(utoggle_process, <span style="color:#e6db74">&#34;Toggle lines&#34;</span>);
+</span></span><span style="display:flex;"><span>SHELL_COMMAND(utog_command, <span style="color:#e6db74">&#34;ut&#34;</span>, <span style="color:#e6db74">&#34;ut: toggle lines&#34;</span>, <span style="color:#f92672">&amp;</span>utoggle_process);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* --------------------------------- */</span>
+</span></span><span style="display:flex;"><span>PROCESS_THREAD(utoggle_process, ev, data) {
+</span></span><span style="display:flex;"><span>PROCESS_BEGIN();
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>PROCESS_END();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>shell_register_command(<span style="color:#f92672">&amp;</span>utog_command);
+</span></span></code></pre></div><h2 id="mspsim">MSPSim <a href="#mspsim" class="anchor">🔗</a></h2><p>MSPSim is a sensor board and MSP430 instruction simulator written in Java. Main author is Joakim Eriksson at SICS. It is cycle accurate and can simulate the Tmote Sky sensor mote (including MSP430 mcu, LEDs, CC2420 radio transceiver, M25P80 flash etc) and has recently gotten support for the MSP430x mcu that has 20-­bit address space. MSPSim can run with GUI or CLI. Start the GUI by compiling with following syntax</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>make my-project-file.mspsim TARGET<span style="color:#f92672">=</span>sky
+</span></span></code></pre></div><p>There, the buttons can be pressed (on the picture) and LEDs will reflect on their corresponding state. The mcu can be monitored and controlled from the control box and CLI. Another available platform is ESB, use <code>TARGET=esb</code> instead.</p>
+<h2 id="cooja">COOJA <a href="#cooja" class="anchor">🔗</a></h2><p>COOJA is a network simulator that can create motes either from pre-­‐compiled code (allows TinyOS-­motes) or from source code (will be compiled for eg Sky motes or directly as x86-­‐motes). COOJA is very extendable and provides many ways for doing so. Anyone can extend it and use their own radio propagation model, simulated mote (just as it per default uses MSPSim for Sky motes), add visualizers, plugins etc.</p>
+<p>Start COOJA GUI by navigating to the following folder and running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd contiki-2.x/tools/cooja/
+</span></span><span style="display:flex;"><span>ant run
+</span></span></code></pre></div><p>If you are running a large simulation you can instead run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd contiki-2.x/tools/cooja/
+</span></span><span style="display:flex;"><span>ant run_bigmem
+</span></span></code></pre></div><p>Create a new simulation in menu <code>File/New Simulation</code>.
+Choose a radio propagation model (UDGM being probably the most simplistic as it only depends on distance and transmission power), random startup time (if you have several nodes they will start within this interval) and a seed for the random number generator.</p>
+<p><em>Add</em> a Tmote Sky mote: <code>Mote Types/Create/Sky mote type</code>
+<em>Name</em> the type of mote you are creating (eg ‘Data sink’, ‘Sensor node’).
+<em>Browse</em> to find your source file (or precompiled binary), <em>Compile</em> and press <em>Create</em>. Enter how many you would like to have, press <em>Create</em>. Note that it/they now show as circles in Simulation Visualizer. For this, create one mote with <code>silent.c.</code></p>
+<p>Explore the <em>Control Panel;</em> use the slider to set simulation speed: full, real time or with delay. Now set it to <em>Real time</em> (one click on the slider when at the left).</p>
+<p>In <em>Simulation Visualizer</em>, press ‘Set visualizer skins’ and choose eg Mote IDs, LEDs, and 10m background grid. You can zoom in and out by holding and clicking + dragging (on Mac). To view all nodes again, right click and choose ‘Reset viewpoint’.</p>
+<p>Explore the <em>Timeline</em>. This is a very useful tool. Timeline can show when the radio is on/listening (grey) or off, transmissions (blue is transmission, green is receiving, red is interference or collision (not received but “sensed”)), LEDs and watchpoints and breakpoints. Right click to zoom in/out.</p>
+<p>The <em>log listener</em> will contain all UART output from the motes. You can filter on ID or contents. Right click and choose ‘<em>Mote specific coloring</em>’.</p>
+<p>Start the simulation by pressing <em>Start</em> on the Control Panel. The mote should start periodic toggling of LEDs. Right click on it (in Simulation Visualizer) and choose ‘<em>Show serial port on Sky</em>’. This is where you access the Shell. Try typing ‘?’ to see available commands. Try the commands mentioned above under Shell.
+Use Timeline to zoom in to millisecond level to see how the power saving MAC protocol turns the radio on and off.</p>
+<h3 id="radio-traffic-and-some-debugging">Radio traffic and some debugging <a href="#radio-traffic-and-some-debugging" class="anchor">🔗</a></h3><p>Now we will create a small network with a subset of transmitters among receivers.</p>
+<p>Either start a new simulation (Ctrl + S) or add more motes to the already existing one. Create a total of <em>three</em> nodes with <code>broadcaster.c</code>, seven with <code>silent.c</code>.</p>
+<p>Make sure you have zoomed out Timeline, chosen <code>Mote specific coloring</code> on Log listener and set time to <code>Real time</code> in Control Panel. Start the simulation and observe in Timeline how three motes are transmitting broadcasts. Zoom in to see how it looks on a smaller time scale.</p>
+<p>On any mote of your chosing, open the serial port and issue the command <code>ut</code>. This shows a COOJA feature useful in visualizing networks: by outputting a certain string, lines will be drawn in the Visualizer. Issue ´<code> </code> again to remove them. For drawing a line between a node and one with ID 9, the software on the mote should do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>printf(<span style="color:#e6db74">&#34;#L 9 1</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">n&#34;</span>);
+</span></span></code></pre></div><p>To remove the line again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>printf(<span style="color:#e6db74">&#34;#L 9 0</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">n&#34;</span>);
+</span></span></code></pre></div><p>Right click in Timeline, choose ‘<em>Print statistics to the console</em>’. Switch to the console; now you can see for how long time the radio has been on/transmitting/receiving, red/green/blue LED on/off etc. Using LEDs is a good debugging aid in time critical applications such as debugging code in a interrupt service routine as printf’s will both take too long time and also have a delay as it is printed out over UART.</p>
+<h3 id="more-debugging-tools">More debugging tools <a href="#more-debugging-tools" class="anchor">🔗</a></h3><p>In Simulation Visualizer, right click, ‘<em>Open mote plugin</em>’ contains some useful tools.</p>
+<p><em>Stack Watcher</em> will show a graph of the stack and can help telling if a memory leak occurs.</p>
+<p><em>Variable watcher</em> will let you read or write any variable, including the hardware registers in the MSP430.</p>
+<p><em>MSP CLI</em> is a command line interface to MSPSim. From there, <code>reset</code> will reset the CPU, <code>logcalls &gt; log.txt</code> will save the function calls to text file, <code>exec pwd</code> will show where that file is located, <code>stacktrace</code> will show the call stack.</p>
+<p><em>MSP Code Watcher</em> will open a window where you can view currently executing assembler code, its corresponding c file and position. Expand the divider on the left to show these hidden windows. Under ‘Browse:’ you can choose a c-file to view and set watchpoints and breakpoints.</p>
+<p>There are a number of COOJA plugins available that are very useful as well. They are available through the main window menu ‘<em>Plugins</em>’.</p>
+<p><em>Radio Logger</em> will log and show all radio messages transmitted: their content, sender and receivers. If there are a set, commonly occurring packet, you can assign it an alias so it will be more easily identified among all other packets.</p>
+<p><em>Buffer Listener</em> is Variable Watcher on steroids. Set it (right click) to display the packet buffer (buffer/packetbufptr) or any other memory space on a node. For example, declare a char array and print debug messages to it (much faster than to do a regular printf as it does not have to wait for the UART to complete) and monitor that.</p>
+<h4 id="use-buffer-listener-like-this">Use Buffer Listener like this <a href="#use-buffer-listener-like-this" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> cooja_debug_string[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>snprintf(cooja_debug_string , <span style="color:#ae81ff">100</span>, <span style="color:#960050;background-color:#1e0010">“</span>My debuginfo: <span style="color:#f92672">%</span>u<span style="color:#960050;background-color:#1e0010">\\</span>n<span style="color:#960050;background-color:#1e0010">”</span>, var);
+</span></span></code></pre></div><p>then set Buffer Listener to monitor ‘<em>Custom pointer</em>’, enter name ‘<em>cooja_debug_string</em>’ and Parser to ‘<em>Terminated string</em>’. Monitoring a variable with Parser ‘<em>Graphical: Grayscale</em>’ is good for seeing how a value changes over execution time.</p>
+<h3 id="adding-the-mobility-plugin">Adding the Mobility plugin <a href="#adding-the-mobility-plugin" class="anchor">🔗</a></h3><p>COOJA is very extendable: you can add plugins, visualizers, packet analyzers etc. <em>Mobility</em> is a plugin currently residing in the <a href="http://sourceforge.net/projects/contikiprojects" target="_blank" rel="noopener">Contiki Projects repository</a>.</p>
+<p>Mobility accepts a text file with position data for the motes in the simulation. There are a number of such position data generators on the Internet, or use data gathered from real deployments or measurements. At the end of this document is a link to small position data files I have generated using the Random Waypoint Mobility Model. NB that Mobility itself do not generate any position data, just handles the movement itself.</p>
+<p>To install Mobility, start by cloning the <a href="http://sourceforge.net/projects/contikiprojects" target="_blank" rel="noopener">repository</a> then look under sics.se, mobility.</p>
+<h4 id="install-process">Install process <a href="#install-process" class="anchor">🔗</a></h4><ul>
+<li>Put the mobility folder under your <code>cooja/apps/</code> (eg <code>contiki-2.x/tools/cooja/apps/mobility</code>)</li>
+<li>Start COOJA</li>
+<li>Menu: Settings/COOJA Projects</li>
+<li>In file browser pane on the left, locate the mobility folder and click the box next to it so it becomes green</li>
+<li>Press Save as default</li>
+<li>Exit COOJA</li>
+<li>Run ant clean</li>
+</ul>
+<h4 id="usage">Usage <a href="#usage" class="anchor">🔗</a></h4><ul>
+<li>Start COOJA, create your simulation</li>
+<li>Start mobility: Menu: Plugins/Mobility</li>
+<li>It will prompt you for a file with position data, browse and select it</li>
+<li>The motes will now move when simulation is running and there is position data for them</li>
+</ul>
+<h4 id="notes">Notes <a href="#notes" class="anchor">🔗</a></h4><ul>
+<li>When/if the provided position data runs out and simulation is still running, it will start over again (overflow)</li>
+<li>If you close the Mobility window, all movement will be stopped</li>
+<li>Mobility can be started at any time, even after simulation has run some time. It will always start from the top of the position data file however, so temporary stopping movement is not possible.</li>
+</ul>
+<h4 id="format-of-position-data-file">Format of position data file <a href="#format-of-position-data-file" class="anchor">🔗</a></h4><p>The position data file is a <em>space separated value file</em> with each line indicating
+<em>COOJA node ID, time [s], X position [m], Y position [m]</em>. Comments are preceded with #.</p>
+<p>Example of four nodes moving a little bit, from their starting positions to new positions 0.2 seconds later.</p>
+<pre tabindex="0"><code># Comment
+0 0.0 44.0413538236 135.737294054
+1 0.0 39.1822871509 109.741972953
+2 0.0 117.418994575 123.906576338
+3 0.0 78.382316355 87.7137366549
+0 0.2 44.3447495247 135.598526325
+1 0.2 39.9107771733 109.470414563
+2 0.2 116.784111194 123.715365587
+3 0.2 77.6188236041 87.4762144466
+</code></pre>
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/contiki">contiki</a>
+            
+                <a href="https://tiliaradix.com/tags/programming">programming</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

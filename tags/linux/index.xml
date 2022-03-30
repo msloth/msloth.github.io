@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/linux/</link>
+    <description>Recent content in linux on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 May 2011 14:15:59 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux signals</title>
+      <link>https://tiliaradix.com/posts/linux-signals/</link>
+      <pubDate>Wed, 11 May 2011 14:15:59 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/linux-signals/</guid>
+      <description>Signals are software interrupts to processes (in POSIX-compliant systems).
+SIGSTOP (19) stops the process, halts all execution but does not kill it. It cannot be trapped/ignored. SIGCONT (18) continues a process stopped with SIGSTOP. SIGINT (2) sends an interrupt to the process, which decides what to do with it. It can be trapped/ignored. Usually sent with ctrl+C. SIGTERM (15) sends an irq to kill the process. This is a graceful way to kill it and lets it do what it needs before shutting down (eg saving data).</description>
+    </item>
+    
+  </channel>
+</rss>

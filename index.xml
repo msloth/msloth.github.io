@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/</link>
+    <description>Recent content on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Subwoofer base</title>
+      <link>https://tiliaradix.com/builds/build-subwooferbase/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-subwooferbase/</guid>
+      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won&amp;rsquo;t hit it.</description>
+    </item>
+    
+    <item>
+      <title>Build: Clicker</title>
+      <link>https://tiliaradix.com/builds/build-clicker/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-clicker/</guid>
+      <description>Buildlog: Clicker 🔗Sneak peek 🔗Clicker diorama.
+Meta 🔗The Clicker is a creature (?) in the world of The Last of Us, made by Naughty Dog.
+Clicker.
+The Clickers are originally humans, that have fallen to a fungus infection. The fungus, of the Cordyceps genus, affects, takes over, control over the body. It is famously documented on insects in the Planet Earth documentary, however the human infection is a fictious extrapolation as a plot device.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ohmu</title>
+      <link>https://tiliaradix.com/builds/build-ohmu/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-ohmu/</guid>
+      <description>Buildlog: Ohmu 🔗This is the buildlog for my Ohmu diorama.
+Sneak peek 🔗Hello, Ohmu.
+Meta 🔗The Ohmu is a creature from the 1984 anime Nausicaä of the Valley of the Wind.
+It was directed by Hayao Miyazaki, who co-founded Studio Ghibli.
+Brief synopsis courtesy of Wikipedia:
+ Taking place in a future post-apocalyptic world, the film tells the story of Nausicaä (Shimamoto), the young princess of the Valley of the Wind.</description>
+    </item>
+    
+    <item>
+      <title>Build: Barnfind</title>
+      <link>https://tiliaradix.com/builds/build-barnfind/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-barnfind/</guid>
+      <description>Buildlog: Barnfind 🔗Sneak peek 🔗Meta 🔗Tiger II 🔗3D print 🔗Cover 🔗Paint 🔗Base 🔗The base is a rectangular piece of plain MDF, 18 mm thick. It is sealed by a couple of layers of PVA glue (wood glue). Then painted black on the sides, and rubber feet on the bottom.
+Barn 🔗House frame 🔗Roof 🔗Roof 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Brewtag</title>
+      <link>https://tiliaradix.com/builds/build-brewtag/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
+      <description>Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
+The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
+The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: DigiDev</title>
+      <link>https://tiliaradix.com/builds/build-digidev/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-digidev/</guid>
+      <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
+The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
+The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+    </item>
+    
+    <item>
+      <title>Build: Ethernet CC1310 Gateway - eth1310</title>
+      <link>https://tiliaradix.com/builds/build-eth1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
+      <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
+The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
+The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
+Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: SLIP CC1310 Gateway - slip1310</title>
+      <link>https://tiliaradix.com/builds/build-slip1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
+      <description>Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>Build: Wi-Fi CC1310 Gateway - wifi1310</title>
+      <link>https://tiliaradix.com/builds/build-wifi1310/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+    </item>
+    
+    <item>
+      <title>How We Do It: Offline IoT</title>
+      <link>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+When the wireless mesh is unavailable, store data locally.
+A wireless mesh network reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.
+But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.</description>
+    </item>
+    
+    <item>
+      <title>IoT Antenna Design: Three Ways Your Antenna Deceives You</title>
+      <link>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</link>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Every single Internet of Things (IoT) device needs an antenna.
+The antenna is crucial: it may make or break the communication with your devices. A good antenna will give you a good wireless range. A bad antenna may cause your devices to not even be reachable in the field.
+IoT devices are designed to be small, have a long wireless range, and have a long battery life.</description>
+    </item>
+    
+    <item>
+      <title>What is a Good sub-GHz Range? A Reality Check</title>
+      <link>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/what-is-a-good-sub-ghz-range-a-reality-check/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+What is the range of my sub-GHz IoT device?
+Do the theoretical predictions of wireless range match the real world? We took a walk around the neighborhood to find out.
+The answer to this question isn&amp;rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world.</description>
+    </item>
+    
+    <item>
+      <title>Four Reasons for 3D Printing IoT Prototypes</title>
+      <link>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Make them good looking, robust, functional, and sellable.
+At Thingsquare we use 3D printing for many of the IoT prototypes we build for customers.
+Here are the top 4 reasons why we do it, and why you should do it too:
+ Hide the electronics Make it more functional Make it easier to sell Make it robust  What is 3D Printing?</description>
+    </item>
+    
+    <item>
+      <title>A New Way to Measure the Power Consumption of Really Low-Power Hardware (for Software People)</title>
+      <link>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We recently got a new tool at Thingsquare, which helps us ensure that we have extremely low power consumption of our software: the Otii Arc current and voltage measurement box, by Qoitech. This little box quickly lets us – a bunch of software persons – measure and understand the power consumption of the software that we run on our low-power hardware.</description>
+    </item>
+    
+    <item>
+      <title>How to Design Thingsquare-Compatible Hardware</title>
+      <link>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-to-design-thingsquare-compatible-hardware/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.
+Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.
+Behind every successful product is a successful hardware design.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Wireless Device that Lives Forever</title>
+      <link>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/designing-a-wireless-device-that-lives-forever/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+We have previously looked at how to make a wireless device live for years on one tiny coin cell battery. This time we up the game and make it live forever, using solar power and off-the-shelf hardware.
+We build a prototype of our device and go through the technical details involved in designing for solar power.</description>
+    </item>
+    
+    <item>
+      <title>Vector graphics for your PCBs</title>
+      <link>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</link>
+      <pubDate>Fri, 14 Mar 2014 22:10:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/vector-graphics-for-your-pcbs/</guid>
+      <description>TLDR 🔗This tool converts SVG vector graphics to Cadsoft Eagle polygon. Get it here.
+Why 🔗Technology can even in its most raw and bare form certainly be beautiful. The bottom of a motherboard, with long, parallell, impedance-matched traces from PCI-connectors is a good example. A large BGA is another, with traces extending in every direction.
+I&#39;ve long wanted to make my PCBs more beautiful, taking the few &amp;quot;colors&amp;quot; into full use.</description>
+    </item>
+    
+    <item>
+      <title>Clock with retro display</title>
+      <link>https://tiliaradix.com/posts/clock-with-retro-display/</link>
+      <pubDate>Thu, 06 Jun 2013 15:05:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/clock-with-retro-display/</guid>
+      <description>HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &amp;quot;smart four-character 16-segment alphanumeric&amp;quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.</description>
+    </item>
+    
+    <item>
+      <title>Simple yet efficient wireless with Contiki</title>
+      <link>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</link>
+      <pubDate>Sun, 26 May 2013 09:21:46 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</guid>
+      <description>SimpleRDC 🔗This is a step forward in making wireless communication more easy and viable for extremely small systems. There already exist a number of protocols for low-power wireless. Most of them are quite complex and hence use much RAM and ROM which makes them unfeasible for the Launchpad and similarly constrained systems. This is a simple yet efficient radio duty-cycling protocol for Contiki that achieves 3% idle listening duty cycle while allowing for an average 65 ms latency with no prior contact or synchronization.</description>
+    </item>
+    
+    <item>
+      <title>Contiki for TI MSP430 Launchpad</title>
+      <link>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</link>
+      <pubDate>Sun, 26 May 2013 09:09:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</guid>
+      <description>Contiki port for Launchpad 🔗Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and &#39;2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it&#39;s a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM.</description>
+    </item>
+    
+    <item>
+      <title>Contiki debugging in Cooja</title>
+      <link>https://tiliaradix.com/posts/contiki-debugging-in-cooja/</link>
+      <pubDate>Sun, 01 Jul 2012 08:53:37 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-debugging-in-cooja/</guid>
+      <description>A while ago I co-held a Contiki bootcamp. My part consisted mainly of showing the Contiki serial shell, the network simulator Cooja, Mobility plugin for Cooja, and some debugging features. This post will go through those topics. This will be a long post&amp;hellip; :)
+To get started, you might want and/or need the following:
+ the talk in handout-format a few slides source: Makefile source: a silent node source: a periodic broadcasting node  and finally a working Contiki copy (check out the Instant Contiki virtual machine with all tools set up from the beginning).</description>
+    </item>
+    
+    <item>
+      <title>Reaching New Heights</title>
+      <link>https://tiliaradix.com/posts/reaching-new-heights/</link>
+      <pubDate>Mon, 07 Nov 2011 08:00:18 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/reaching-new-heights/</guid>
+      <description>The last day of this visit I went to the central business district. Actually, I started at the Shanghai Science and Technology Museum, which has several IMAX, 3D etc cinemas to choose from. Only problem was that they are closed on Mondays, sth that no other site said sth about except their own. My bad. So I walked down Century Avenue, hoping to find a good place to buy laptop sleeves, as I had read, but that was incorrect so instead I headed towards the Jin Mao, Shanghai World Financial Center (SWFC) and the Shanghai towers.</description>
+    </item>
+    
+    <item>
+      <title>Brownian Motion aka Sleepless in Shanghai</title>
+      <link>https://tiliaradix.com/posts/brownian-motion-aka-sleepless-in-shanghai/</link>
+      <pubDate>Sun, 06 Nov 2011 08:00:04 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/brownian-motion-aka-sleepless-in-shanghai/</guid>
+      <description>The day after the Marriage Market I kept thinking of how different our cultures and societies are. And, how different China is from what I expected before I came. I expected something more&amp;hellip;.. communism, when it really is capitalism, consumerism and commersialism (is that a word even? Nvm). It&#39;s likely the most capitalist country I&#39;ve ever seen actually. Everywhere you look, there are things for sale, stores and shopping malls. Likely, it&#39;s different in rural China.</description>
+    </item>
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://tiliaradix.com/posts/portfolio/</link>
+      <pubDate>Sun, 06 Nov 2011 02:22:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/portfolio/</guid>
+      <description>Publications 🔗The Politecast Primitive for Low-Power Wireless. ACM Computer Communication Review 2011-April. Marcus Lundén and Adam Dunkels.
+Inspirational Bits - Towards a Shared Understanding of the Digital Material. CHI 2011. Petra Sundström, Alex Taylor, Katja Grufberg, Niklas Wirström, jordi Solsona and Marcus Lundén.
+The LEGA: A Device for Leaving and Finding Tactile Traces. Tangible embedded and Embodied Interaction (TEI) 2011. Jarmo Laaksolahti, Jakob Tholander, Anna Karlsson, Marcus Lundén, Jordi Solsona</description>
+    </item>
+    
+    <item>
+      <title>Marriage Market</title>
+      <link>https://tiliaradix.com/posts/marriage-market/</link>
+      <pubDate>Fri, 04 Nov 2011 16:42:04 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/marriage-market/</guid>
+      <description>&amp;quot;Hello! Do you want a girlfriend?&amp;quot; a Chinese man asked me. He was around 60, not that many teeth left in his lower jaw, wore a jacket and an honest smile. The Marriage Market, or Wedding Market, happens for a few hours every weekend in the park close to the Peoples square station (exit 5, around 12 to 15 or 17). Here worried parents meet to advertise their children. Grown up children, and single that is.</description>
+    </item>
+    
+    <item>
+      <title>Maglev magnificence</title>
+      <link>https://tiliaradix.com/posts/maglev-magnificence/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/maglev-magnificence/</guid>
+      <description>So, I&#39;m staying a while in China after all the hard work is done. Today was the first day of my short stay without work so I started out by surfing the web for ideas on what to do and see. The first point is already done now, riding the Maglev train!
+Maglev is actually more of a demo of the technology rather than sth that is really needed. It&#39;s a short track from Longyuan Road metro station to Pudong airport (the metro continues all the way to the airport already).</description>
+    </item>
+    
+    <item>
+      <title>Piggie parts</title>
+      <link>https://tiliaradix.com/posts/piggie-parts/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:34 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/piggie-parts/</guid>
+      <description>It was fun in the taxi on the way to the venue where we were to talk, FUDAN Uni. I felt quite &#39;up&#39; by then, excited and positive. I felt like I kept noticing small details around me, as if I was very attentive, but lacked impulse suppressive skills. Like a kid on speed. Poor Alexa had to answer many insightful and nuanced questions about electric mopeds, trees dressed with ropes etc.</description>
+    </item>
+    
+    <item>
+      <title>Verrrry, verrrry important persons</title>
+      <link>https://tiliaradix.com/posts/verrrry-verrrry-important-persons/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/verrrry-verrrry-important-persons/</guid>
+      <description>I got a quite nice hotel room :), 19th floor, Fuxuan hotel.
+Very mixed messages.
+The second day, Nov 2nd, was the beginning of the event with a grand opening and unveiling of some plaquette or sth. We, Thiemo and I, didn&#39;t really understand everything. There were 400 Chinese and 3 Swedes. Prof Kalle from KTH were there as well and held a talk about IoT they were involved in. Everything else was in Chinese but we had headphones with real time translation by two translators.</description>
+    </item>
+    
+    <item>
+      <title>Back in an old track</title>
+      <link>https://tiliaradix.com/posts/back-in-an-old-track/</link>
+      <pubDate>Fri, 04 Nov 2011 15:50:09 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/back-in-an-old-track/</guid>
+      <description>So, last time I was in China (for Ubicomp), I was supposed to hold a Contiki-tutorial in Shanghai afterwards but for different reasons it was postponed, or something. The Chinese organizers never decided on a date until it was too late. Nvm.
+A week after returning home they had apparently decided and I was asked if I could go back go China and take care of it. Of course I&#39;ll do it!</description>
+    </item>
+    
+    <item>
+      <title>Back and forth again</title>
+      <link>https://tiliaradix.com/posts/back-and-forth-again/</link>
+      <pubDate>Sun, 25 Sep 2011 16:29:17 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/back-and-forth-again/</guid>
+      <description>My travels are coming to an end again. Today I wanted to go shopping in Shenzhen (as I think HK has more posh stores, and that&#39;s not really my cup of tea). At 1030 I went down to the subway and at 1230 I had passed the borders on the Shenzhen side. Most EU-countries get (free) visa on arrival to HK, so no problem returning. To Shenzhen, you can get a visa on arrival (ca 30min, costs 168 RMB for most EU), but, and this is crucial: you must have the fee in RMB, HKD are not accepted.</description>
+    </item>
+    
+    <item>
+      <title>Vantage viewpoint</title>
+      <link>https://tiliaradix.com/posts/vantage-viewpoint/</link>
+      <pubDate>Sun, 25 Sep 2011 16:27:13 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/vantage-viewpoint/</guid>
+      <description>&lt;p&gt;So evening of my first stay in Apple guesthouse I went to see the HK skyline from Victoria peaks. You basically take the subway to Central, follow the signs (Beijing, Shenzhen and HK are all very good at that, signs) to the peak trams. There, there is a 30-45 minute wait until you get to board the tram, which costs 65HKD both ways including entrance fee to the viewpoint (Terrace 428, which I would recommend, it&#39;s a nice view from there). Remember this if you go here: &lt;em&gt;sit on the &lt;em&gt;right&lt;/em&gt; side of the tram&lt;/em&gt; (seen from the queue). I was smug about having caught a windowseat on the left side only to realize that all Chinese sat on the other side. Ooops. They got a great view over the city, but I saw some trees so I&#39;m happy anyway.&lt;/p&gt;
+&lt;p&gt;I saw on Google that the sunset would occur at 1828, so I tried to time it but got a little late. According to a nice Spanish guy I talked to, I didn&#39;t miss much due to fog and air pollution. One sad thing was the (chinese) lady at the tram entrance that was convinced that the CIA made brain experiments on her and that she would soon become a moron [sic]. She had big posters and walked up and down the queue talking to people and handing out flyers. Kind of surprised it wasn&#39;t tinfoil hats she was handing out, or that she wasn&#39;t sitting in a Faradays cage on a Segway or sth, like a cooler version of the Popemobile.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Funky Chungking Mansions</title>
+      <link>https://tiliaradix.com/posts/funky-chungking-mansions/</link>
+      <pubDate>Sun, 25 Sep 2011 16:18:51 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/funky-chungking-mansions/</guid>
+      <description>&lt;p&gt;I had heard that there are many guesthouses at the &lt;em&gt;Chungking Mansions&lt;/em&gt; building in downtown HK. In fact, there are about 200 of them apparently (I read somewhere). Now, some of them are better than others and if you, like me, are arriving at 21 o&#39;clock, tired, &lt;em&gt;looking&lt;/em&gt; tired, there is a small chance for you to get the best offers from the indian touts.&lt;/p&gt;
+&lt;p&gt;I waved off a few, declined others and went to 5th floor w another. So I stayed one night at Kamals. The cleanliness was ok, but sth that I didn&#39;t notice when looking at the room was the smell, like an indian kitchen. I thought it would go away, but it didn&#39;t. I did. The smell won.&lt;/p&gt;
+&lt;p&gt;After freshing up, I went for a walk and enjoyed HK. Not as I expected. Then I was so tired that I crashed, like a russian fighter jet at an aero fair, but in a bed.&lt;/p&gt;
+&lt;p&gt;The day after, I moved to Apple guesthouse instead. Small room but soooo much better. And friendly filipino staff, not the sorry-I-bother-you-for-breathing-your-air indians at Kamal, they are rude. Basically the same thing: AC, own WC and shower, but so much better. And cheaper, 220HKD instead of 300(!). Some places have singles w shared bathroom for 70, according to one I talked to. (and 1 HKD is slightly less than 1 RMB or 1kr)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tally-hooo Hong Kong!</title>
+      <link>https://tiliaradix.com/posts/tally-hooo-hong-kong/</link>
+      <pubDate>Fri, 23 Sep 2011 14:11:02 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/tally-hooo-hong-kong/</guid>
+      <description>I&#39;m in Hong Kong now :)
+Some differences I noticed immediately:
+ People don&#39;t look at me because I&#39;m not Chinese people (guys) wear shorts, that was rare in Beijing and Shenzhen people know english; ratio unknown, but in Shenzhen close to null, in Beijing a few more. MANY more foreigners! And not only westerners. Indians, pakistanis, africans (don&#39;t know what country, looks middle-african to me)  Simple enough \\(•,•)/</description>
+    </item>
+    
+    <item>
+      <title>....meanwhile, in Shenzhen.</title>
+      <link>https://tiliaradix.com/posts/....meanwhile-in-shenzhen./</link>
+      <pubDate>Fri, 23 Sep 2011 14:06:29 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/....meanwhile-in-shenzhen./</guid>
+      <description>I arrived in Shenzhen and had quite the difficulties finding the hotel, even though I followed the directions from a commenter on hotels.com. It is a very cheap hotel, only 130 RMB/night (the others ranged 400-600). I soon found out why. The building also housed a lot of apartments and other stuff. I got a room at the 11th floor of 30. There was no free dinner reception, no complimentary wifi (but I could borrow the managers computer on the 28th floor, if I wanted to let them log every credential and login I would enter.</description>
+    </item>
+    
+    <item>
+      <title>Beijing Banquet</title>
+      <link>https://tiliaradix.com/posts/beijing-banquet/</link>
+      <pubDate>Thu, 22 Sep 2011 11:04:14 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/beijing-banquet/</guid>
+      <description>The second to last day of Ubicomp 2011 included a banquet. After the last session of presentations, we were taken in buses, comfortable coaches, to the lake by the Summer Palace. The driver was absolutely ruthless, driving fast, honking his horn and rarely steering away from bikers or pedestrians. Not even kids were safe from this beast of the road. Biggest goes first I guess. Well, no casualties at least.</description>
+    </item>
+    
+    <item>
+      <title>Rush hour</title>
+      <link>https://tiliaradix.com/posts/rush-hour/</link>
+      <pubDate>Tue, 20 Sep 2011 02:45:44 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/rush-hour/</guid>
+      <description>Went downtown to see the city a bit more and decided to go to their equivalent of Bangkoks MBK: the Silk market building. Despite the name, there were not much silk and the harsh signs in the roof condemning piracy (sth along the lines of &amp;quot;Buy original brand, do not buy fake copy!&amp;quot;) had little effect on the offers, customers or anything at all. Don&#39;t know if there were anything original there, &amp;quot;original copy&amp;quot; perhaps.</description>
+    </item>
+    
+    <item>
+      <title>Some Ubicomp presentations</title>
+      <link>https://tiliaradix.com/posts/some-ubicomp-presentations/</link>
+      <pubDate>Tue, 20 Sep 2011 02:31:48 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/some-ubicomp-presentations/</guid>
+      <description>Starting off strong with the SmileCounter system! By being encouraged to smile, this will eventually make you happier, even if the initial smiles are not natural. Funny! Japanese (of course ;))
+&amp;lt;a href=&amp;quot;http://www.bithappens.se/blog/wp-content/uploads/2011/09/20110919-104423.jpg&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;http://www.bithappens.se/blog/wp-content/uploads/2011/09/20110919-104423.jpg&amp;quot; alt=&amp;quot;20110919-104423.jpg&amp;quot; class=&amp;quot;alignnone size-full&amp;quot; /&amp;gt;
+The main hall of main buildning.
+CoDine, featuring a ketchup-printer for remote dining.
+FlyingBuddy! You can send it to see ahead, or tell it to go buy things if you are in your car and out of food!</description>
+    </item>
+    
+    <item>
+      <title>Ubicomp 11 workshop</title>
+      <link>https://tiliaradix.com/posts/ubicomp-11-workshop/</link>
+      <pubDate>Sun, 18 Sep 2011 15:39:42 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/ubicomp-11-workshop/</guid>
+      <description>Keynote by Christopher Mustafa Kirwan
+Some other presentations:
+Our own presentation went very well! We knew the stuff, were lagom prepared and acted with confidence. Got great critique from Kirwan. Well done both of us! :)
+And here is the Google sponsored reception. The banquet is on tuesday though.
+And finally a few of us ended up on a reggae bar. Lots of pushy peeps on the way in.</description>
+    </item>
+    
+    <item>
+      <title>Tagged at Tianamen square</title>
+      <link>https://tiliaradix.com/posts/tagged-at-tianamen-square/</link>
+      <pubDate>Sun, 18 Sep 2011 01:20:09 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/tagged-at-tianamen-square/</guid>
+      <description>Yesterday we (Jordi and I) mostly worked on the presentation for today, but in the evening we took the subway downtown. We went to see the Forbidden city and the Himmelska fridens torg (a few call it Tianamen square though), or rather we just took the subway there and walked from there.
+At the street there were many guys walking around selling their service of snapping a pic of you and printing it on a portable printer.</description>
+    </item>
+    
+    <item>
+      <title>Being in Beijing</title>
+      <link>https://tiliaradix.com/posts/being-in-beijing/</link>
+      <pubDate>Sat, 17 Sep 2011 04:47:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/being-in-beijing/</guid>
+      <description>The flight with Qatar Airways went well. Got an ok seat, but what makes them slightly better is all the complimentary stuff, like free drinks (incl whiskey :) ), and the nice entertainment system. No dancing bears, but a screen in front of you with a lot of movies to choose from. 6h to Doha, cap of Qatar, 2h wait, then 7:40h to Beijing. Took a taxi to the hotel, Park Plaza Beijing Science park, only ca 100Y (~100kr).</description>
+    </item>
+    
+    <item>
+      <title>Diverse leftovers</title>
+      <link>https://tiliaradix.com/posts/diverse-leftovers/</link>
+      <pubDate>Thu, 21 Jul 2011 06:42:54 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/diverse-leftovers/</guid>
+      <description>These are some leftovers I haven&#39;t written about before.
+There were some eerie, creepy animals in the Cambodian forest that scared the s!!t out of us when we were exploring a temple that had closed for the day and was void of people. The sun had just set when these animals, called &amp;quot;rajj&amp;quot; started synchronizing their sound in time and frequency. Like being in a horror movie.
+VID HERE, fix later.</description>
+    </item>
+    
+    <item>
+      <title>Hoi An hotel</title>
+      <link>https://tiliaradix.com/posts/hoi-an-hotel/</link>
+      <pubDate>Tue, 12 Jul 2011 07:11:30 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/hoi-an-hotel/</guid>
+      <description>We took the Jetstar late evening-flight to Da Nang. It was the most cramped flight I&#39;ve ever had. I had just a few cm left for my legs, and the Vietnamese man sitting next to me was very friendly, a little too friendly so to speak. First I thought that he was just rude and taking up space but when I was almost falling asleep I felt his hand caressing my bare knee and I briskly woke up.</description>
+    </item>
+    
+    <item>
+      <title>Cramped Cu Chi</title>
+      <link>https://tiliaradix.com/posts/cramped-cu-chi/</link>
+      <pubDate>Sun, 03 Jul 2011 14:44:03 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/cramped-cu-chi/</guid>
+      <description>Cu Chi is the area (district? Village?) where, among other things the Americans had a big army base during the war and the VC built an intricate system of tunnels, 200 km of them. The reason was to hide VC fighters, covert regrouping and surprise attacks.
+As the US used B52 bombers with 200-450 kg bombs, carpet bombing large areas at a time, the VC built the tunnels in levels. First level was &amp;lt;=3m deep and would not survive those bombs.</description>
+    </item>
+    
+    <item>
+      <title>Surreal in Saigon</title>
+      <link>https://tiliaradix.com/posts/surreal-in-saigon/</link>
+      <pubDate>Sun, 03 Jul 2011 14:44:02 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/surreal-in-saigon/</guid>
+      <description>The night before we left Saigon/HCMC we decided to head on out, making the city the most insecure since the &#39;70-ies. Turns out Saigon had a few surprises itself.
+According to Google searches, the best clubs would be Gossip club, Apocalypse Now, Lush, and Velvet. We decided to start at the supposed THE place to go to: Gossip.
+No entrance fee, nice! Thank you pale falang-skin and shining smile ;) The music was reeeeeally heavy, the volume was insane and there was a crowd dancing on a small dance floor podium in the center.</description>
+    </item>
+    
+    <item>
+      <title>Saigon</title>
+      <link>https://tiliaradix.com/posts/saigon/</link>
+      <pubDate>Sat, 02 Jul 2011 12:48:28 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/saigon/</guid>
+      <description>We arrived in a intermittently very rainy Saigon. Or Ho Chi Minh City/HCMC as it is called now after the latest war but many still call it Saigon.
+Traffic in the rain:
+There should have been a video here but your browser does not seemto support it. We got a really nice hotel room but stayed only one night before we moved on to next one. Might have said it before but the hotels.</description>
+    </item>
+    
+    <item>
+      <title>Firewalls</title>
+      <link>https://tiliaradix.com/posts/firewalls/</link>
+      <pubDate>Sat, 02 Jul 2011 12:39:30 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/firewalls/</guid>
+      <description>Oh, and Facebook is banned in the free-thinking peoples republic of Vietnam. I can of course get around via proxy but&amp;hellip; Well well.</description>
+    </item>
+    
+    <item>
+      <title>War stuff</title>
+      <link>https://tiliaradix.com/posts/war-stuff/</link>
+      <pubDate>Sat, 02 Jul 2011 12:36:10 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/war-stuff/</guid>
+      <description>We went to see the War remnants museum, which is a museum for the Vietnam/American war. There were some fighter jets, tanks, old bombs and equipment and guns on display but most moving was the very many photos and stories from both V&#39;s and A&#39;s.
+Saw a woman/girl that took photos of many of the nasty pics of mutilated bodies etc. Interesting. She seemed focused on those.
+There were also devices from one of the worlds first wireless sensor network deployments on display, the ADSID.</description>
+    </item>
+    
+    <item>
+      <title>Cambodia in the clear</title>
+      <link>https://tiliaradix.com/posts/cambodia-in-the-clear/</link>
+      <pubDate>Sat, 02 Jul 2011 11:57:54 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/cambodia-in-the-clear/</guid>
+      <description>So, we have now left Cambodia behind us. We visited some more temples, but left many behind. There are simply too many! Bantey Srey is an area which is supposed to be good, but 37 km from Siem Reap so we didn&#39;t have time for it.
+Siem Reap is a small town, ca 10.000 inhabitants, but it has a club I feel Stockholm is lacking. We joined some locals for some interesting dishes, and I quote, &amp;quot;Egg has baby&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>First day of temples</title>
+      <link>https://tiliaradix.com/posts/first-day-of-temples/</link>
+      <pubDate>Tue, 28 Jun 2011 08:18:20 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/first-day-of-temples/</guid>
+      <description>We took the Tuk tuk to Angkor Wat early in the morning. Good to get there so early but it was unfortunately cloudy.
+More tuktuk
+We didn&#39;t stay at AW, instead we left for Ta Prohm which is considered a sunset temple, ie looking better at the sunset. Thus, it&#39;s more empty during the morning.
+Also visited Ta Keo.
+Saw a cool centipede which fortunately enough was slow and didn&#39;t seem to have an appetite for human flesh.</description>
+    </item>
+    
+    <item>
+      <title>Entered Siem Reap</title>
+      <link>https://tiliaradix.com/posts/entered-siem-reap/</link>
+      <pubDate>Sun, 26 Jun 2011 16:45:29 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/entered-siem-reap/</guid>
+      <description>Yes, I heard right, there def is corruption. After shooing away the expected touts, first thing that happens is that a welldecorated police officer sees my shopping bag of food and &amp;quot;asks&amp;quot; me to give something because he&#39;s hungry. In front of other cops and tourists, without shame. I find it a little funny and gives him a bun (fika ftw!). Next thing, they ask for 25$ instead of 20$. Wasn&#39;t a problem though, I just said clearly and with my thunderous authority that it&#39;s only 20.</description>
+    </item>
+    
+    <item>
+      <title>Cambodian communication</title>
+      <link>https://tiliaradix.com/posts/cambodian-communication/</link>
+      <pubDate>Sun, 26 Jun 2011 16:16:02 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/cambodian-communication/</guid>
+      <description>Chatuchak market was as cramped and chaotic as I remembered, so many booths and people in narrow lanes. The roof made it a very warm and humid experience, although we didn&amp;rsquo;t buy anything there were plenty of maybes. Then we roamed the Siam malls and I bought nice goggles for a really nice price (900B is ca 180kr). Looking forward to using them!
+We changed hotel from Davis Bkk hotel at Sukhumvit (awesome!</description>
+    </item>
+    
+    <item>
+      <title>Intermedio and arriving</title>
+      <link>https://tiliaradix.com/posts/intermedio-and-arriving/</link>
+      <pubDate>Sun, 26 Jun 2011 15:00:55 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/intermedio-and-arriving/</guid>
+      <description>We had almost five hours transfertime at Charles de Gaulles, Paris,before the flight to Bangkok so we took a quick detour to have some red wine at a small café close to Notre Dame. From CDG it was a 45 min at 8.5€ trainride. Never been to Paris before, and it was very nice! I will come back here some other time :).
+We flew with Air France and I must say I&#39;m impressed!</description>
+    </item>
+    
+    <item>
+      <title>Leaving Sweden and Swedish midsummer</title>
+      <link>https://tiliaradix.com/posts/leaving-sweden-and-swedish-midsummer/</link>
+      <pubDate>Thu, 23 Jun 2011 08:20:43 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/leaving-sweden-and-swedish-midsummer/</guid>
+      <description>Leaving Sweden and Swedish midsummer in this weather seems fitting in some way&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Changing Iphone sms signals</title>
+      <link>https://tiliaradix.com/posts/changing-iphone-sms-signals/</link>
+      <pubDate>Wed, 22 Jun 2011 21:59:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/changing-iphone-sms-signals/</guid>
+      <description>After jailbreaking, you can ssh to the phone and change stuff you couldn&#39;t before, like the sms-signals. There are a preset number of signals (4.3.3 there are six) and you have to replace them with your own. First it must be converted to AIFF and renamed to .caf.
+Prep the phone 🔗 Jailbreak the phone Install OpenSSH from Cydia  Prep the mac and SMS signal 🔗 Download and install Cyberduck on a mac (simple sftp gui prog) Find the signal that you want In Itunes, go into preferences &amp;ndash; advanced &amp;ndash; importing &amp;ndash; &amp;quot;Import using&amp;quot;, set to AIFF Import into Itunes, then rightclick the tone in the songlist and choose &amp;quot;show in finder&amp;quot; Rename it into the one you want to replace (I dislike #4 and #6), eg sms-received4.</description>
+    </item>
+    
+    <item>
+      <title>Trying out mobile posting</title>
+      <link>https://tiliaradix.com/posts/trying-out-mobile-posting/</link>
+      <pubDate>Wed, 22 Jun 2011 21:58:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/trying-out-mobile-posting/</guid>
+      <description>This is just a test post to see if posting via the Iphone Wordpress app works good. Apparently, to enable mobile posting, you have to enable XML-RPC in your wordpress settings.
+This was me working in the sun :).
+This is the starter course we had at the conference today.</description>
+    </item>
+    
+    <item>
+      <title>Updating Iphone failed: &#34;not eligible&#34;</title>
+      <link>https://tiliaradix.com/posts/updating-iphone-failed-not-eligible/</link>
+      <pubDate>Fri, 13 May 2011 17:18:27 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/updating-iphone-failed-not-eligible/</guid>
+      <description>Background, was running my Iphone 4 with 4.2.1 and tethered jailbreak using redsn0w 0.9.6.4b. I wanted to update it to 4.3.3 to both get rid of the tethered boot (ie, to boot up the phone, it must be connected to my Macbook and I must go through a keypress kombo (not the Konami-code ;) ) and to get the convenience of Wifi-hotspots.
+Itunes didn&#39;t like me though so it kept saying &amp;quot;this device is not eligible for the requested build&amp;quot; when it came to the &#39;verifiying with Apple&#39; stage.</description>
+    </item>
+    
+    <item>
+      <title>Linux signals</title>
+      <link>https://tiliaradix.com/posts/linux-signals/</link>
+      <pubDate>Wed, 11 May 2011 14:15:59 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/linux-signals/</guid>
+      <description>Signals are software interrupts to processes (in POSIX-compliant systems).
+SIGSTOP (19) stops the process, halts all execution but does not kill it. It cannot be trapped/ignored. SIGCONT (18) continues a process stopped with SIGSTOP. SIGINT (2) sends an interrupt to the process, which decides what to do with it. It can be trapped/ignored. Usually sent with ctrl+C. SIGTERM (15) sends an irq to kill the process. This is a graceful way to kill it and lets it do what it needs before shutting down (eg saving data).</description>
+    </item>
+    
+    <item>
+      <title>New HTPC with NES</title>
+      <link>https://tiliaradix.com/posts/new-htpc-with-nes/</link>
+      <pubDate>Sat, 02 Apr 2011 11:35:26 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/new-htpc-with-nes/</guid>
+      <description>So Roger (a friend of mine) and I each bought ourselves a new HTPC. It is based on an Asus AT3IonT-I deluxe Mini-ITX motherboard in a NES chassis. The mobo has hardware accelerated decoding of HD material, built in WiFi, Bluetooth, comes with an IR remote, is fanless and uses a power brick instead of an ATX PSU. This last point (and HW decoding of course) is key. This way, the mobo can be fitted in a very small case, the Nintendo 8-bit NES being of ideal size, fitting the mobo, a 2.</description>
+    </item>
+    
+    <item>
+      <title>Error uploading to JCreate</title>
+      <link>https://tiliaradix.com/posts/error-uploading-to-jcreate/</link>
+      <pubDate>Fri, 11 Mar 2011 16:01:11 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/error-uploading-to-jcreate/</guid>
+      <description>I had this error a while ago in a new virtual machine, where I was trying to compile and upload to a Sentilla JCreate, an obsolete sensor node similar to the Tmote Sky but without some of the sensors and added an accelerometer. This was the error,
+$make myfile.upload ...text something like: only pure serial drivers exist ... -bsl=revb Now, trying with the same this as super user worked,
+$ sudo make myfile.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://tiliaradix.com/posts/about/</link>
+      <pubDate>Fri, 11 Mar 2011 15:29:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/about/</guid>
+      <description>This is the blog that I maintain mostly for myself and my friends and family, to keep something of a diary and letting people know what I&#39;m doing while abroad. A secondary purpose is to share knowledge and experience from stuff that I&#39;ve been doing, mostly electronics and programming. A tertiary purpose is to work as a</description>
+    </item>
+    
+    <item>
+      <title>TI Launchpad makefile</title>
+      <link>https://tiliaradix.com/posts/ti-launchpad-makefile/</link>
+      <pubDate>Thu, 10 Mar 2011 14:20:59 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/ti-launchpad-makefile/</guid>
+      <description>[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;300&amp;quot; caption=&amp;quot;TI Launchpad&amp;quot;]&amp;lt;a href=&amp;quot;http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_%28MSP-EXP430G2%29?DCMP=launchpad&amp;amp;HQS=Other+OT+launchpadwiki&amp;quot;&amp;gt;
+&amp;lt;img title=&amp;quot;TI Launchpad&amp;quot; src=&amp;quot;http://processors.wiki.ti.com/images/thumb/a/ad/LaunchPad_wireframe.PNG/300px-LaunchPad_wireframe.PNG&amp;quot; alt=&amp;quot;TI Launchpad&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;351&amp;quot; /&amp;gt; [/caption]
+The TI Launchpad is a small fun developers platform, perhaps most suited for beginners to microcontrollers. It retails for $4.30, comes with two simple MSP430 microcontrollers, a small PCB with two LEDs, pushbuttons, pin headers etc. It can be programmed via USB, either by the TI provided software, or, as I do, with msp-gcc and mspdebug in Linux.</description>
+    </item>
+    
+    <item>
+      <title>Hello world!</title>
+      <link>https://tiliaradix.com/posts/hello-world/</link>
+      <pubDate>Thu, 10 Mar 2011 13:48:03 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/hello-world/</guid>
+      <description>First post, about to fix this later. Now just done with the install. Gotta learn how to paste code and stuff with syntax highlighting. Another task, another day.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://tiliaradix.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/about/</guid>
+      <description>This is the site for Marcus Linderoth and my company Tiliaradix AB. As such, it&amp;rsquo;s a mix of personal and apersonal matters.
+I am co-founder and VP of engineering at Thingsquare. We help our customers build IoT products quickly, robust, and feature-rich thanks to our IoT-platform.
+The blog is a mix of everything - personal notes, travel notes, posts about wireless or embedded, build diaries, etc.
+You can find me on these sites:</description>
+    </item>
+    
+  </channel>
+</rss>

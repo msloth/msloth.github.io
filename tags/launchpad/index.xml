@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>launchpad on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/launchpad/</link>
+    <description>Recent content in launchpad on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Mar 2011 14:20:59 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/launchpad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TI Launchpad makefile</title>
+      <link>https://tiliaradix.com/posts/ti-launchpad-makefile/</link>
+      <pubDate>Thu, 10 Mar 2011 14:20:59 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/ti-launchpad-makefile/</guid>
+      <description>[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;300&amp;quot; caption=&amp;quot;TI Launchpad&amp;quot;]&amp;lt;a href=&amp;quot;http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_%28MSP-EXP430G2%29?DCMP=launchpad&amp;amp;HQS=Other+OT+launchpadwiki&amp;quot;&amp;gt;
+&amp;lt;img title=&amp;quot;TI Launchpad&amp;quot; src=&amp;quot;http://processors.wiki.ti.com/images/thumb/a/ad/LaunchPad_wireframe.PNG/300px-LaunchPad_wireframe.PNG&amp;quot; alt=&amp;quot;TI Launchpad&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;351&amp;quot; /&amp;gt; [/caption]
+The TI Launchpad is a small fun developers platform, perhaps most suited for beginners to microcontrollers. It retails for $4.30, comes with two simple MSP430 microcontrollers, a small PCB with two LEDs, pushbuttons, pin headers etc. It can be programmed via USB, either by the TI provided software, or, as I do, with msp-gcc and mspdebug in Linux.</description>
+    </item>
+    
+  </channel>
+</rss>

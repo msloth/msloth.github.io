@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>msp430 on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/msp430/</link>
+    <description>Recent content in msp430 on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Jun 2013 15:05:41 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/msp430/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clock with retro display</title>
+      <link>https://tiliaradix.com/posts/clock-with-retro-display/</link>
+      <pubDate>Thu, 06 Jun 2013 15:05:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/clock-with-retro-display/</guid>
+      <description>HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &amp;quot;smart four-character 16-segment alphanumeric&amp;quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.</description>
+    </item>
+    
+    <item>
+      <title>Simple yet efficient wireless with Contiki</title>
+      <link>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</link>
+      <pubDate>Sun, 26 May 2013 09:21:46 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</guid>
+      <description>SimpleRDC 🔗This is a step forward in making wireless communication more easy and viable for extremely small systems. There already exist a number of protocols for low-power wireless. Most of them are quite complex and hence use much RAM and ROM which makes them unfeasible for the Launchpad and similarly constrained systems. This is a simple yet efficient radio duty-cycling protocol for Contiki that achieves 3% idle listening duty cycle while allowing for an average 65 ms latency with no prior contact or synchronization.</description>
+    </item>
+    
+    <item>
+      <title>Contiki for TI MSP430 Launchpad</title>
+      <link>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</link>
+      <pubDate>Sun, 26 May 2013 09:09:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/contiki-for-ti-msp430-launchpad/</guid>
+      <description>Contiki port for Launchpad 🔗Contiki has for a long time had ports for several MSP430-based platforms, but the platforms were a bit expensive for the hobbyist (eg Sky or Z1 at ca 70-90$ each). The TI Launchpad is based on a msp430g2452 and &#39;2553, which have 256/512 bytes of RAM and 16 kB ROM, and costs 10$. Thus it&#39;s a bit too small for Contiki, and there is no simple API for stuff like ADC or PWM.</description>
+    </item>
+    
+  </channel>
+</rss>

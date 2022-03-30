@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3d-print on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/3d-print/</link>
+    <description>Recent content in 3d-print on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/3d-print/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Clicker</title>
+      <link>https://tiliaradix.com/builds/build-clicker/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-clicker/</guid>
+      <description>Buildlog: Clicker 🔗Sneak peek 🔗Clicker diorama.
+Meta 🔗The Clicker is a creature (?) in the world of The Last of Us, made by Naughty Dog.
+Clicker.
+The Clickers are originally humans, that have fallen to a fungus infection. The fungus, of the Cordyceps genus, affects, takes over, control over the body. It is famously documented on insects in the Planet Earth documentary, however the human infection is a fictious extrapolation as a plot device.</description>
+    </item>
+    
+    <item>
+      <title>Build: Barnfind</title>
+      <link>https://tiliaradix.com/builds/build-barnfind/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-barnfind/</guid>
+      <description>Buildlog: Barnfind 🔗Sneak peek 🔗Meta 🔗Tiger II 🔗3D print 🔗Cover 🔗Paint 🔗Base 🔗The base is a rectangular piece of plain MDF, 18 mm thick. It is sealed by a couple of layers of PVA glue (wood glue). Then painted black on the sides, and rubber feet on the bottom.
+Barn 🔗House frame 🔗Roof 🔗Roof 🔗</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>concrete on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/concrete/</link>
+    <description>Recent content in concrete on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/concrete/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Subwoofer base</title>
+      <link>https://tiliaradix.com/builds/build-subwooferbase/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-subwooferbase/</guid>
+      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won&amp;rsquo;t hit it.</description>
+    </item>
+    
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>How We Do It: Offline IoT | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+When the wireless mesh is unavailable, store data locally.
+A wireless mesh network reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.
+But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">How We Do It: Offline IoT</h1>
+
+    <div class="tip">
+        <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1545 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          8 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>(<strong>This is a repost of a blog post made for <a href="thingsquare.com">thingsquare.com</a>, slightly edited to fit this format.</strong>)</p>
+<p>When the wireless mesh is unavailable, store data locally.</p>
+<p>A <a href="www.thingsquare.com/blog/articles/why-iot-mesh/">wireless mesh network</a> reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.</p>
+<p>But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.</p>
+<p>In a recent customer project, sensors were deployed deep inside freezers to monitor vaccines.</p>
+<p>The freezers&rsquo; walls sometimes would block the wireless signals. So we needed to store the data as the devices were offline, and automatically send the data when the devices were reachable again.</p>
+<p>With the <a href="www.thingsquare.com/iot-platform/">Thingsquare IoT platform</a>, we use the built-in offline buffering mechanisms to do this.</p>
+<p>Today, we&rsquo;ll look in detail how we build solutions that work even if the wireless mesh network is not always available.</p>
+<h2 id="why-offline-iot">Why offline IoT? <a href="#why-offline-iot" class="anchor">🔗</a></h2><p>IoT systems are almost always online. Devices can directly post their data over the wireless mesh network as soon as they get it.</p>
+<p>But what if the network is not available? This can happen when an access point has a spotty cellular connection to Internet, or if the devices themselves are placed in spots where their wireless connection is spotty.</p>
+<p>In our customer&rsquo;s scenario, wireless sensors were used to monitor vaccines. These vaccines are stored in freezers, deep inside buildings.</p>
+<p>The sensors are connected in a wireless mesh network, which helps maintain good connectivity. Because it is a mesh network, relay nodes extend the reach of the network. But even with a mesh network, devices may temporarily be out of range.</p>
+<p>So what to do? Enter offline mode.</p>
+<p>With offline mode, devices store their data locally. If the device is online, it will immediately send their data to the backend server database.</p>
+<p>But if it happens to be offline, the local data storage will keep the data for as long as it needs to - until the next time the device is back online.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/mesh-break.png" alt="Picture of a broken mesh network."  />
+</p></p>
+<p>Even something as reliable as a wireless IoT mesh network may break. This is when we enable offline mode.</p>
+<h2 id="challenges-with-offline-iot">Challenges with offline IoT <a href="#challenges-with-offline-iot" class="anchor">🔗</a></h2><p>The wireless devices are battery-powered and small.</p>
+<p>Inside each device is a microprocessor and a memory chip. The microprocessor (such as the <a href="http://www.ti.com/product/CC1352R" target="_blank">CC1352R</a>) can only hold temporary data. This data will go away if the battery dies.</p>
+<p>Offline data needs to go into the memory chip where it will survive a reboot or power outtage.</p>
+<p>Memory chips for this class of devices can hold a few megabytes of data. One such example is the <a href="https://www.digikey.com/en/products/detail/macronix/MX25U1633FM2I03/10059517" target="_blank">MX25U1633FM2I03</a> NOR-flash chip. It has a 2 megabyte capacity and a pricetag of about 37 US cents.</p>
+<p>Parts of the external memory chip is reserved for Over-The-Air (OTA) updates, usually some 400 kB, but the bulk part of the chip is available for offline data.</p>
+<p>In principle, this is straightforward, but the devil is in the details. We need to handle:</p>
+<ul>
+<li>Synchronized data timestamps.</li>
+<li>Data serializing and de-serializing.</li>
+<li>Protect against data corruption.</li>
+<li>Data expiration.</li>
+<li>Encryption-at-rest.</li>
+<li>Data pacing to avoid overwhelming the network when many devices go online simultaneously.</li>
+</ul>
+<p>Fortunately, the Thingsquare system helps us with this.</p>
+<h2 id="how-the-thingsquare-iot-platform-helps">How the Thingsquare IoT platform helps <a href="#how-the-thingsquare-iot-platform-helps" class="anchor">🔗</a></h2><p>The Thingsquare system is <strong>designed to build complete IoT solutions</strong>, and includes tools for offline processing.</p>
+<p>Offline data is timestamped, checksummed, encypted and stored in the external flash chip.</p>
+<p>When the device is back online in the wireless mesh network, the data is sent to the server piece by piece. This is handled gracefully and reliably so that the network isn&rsquo;t overwhelmed, and ensures that no data is lost.</p>
+<p>Even if the device would be powered off in the middle of a transfer, the system picks up where it left off when it is powered up again.</p>
+<p>Since data is timestamped, the server inserts it in the data history at the corresponding place.</p>
+<p>The result is a data history without gaps, as if the device had been online the whole time.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/lpstk.jpg" alt="Picture of a development board."  />
+</p></p>
+<p>To demonstrate offline mode, we build a small custom IoT solution, based on off-the-shelf hardware.</p>
+<h2 id="example-a-custom-iot-solution">Example: A custom IoT solution <a href="#example-a-custom-iot-solution" class="anchor">🔗</a></h2><p>To illustrate how offline mode works, we build a miniature, bare-bones IoT solution. We use off-the-shelf hardware and the Thingsquare IoT platform.</p>
+<p>In the Thingsquare platform, each IoT solution has different hardware and software.</p>
+<p>In general, when we build an IoT solution, Thingsquare&rsquo;s experts will develop the software to suit the needs of the project, and the source code for the solution is made available for the customer.</p>
+<p>Devices are programmed in the C programming language. In this article, we show the exact C code statements that a device will run to operate in offline mode.</p>
+<p>In this example, we do just that. But in a much smaller scale.</p>
+<p>We use the Texas Instruments <a href="http://www.ti.com/product/CC1352R" target="_blank">CC1352R</a>-based <a href="http://www.ti.com/tool/LPSTK-CC1352R">LPSTK</a>. It is a <a href="www.thingsquare.com/blog/articles/what-is-subghz-networking/" target="_blank">sub-GHz</a> wireless, battery-powered demonstration platform with sensors: temperature, relative air humidity, air pressure, and ambient light.</p>
+<p>We develop a custom application that periodically samples the sensors. Data is pushed to the server, or stored in the external flash chip if we are offline.</p>
+<h3 id="step-1-define-the-data">Step 1: Define the data <a href="#step-1-define-the-data" class="anchor">🔗</a></h3><p>In the Thingsquare system and its offline mode, data is stored in queues. Each queue has its own data structure.</p>
+<p>We first define the structure of the data. We do this with a C language <code>struct</code> definition.</p>
+<p>In this example, the same format can be used for all of the data we want to store, both battery voltage and relative humidity, so the same queue and struct with a simple <code>float</code> is used for all.</p>
+<p>More complex compositions are of course possible, and having several queues with their respective format.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> queue_data {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> value;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="step-2-data-queue-definition">Step 2: Data queue definition <a href="#step-2-data-queue-definition" class="anchor">🔗</a></h3><p>Next, we define the queue and how much space in external flash we will use. Here we allocate 32 kB for this queue.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define STARTPAGE  0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PAGES      4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>THSQ_XMEM_QUEUE(data_queue,
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">struct</span> queue_data,
+</span></span><span style="display:flex;"><span>                send_queue_callback,
+</span></span><span style="display:flex;"><span>                STARTPAGE, PAGES);
+</span></span></code></pre></div><p>The <code>data_queue</code> is the name for our C variable. The <code>struct queue_data</code> is the data structure we defined above. The <code>send_queue_callback</code> is a C function that we define below. <code>STARTPAGE</code> and <code>PAGES</code> define how much of the flash memory we want to dedicate to this queue.</p>
+<h3 id="step-3-the-code-that-sends-the-data">Step 3: The code that sends the data <a href="#step-3-the-code-that-sends-the-data" class="anchor">🔗</a></h3><p>Next up, we define the <code>send_queue_callback</code> function. This is invoked when a datapoint is pushed to the server and allows us to set the format of the data as sent to the server. In the code below, <code>printfloat()</code> prints a float to a buffer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">enum</span> thsq_err
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">send_queue_callback</span>(<span style="color:#66d9ef">struct</span> thsq_xmem_queue <span style="color:#f92672">*</span>q, <span style="color:#66d9ef">uint32_t</span> timestamp, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>key, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* thsq-queue is ready to send next element from queue */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> queue_data <span style="color:#f92672">*</span>queue_data <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> queue_data <span style="color:#f92672">*</span>)data;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> valuestr[<span style="color:#ae81ff">16</span>];
+</span></span><span style="display:flex;"><span>  printfloat(valuestr, <span style="color:#66d9ef">sizeof</span>(valuestr), queue_data<span style="color:#f92672">-&gt;</span>value);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> thsq_sset_printf_important_timestamp(timestamp, key, <span style="color:#e6db74">&#34;%s&#34;</span>, valuestr);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-4-the-code-that-enqueues-the-data">Step 4: The code that enqueues the data <a href="#step-4-the-code-that-enqueues-the-data" class="anchor">🔗</a></h3><p>To add datapoints to our queue, we use a small helper routine.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enqueue_data</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>variable, <span style="color:#66d9ef">float</span> value)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> queue_data d;
+</span></span><span style="display:flex;"><span>  d.value <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>  thsq_xmem_queue_add(<span style="color:#f92672">&amp;</span>data_queue, variable, <span style="color:#f92672">&amp;</span>d);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This function is called every time we want to push data to the queue.</p>
+<h3 id="step-5-enqueing-the-data">Step 5: Enqueing the data <a href="#step-5-enqueing-the-data" class="anchor">🔗</a></h3><p>When it&rsquo;s time to add data to the queue, we do as the example below for the HDC2010 relative humidity and temperature sensor. Since the sensor returns fixed point scaled results, we scale down to the proper SI unit again and store as float.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>hdc20x0_data_t hdc_result;
+</span></span><span style="display:flex;"><span>hdc20x0_read(<span style="color:#f92672">&amp;</span>hdc_result);
+</span></span><span style="display:flex;"><span>enqueue_data(<span style="color:#e6db74">&#34;rh&#34;</span>, (<span style="color:#66d9ef">float</span>)hdc_result.rh <span style="color:#f92672">/</span> <span style="color:#ae81ff">100.0</span>);
+</span></span><span style="display:flex;"><span>enqueue_data(<span style="color:#e6db74">&#34;t&#34;</span>, (<span style="color:#66d9ef">float</span>)hdc_result.temp <span style="color:#f92672">/</span> <span style="color:#ae81ff">100.0</span>);
+</span></span></code></pre></div><h3 id="step-6-fake-being-offline">Step 6: Fake being offline <a href="#step-6-fake-being-offline" class="anchor">🔗</a></h3><p>To test the offline operation, we need to fake being offline.</p>
+<p>We use the on-board button on the LPSTK device to turn the device from an online to an offline device.</p>
+<p>This is the code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">callback_thsq</span>(<span style="color:#66d9ef">enum</span> thsq_reason r, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>msg, <span style="color:#66d9ef">int</span> num)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(r <span style="color:#f92672">==</span> THSQ_PERIOD) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* read sensors */</span>
+</span></span><span style="display:flex;"><span>    process_poll(<span style="color:#f92672">&amp;</span>sensor_read_process);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(r <span style="color:#f92672">==</span> THSQ_BUTTONACTION) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(num <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) {
+</span></span><span style="display:flex;"><span>      should_be_offline <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>should_be_offline;
+</span></span><span style="display:flex;"><span>      process_poll(<span style="color:#f92672">&amp;</span>offline_scheduler_process);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="trying-it-out">Trying it out <a href="#trying-it-out" class="anchor">🔗</a></h2><p>To try things out, we can now run the setup in offline mode for a few days.</p>
+<p>We use the default Thingsquare web frontend to view the data that the LPSTK generates.</p>
+<p>To test it out, I simply double-click the button and see the LED verification that it is in offline mode. It is then transported to a place that I want to gain some insight into.</p>
+<p>The LPSTK is retrieved a week later. After a second double-click, it goes back online and starts to offload data from the past week to the server. Space in external flash is reclaimed as data point by data point is acknowledged.</p>
+<p>After a while, we can see the data history for the past week using the app or web interface. There are no gaps in the data despite being offline.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/al.png" alt="Light values from an IoT sensor shown in a plot."  />
+</p>
+<p class="markdown-image">
+  <img src="/img/thsq/t.png" alt="Temperature values from an IoT sensor shown in a plot."  />
+</p>
+<p class="markdown-image">
+  <img src="/img/thsq/rh.png" alt="Humidity values from an IoT sensor shown in a plot."  />
+</p></p>
+<p>We&rsquo;ve thusly enabled data collection in a remote location where no coverage was available. It enables a product to be temporarily deployed without setting up the supporting infrastructure.</p>
+<h2 id="your-turn">Your turn <a href="#your-turn" class="anchor">🔗</a></h2><p>Would you like to hear more about how Thingsquare can help your product come alive? Please do contact us, we&rsquo;re looking forward to talking to you. Should you prefer it, feel free to use the <a href="/start/" target="_blank">IoT solution planner</a> to get an automated time and cost estimate.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/electronics">electronics</a>
+            
+                <a href="https://tiliaradix.com/tags/embedded">embedded</a>
+            
+                <a href="https://tiliaradix.com/tags/wireless">wireless</a>
+            
+                <a href="https://tiliaradix.com/tags/thingsquare">thingsquare</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

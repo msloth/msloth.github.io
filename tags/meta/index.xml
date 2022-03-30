@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>meta on Tiliaradix Blog</title>
+    <link>https://tiliaradix.com/tags/meta/</link>
+    <description>Recent content in meta on Tiliaradix Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Nov 2011 02:22:41 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Portfolio</title>
+      <link>https://tiliaradix.com/posts/portfolio/</link>
+      <pubDate>Sun, 06 Nov 2011 02:22:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/portfolio/</guid>
+      <description>Publications 🔗The Politecast Primitive for Low-Power Wireless. ACM Computer Communication Review 2011-April. Marcus Lundén and Adam Dunkels.
+Inspirational Bits - Towards a Shared Understanding of the Digital Material. CHI 2011. Petra Sundström, Alex Taylor, Katja Grufberg, Niklas Wirström, jordi Solsona and Marcus Lundén.
+The LEGA: A Device for Leaving and Finding Tactile Traces. Tangible embedded and Embodied Interaction (TEI) 2011. Jarmo Laaksolahti, Jakob Tholander, Anna Karlsson, Marcus Lundén, Jordi Solsona</description>
+    </item>
+    
+    <item>
+      <title>Firewalls</title>
+      <link>https://tiliaradix.com/posts/firewalls/</link>
+      <pubDate>Sat, 02 Jul 2011 12:39:30 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/firewalls/</guid>
+      <description>Oh, and Facebook is banned in the free-thinking peoples republic of Vietnam. I can of course get around via proxy but&amp;hellip; Well well.</description>
+    </item>
+    
+    <item>
+      <title>Trying out mobile posting</title>
+      <link>https://tiliaradix.com/posts/trying-out-mobile-posting/</link>
+      <pubDate>Wed, 22 Jun 2011 21:58:41 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/trying-out-mobile-posting/</guid>
+      <description>This is just a test post to see if posting via the Iphone Wordpress app works good. Apparently, to enable mobile posting, you have to enable XML-RPC in your wordpress settings.
+This was me working in the sun :).
+This is the starter course we had at the conference today.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://tiliaradix.com/posts/about/</link>
+      <pubDate>Fri, 11 Mar 2011 15:29:08 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/about/</guid>
+      <description>This is the blog that I maintain mostly for myself and my friends and family, to keep something of a diary and letting people know what I&#39;m doing while abroad. A secondary purpose is to share knowledge and experience from stuff that I&#39;ve been doing, mostly electronics and programming. A tertiary purpose is to work as a</description>
+    </item>
+    
+    <item>
+      <title>Hello world!</title>
+      <link>https://tiliaradix.com/posts/hello-world/</link>
+      <pubDate>Thu, 10 Mar 2011 13:48:03 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/hello-world/</guid>
+      <description>First post, about to fix this later. Now just done with the install. Gotta learn how to paste code and stuff with syntax highlighting. Another task, another day.</description>
+    </item>
+    
+  </channel>
+</rss>

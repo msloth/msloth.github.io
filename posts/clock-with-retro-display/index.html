@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Clock with retro display | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="HPDL-1414 clock 🔗After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage HPDL-1414 &quot;smart four-character 16-segment alphanumeric&quot; display and a msp430g2553.
+The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Clock with retro display</h1>
+
+    <div class="tip">
+        <time datetime="2013-06-06 15:05:41 &#43;0000 UTC">Jun 6, 2013</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          619 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h1 id="hpdl-1414-clock">HPDL-1414 clock <a href="#hpdl-1414-clock" class="anchor">🔗</a></h1><p>After having ported Contiki to the Launchpad, I was eager on doing something with it. I built this simple clock with a vintage <em>HPDL-1414</em> &quot;smart four-character 16-segment alphanumeric&quot; display and a <em>msp430g2553</em>.</p>
+<p><p class="markdown-image">
+  <img src="/img/bithappens/HPDL-1414-clock-top.jpg" alt=""  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="/img/bithappens/HPDL-1414-clock-bottom.jpg" alt=""  />
+</p></p>
+<p>The soldered clock from above and bottom. There is a lot of solder flux residue, and lots of small black pieces of fabric from my bag, which lessens the appeal of the white solder mask. Quite nice though. Now I should make one that runs off batteries instead (the HPDL-1414 can run from 3 V but looks a bit more faint then). The eagle-eyed may notice the work-around
+on the button. Turned out the Eagle footprint I made was wrong, connecting the wrong two legs.</p>
+<h2 id="video-bootup">Video bootup <a href="#video-bootup" class="anchor">🔗</a></h2>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/X6pWpAnn9J8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>This video shows the clock booting up and me setting the time.</p>
+<p>The clock is really simple. It's powered over USB, with an AMS1117-3.3 LDO linear voltage regulator that drops the input voltage to a handy 3.3 V for the msp430, but the HPDL-14144 still gets 5 V directly from the USB Vcc, to keep the display output nice and bright. Fortunately, the display is compatible with 3.3 V on the IOs. There is a button used for setting time, and a GPIO used for alarm (eg a vibrator) or as now, a LED that blinks every second.</p>
+<p>The HPDL-1414 display has two pins for choosing what character position to set, and seven pins for choosing what character to set (in ASCII). Supply voltage 5 V but accepts 3 V logic level on the IOs. The characters are 2.85 mm tall red LED magnified with bubble plastic in front of them. This gives them a very characteristic look which is very beautiful.</p>
+<p>Here is the <a href="http://www.avagotech.com/pages/en/led_displays/smart_alphanumeric_displays/parallel_interface/hdlu-1414" target="_blank" rel="noopener">replacement part</a>. Here is some information about them from <a href="http://www.decadecounter.com/vta/tubepage.php?item=33" target="_blank" rel="noopener">vintage display enthusiasts</a>.</p>
+<p>When booting up, the clock goes into demo mode if the button is held for a while, then shows a splash scroller, and finally starts the clock. The clock works just like any other clock. Push the button to set the time, hours first, then minutes. The demo mode scrolls through all the possible characters and shows a nice spinner animation. The clock is running my Contiki 2.6 port to Launchpad, available on <a href="https://github.com/msloth/contiki-launchpad" target="_blank" rel="noopener">Github</a>.</p>
+<p>I'm considering using a vibration motor, similar to those used in mobile phones, to buzz every 20 minutes during work hours as a reminder for the 20-20-20 rule to battle eye fatigue. The rule says that you should every 20 minutes, look at something 20 feet (5-10 meters for us Imperial-units-impaired) away for 20 seconds. This is especially important for anyone working by a computer for long durations at a time.</p>
+<p><p class="markdown-image">
+  <img src="/img/bithappens/HPDL-1414-PCB-bottom.jpg" alt=""  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="/img/bithappens/HPDL-1414-PCB-top.jpg" alt=""  />
+</p></p>
+<p>The PCB is a small outline PCB manufactured at a <a href="http://www.dfrobot.com/index.php?route=product/product&amp;path=135_134&amp;product_id=717#.UaZVKIJQhcw" target="_blank" rel="noopener">Chinese fab</a>. Ten pieces of 5*5 cm 2-sided PCB with white solder mask and black silk screen for ca 20$ including shipping. The boards were of pretty good quality. My only complaint apart from <em>ahem</em> &quot;user error&quot; (forgot to add the silk screen layer when producing the Gerbers) is that for footprints with small separation between tracks, such as the SOIC MCU pads, or the signal and power pads on the USB connector, they removed the solder mask between pads, increasing the risk of solder bridges. But, considering the resulting boards look good, are cheap, relatively fast (3-5 weeks, don't remember), and actually work, I'm very happy. I designed the PCB, and the library parts needed, in Cadsoft Eagle. The boards seen above is a mix of four boards on a 5x5 surface: two clock boards, one CC2500 radio module breakout board, and a ULN2003A breakout board.</p>
+<h2 id="video-demo">Video demo <a href="#video-demo" class="anchor">🔗</a></h2><p>This video shows the clock booting up to demo mode, then continuing to normal boot up.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/H-n53o-2VUA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/contiki">contiki</a>
+            
+                <a href="https://tiliaradix.com/tags/msp430">msp430</a>
+            
+                <a href="https://tiliaradix.com/tags/programming">programming</a>
+            
+                <a href="https://tiliaradix.com/tags/pcb">pcb</a>
+            
+                <a href="https://tiliaradix.com/tags/electronics">electronics</a>
+            
+                <a href="https://tiliaradix.com/tags/builds">builds</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
