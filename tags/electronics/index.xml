@@ -26,7 +26,7 @@ The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
       <guid>https://tiliaradix.com/builds/build-digidev/</guid>
       <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
 The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
-The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), and adjusting the RF path accordingly (RF feedline 51&amp;ndash;58&amp;ndash;66 mil, keepaway 128 mil), the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
     </item>
     
     <item>
@@ -37,8 +37,8 @@ The Result 🔗Using the thinnest PCB stackup the board house offers, and adjust
       <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
       <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
 The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
-The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
-Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+The Result 🔗4 layer stack-up, impedance controlled boards made by JLCPCB.
+Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnetics.</description>
     </item>
     
     <item>
@@ -56,7 +56,10 @@ Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
-      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗I wanted to make a small, user-friendly gateway. It should connect a sub-GHz 6lowpan mesh network (think eg Thread, or Amazon Sidewalk) to the Internet, via Wi-Fi.
+The Challenge 🔗Without the budget for custom RF work, nor space enough to be comfortable, make it work 😄.
+Obviously RF must work and be compliant.
+It must fit in a nice commercial off the shelf (COTS) pre-made enclosure, and provide mechanisms for USB power, status LEDs, button, programming and test points.</description>
     </item>
     
     <item>

@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
 The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
-The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
-Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
+The Result 🔗4 layer stack-up, impedance controlled boards made by JLCPCB.
+Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnetics.">
 <meta name="generator" content="Hugo 0.96.0" />
 
 
@@ -72,7 +72,7 @@ Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
           ·
         </span>
         <span>
-          73 words
+          160 words
         </span>
         <span class="split">
           ·
@@ -88,12 +88,37 @@ Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
 
     <div class="content">
       <h1 id="buildlog-eth1310">Buildlog: eth1310 <a href="#buildlog-eth1310" class="anchor">🔗</a></h1><p><p class="markdown-image">
-  <img src="/img/builds/pcbs/eth1310.jpg" alt="The result."  />
+  <img src="/img/builds/pcbs/eth1310/eth1310.jpg" alt="The result." loading="lazy"  />
 </p></p>
 <h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><p>Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.</p>
 <h2 id="the-challenge">The Challenge <a href="#the-challenge" class="anchor">🔗</a></h2><p>Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.</p>
-<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.</p>
-<h3 id="mechanics-enclosure">Mechanics, enclosure <a href="#mechanics-enclosure" class="anchor">🔗</a></h3><h3 id="schematics">Schematics <a href="#schematics" class="anchor">🔗</a></h3><h3 id="layout">Layout <a href="#layout" class="anchor">🔗</a></h3>
+<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>4 layer stack-up, impedance controlled boards made by JLCPCB.</p>
+<p>Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnetics.</p>
+<p>Radiocontrolli RC1310 RF module, which contains the sub-GHz TI CC1310.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/eth1310/IMG_20190412_131404.jpg" alt="Boards." loading="lazy"  />
+</p>
+<em>Top and bottom sides.</em></p>
+<p>Power comes from USB-C which goes over a low-loss LDO to 3.3V.</p>
+<p>Programming is done over a Tag-connect connector.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/eth1310/IMG_20190415_201526.jpg" alt="Programming." loading="lazy"  />
+</p>
+<em>Programming.</em></p>
+<p>A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/eth1310/unmodulated.png" alt="Unmodulated transmission spectrum view." loading="lazy"  />
+</p>
+<em>Here we see a nice strong signal without spurs, and spot on freq chosen. Measured radiated</em></p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/eth1310/modulated.png" alt="Modulated transmission spectrum view." loading="lazy"  />
+</p>
+<em>Same here, but on modulated signal, 2-GFSK</em></p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/eth1310/IMG_20190415_203035.jpg" alt="Rats nest." loading="lazy"  />
+</p>
+<em>Rats nest. Didn&rsquo;t look nice, so 3D-printed an enclosure I made, inspired by the Cybertruck</em></p>
+
     </div>
 
     

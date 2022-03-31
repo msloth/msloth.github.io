@@ -93,11 +93,11 @@ The answer to this question isn&rsquo;t always what the theoretical models tell 
 <p>The answer to this question isn&rsquo;t always what the theoretical models tell us. We wanted to see for ourselves how much the theory might differ from the real world. So, we took a walk in the neighborhood to test the theory with our <a href="https://www.thingsquare.com/blog/articles/sub-ghz-signal-strength-rssi-coverage/" target="_blank" rel="noopener">sub-GHz signal strength tester</a>.</p>
 <p>Here is where we walked.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/googlemaps.png" alt="Picture of a street"  />
+  <img src="/img/thsq/googlemaps.png" alt="Picture of a street" loading="lazy"  />
 </p></p>
 <p>And here are our results:</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/coveragemap.png" alt="Wireless range coverage map"  />
+  <img src="/img/thsq/coveragemap.png" alt="Wireless range coverage map" loading="lazy"  />
 </p></p>
 <p>The resulting connectivity map.</p>
 <h2 id="wireless-communication-must-be-reliable">Wireless Communication Must be Reliable <a href="#wireless-communication-must-be-reliable" class="anchor">🔗</a></h2><p>Building a wireless product involves more unknowns than just market fit and return on investment. Some are more grounded in physics, but they still affect the economics of a product.</p>
@@ -128,7 +128,7 @@ The answer to this question isn&rsquo;t always what the theoretical models tell 
 <p>In the real world, radio waves are reflected, attenuated, interfered with, and the conditions will be different for each and every device you put out there. Even moving a few centimeters can mean the difference of being heard and not being heard.</p>
 <p>The theoretical models does not account for these real-world effects.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/rangetool.png" alt="The range tool gave estimates of 1.6 to 2.5 km range."  />
+  <img src="/img/thsq/rangetool.png" alt="The range tool gave estimates of 1.6 to 2.5 km range." loading="lazy"  />
 </p></p>
 <p>The theoretical range estimator tool gave estimates of 1.6 to 2.5 km range.</p>
 <h2 id="when-the-theory-doesnt-match-reality">When the Theory doesn&rsquo;t match Reality <a href="#when-the-theory-doesnt-match-reality" class="anchor">🔗</a></h2><p>While Friis equation gives us an ok ballpark starting point, it&rsquo;s impossible to apply it to the devices you deploy in the real world.</p>
@@ -140,12 +140,12 @@ The answer to this question isn&rsquo;t always what the theoretical models tell 
 <p>This information is used automatically to form <a href="https://www.thingsquare.com/blog/articles/why-iot-mesh/" target="_blank" rel="noopener">self-healing, efficient mesh networks</a> where no device is left stranded and the network is efficiently utilized.</p>
 <h2 id="lets-go-for-a-walk">Let&rsquo;s go for a Walk! <a href="#lets-go-for-a-walk" class="anchor">🔗</a></h2><p>To test the theory, we took a walk with a piece of hardware in hand.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/googlemaps.png" alt="Picture of a map"  />
+  <img src="/img/thsq/googlemaps.png" alt="Picture of a map" loading="lazy"  />
 </p></p>
 <p>Where we went.</p>
 <p>The hardware we use is the <a href="https://www.thingsquare.com/blog/articles/lpstk-iot-projects/" target="_blank" rel="noopener">Texas Instruments LPSTK development board</a>. It is powered by two AAA-batteries and we use the included <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">whip antenna</a>.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/lpstk.png" alt="TI LPSTK device"  />
+  <img src="/img/thsq/lpstk.png" alt="TI LPSTK device" loading="lazy"  />
 </p></p>
 <p>We used the TI LPSTK hardware as the hand held tester device.</p>
 <p>The LPSTK was connected to an access point placed behind a window at the third floor with a view across the roofs of adjacent buildings. We used the <a href="https://www.thingsquare.com/blog/articles/what-is-subghz-networking/" target="_blank" rel="noopener">868 MHz frequency band</a>.</p>
@@ -156,12 +156,12 @@ The answer to this question isn&rsquo;t always what the theoretical models tell 
 <p>The maximum range we achieved was just below 850 meters – less than half of what the theory predicted.</p>
 <p>The location with maximum range had an almost clear line-of-sight to the access point, but still had a concrete overpass in the way. We also walked across the street to see what would happen: the connection was completely cut off. There was no connectivity at all.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/viadukt.png" alt="The maximum range was 850 meters achieved at a location close to line of sight."  />
+  <img src="/img/thsq/viadukt.png" alt="The maximum range was 850 meters achieved at a location close to line of sight." loading="lazy"  />
 </p></p>
 <p>The location of maximum range, 850 meters. The access point is circled red, on the third floor of the tall building.</p>
 <p>This also tells us that the range by itself is not always a meaningful metric. When we walked across the street, we didn&rsquo;t change the distance much, but it drastically impacted the connectivity.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/rangetool-thsq.jpg" alt="Signal strength varies a lot even by moving just a little."  />
+  <img src="/img/thsq/rangetool-thsq.jpg" alt="Signal strength varies a lot even by moving just a little." loading="lazy"  />
 </p></p>
 <p>Signal strength varies a lot even by moving just a little.</p>
 <p>Another observation is the extent of how the signal is reflected by buildings. Thanks to this phenomena, connectivity was found in surprising places. This is something that is very hard to express in theoretical tools such as the range estimator.</p>

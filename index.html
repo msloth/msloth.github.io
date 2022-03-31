@@ -80,6 +80,24 @@
         
         <section class="item">
           <div>
+            <h1 class="title"><a href='/builds/build-barnfind/'>Build: Barnfind (in progress)</a></h1>
+            <div class ="date">
+                <time datetime="2022-03-31 00:00:00 &#43;0000 UTC">Mar 31, 2022</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">Buildlog: Barnfind (in progress) 🔗Sneak peek 🔗Meta 🔗It’s not unusual for various barn finds to pop into existance. The term more or less signifies something rare, forgotten in time and found way later. Often a rural farmer or excentric collector. While tanks aren’t that usual, more common is it to find old cars.
+This diorama is a play on that theme.
+Here, a farmer had a German WW2 tank in his barn, forgotten in time.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
             <h1 class="title"><a href='/builds/build-subwooferbase/'>Build: Subwoofer base</a></h1>
             <div class ="date">
                 <time datetime="2022-03-30 00:00:00 &#43;0000 UTC">Mar 30, 2022</time>  
@@ -87,8 +105,8 @@
           </div>
 
           
-              <div class="summary">Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
-Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+              <div class="summary">Buildlog: Subwoofer base 🔗Sneak peek 🔗It stands.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure so the big badabooms doesn’t make for disturbance calls.
 Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won’t hit it.</div>
           
 
@@ -138,39 +156,6 @@ Brief synopsis courtesy of Wikipedia:
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/builds/build-barnfind/'>Build: Barnfind</a></h1>
-            <div class ="date">
-                <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">Buildlog: Barnfind 🔗Sneak peek 🔗Meta 🔗Tiger II 🔗3D print 🔗Cover 🔗Paint 🔗Base 🔗The base is a rectangular piece of plain MDF, 18 mm thick. It is sealed by a couple of layers of PVA glue (wood glue). Then painted black on the sides, and rubber feet on the bottom.
-Barn 🔗House frame 🔗Roof 🔗Roof 🔗</div>
-          
-
-        </section>
-    
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/builds/build-big-red-button/'>Build: Big Red Button</a></h1>
-            <div class ="date">
-                <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</div>
-          
-
-        </section>
-    
-        
-        
-        <section class="item">
-          <div>
             <h1 class="title"><a href='/builds/build-brewtag/'>Build: Brewtag</a></h1>
             <div class ="date">
                 <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>  
@@ -198,7 +183,7 @@ The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</div>
           
               <div class="summary">Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
 The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
-The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</div>
+The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), and adjusting the RF path accordingly (RF feedline 51–58–66 mil, keepaway 128 mil), the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</div>
           
 
         </section>
@@ -216,8 +201,8 @@ The Result 🔗Using the thinnest PCB stackup the board house offers, and adjust
           
               <div class="summary">Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
 The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
-The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
-Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</div>
+The Result 🔗4 layer stack-up, impedance controlled boards made by JLCPCB.
+Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnetics.</div>
           
 
         </section>
@@ -249,7 +234,10 @@ Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</div>
           </div>
 
           
-              <div class="summary">Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</div>
+              <div class="summary">Buildlog: wifi1310 🔗The Goal 🔗I wanted to make a small, user-friendly gateway. It should connect a sub-GHz 6lowpan mesh network (think eg Thread, or Amazon Sidewalk) to the Internet, via Wi-Fi.
+The Challenge 🔗Without the budget for custom RF work, nor space enough to be comfortable, make it work 😄.
+Obviously RF must work and be compliant.
+It must fit in a nice commercial off the shelf (COTS) pre-made enclosure, and provide mechanisms for USB power, status LEDs, button, programming and test points.</div>
           
 
         </section>
@@ -344,6 +332,25 @@ Here are the top 4 reasons why we do it, and why you should do it too:
           
               <div class="summary">(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
 We recently got a new tool at Thingsquare, which helps us ensure that we have extremely low power consumption of our software: the Otii Arc current and voltage measurement box, by Qoitech. This little box quickly lets us – a bunch of software persons – measure and understand the power consumption of the software that we run on our low-power hardware.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/how-to-design-thingsquare-compatible-hardware/'>How to Design Thingsquare-Compatible Hardware</a></h1>
+            <div class ="date">
+                <time datetime="2017-10-17 00:00:00 &#43;0000 UTC">Oct 17, 2017</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.
+Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.
+Behind every successful product is a successful hardware design.</div>
           
 
         </section>

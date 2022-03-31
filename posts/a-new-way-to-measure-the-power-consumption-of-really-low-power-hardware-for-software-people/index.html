@@ -90,21 +90,21 @@ We recently got a new tool at Thingsquare, which helps us ensure that we have ex
 <p>Today we use this to build an wireless dimmer and make it extremely low-power: we want to run it on one single coin-cell battery.</p>
 <p>(We have no affiliation with the creators of the Otii Arc, we just happened to stumble upon their product and fell in love with it!)</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/slider-boom.gif" alt="slider"  />
+  <img src="/img/thsq/slider-boom.gif" alt="slider" loading="lazy"  />
 </p></p>
 <h2 id="measuring-power-consumption-ndash-old-vs-new">Measuring Power Consumption – Old vs New <a href="#measuring-power-consumption-ndash-old-vs-new" class="anchor">🔗</a></h2><p>The lifetime of an IoT device is determined by its power consumption, but measuring power consumption was always tricky.</p>
 <h4 id="old">Old <a href="#old" class="anchor">🔗</a></h4><p><p class="markdown-image">
-  <img src="/img/thsq/dmm.gif" alt="DMM"  />
+  <img src="/img/thsq/dmm.gif" alt="DMM" loading="lazy"  />
 </p></p>
 <h4 id="new">New <a href="#new" class="anchor">🔗</a></h4><p><p class="markdown-image">
-  <img src="/img/thsq/new.gif" alt="NEW"  />
+  <img src="/img/thsq/new.gif" alt="NEW" loading="lazy"  />
 </p></p>
 <p>The traditional way to measure power consumption of a device is to connect multimeters, oscilloscopes, or specialized power analyzers to the hardware that is to be tested. These tools are slow, difficult to set up, and make it difficult to measure the power consumption for more than a few seconds. Also, they typically require a fair amount of experience with electronics and electrical engineering.</p>
 <p>The new way, enabled by tools like the Otii power box, consists of plugging in a few cables and immediately seeing the results on the screen – simple!</p>
 <h2 id="an-ultra-low-power-wireless-dimmer">An Ultra-Low-Power Wireless Dimmer <a href="#an-ultra-low-power-wireless-dimmer" class="anchor">🔗</a></h2><p>To test out our new equipment, we build a wireless dimmer for our industrial lamps in the office.</p>
 <p>Our aim is to make the wireless dimmer run with an extremely low power consumption. We would like to be able to run it off of a coin-cell battery.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/slider.jpg" alt="NEW"  />
+  <img src="/img/thsq/slider.jpg" alt="NEW" loading="lazy"  />
 </p></p>
 <p>We build our dimmer with a Launchpad board, one slider potentiometer, and one coin-cell battery. We load the Launchpad board with a custom application, shown below, that periodically reads the slider and sends a signal to lights in the same wireless network that tells them to dim to the value given by the slider.</p>
 <p>To measure the power consumption of the setup, we simply disconnect the coin-cell battery and connect the power pins to the Otii power box instead.</p>
@@ -113,7 +113,7 @@ We recently got a new tool at Thingsquare, which helps us ensure that we have ex
 <p>We program the device with our custom program, and let it run for a while to allow it to settle with the wireless network and go into its most low-power mode.</p>
 <p>We then let it run for a while to get a good, representative average of its power consumption.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/steady-state.png" alt=""  />
+  <img src="/img/thsq/steady-state.png" alt="" loading="lazy"  />
 </p></p>
 <p>Measuring the steady-state power consumption of the hardware. This is the cost of simply existing and will always be there. This mainly consists of sleep currents for the System-on-Chip (SoC) and peripherals and the slider. We see an average current of around 7.6 uA.</p>
 <h3 id="the-software-challenge-the-power-cost-of-best-effort-vs-reliable-reporting">The Software Challenge: the Power Cost of Best-effort vs Reliable Reporting <a href="#the-software-challenge-the-power-cost-of-best-effort-vs-reliable-reporting" class="anchor">🔗</a></h3><p>We use the Otii power box to investigate the difference between two versions of the code with one very small change: in one version of the code, the application sends the value of the slider without making sure that the value was received. In the other version, the system makes sure that the value is received.</p>
@@ -124,10 +124,10 @@ We recently got a new tool at Thingsquare, which helps us ensure that we have ex
 </span></span></code></pre></div><h4 id="best-effort">Best-effort <a href="#best-effort" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>thsq_sset_printf(<span style="color:#e6db74">&#34;slider&#34;</span>, <span style="color:#e6db74">&#34;%d&#34;</span>, value);
 </span></span><span style="display:flex;"><span>thsq_push();
 </span></span></code></pre></div><h4 id="reliable-1">Reliable <a href="#reliable-1" class="anchor">🔗</a></h4><p><p class="markdown-image">
-  <img src="/img/thsq/important.png" alt=""  />
+  <img src="/img/thsq/important.png" alt="" loading="lazy"  />
 </p></p>
 <h4 id="best-effort-1">Best-effort <a href="#best-effort-1" class="anchor">🔗</a></h4><p><p class="markdown-image">
-  <img src="/img/thsq/best-effort.png" alt=""  />
+  <img src="/img/thsq/best-effort.png" alt="" loading="lazy"  />
 </p></p>
 <p><strong>The best-effort case uses less power than the reliable case.</strong></p>
 <p>We can now quantify the effect of our code: we see that the cost of the transmission in the best-effort case consumes about 0.71 uWh whereas the reliable version consumes some 2.74 uWh.</p>

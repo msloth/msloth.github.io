@@ -92,7 +92,7 @@ IoT devices are designed to be small, have a long wireless range, and have a lon
 <p>The antenna is crucial: it may make or break the communication with your devices. A good antenna will give you a good wireless range. A bad antenna may cause your devices to not even be reachable in the field.</p>
 <p>IoT devices are designed to be small, have a long wireless range, and have a <a href="https://www.thingsquare.com/blog/articles/sub-ghz-signal-strength-rssi-coverage/" target="_blank" rel="noopener">long battery life</a>. All this affects the antenna design.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/mario-caruso-0C9VmZUqcT8-unsplash.jpg" alt="Antennas in silhouette"  />
+  <img src="/img/thsq/mario-caruso-0C9VmZUqcT8-unsplash.jpg" alt="Antennas in silhouette" loading="lazy"  />
 </p>
 Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Mario Caruso</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a>.</p>
 <p>We have previously looked at <a href="https://www.thingsquare.com/blog/articles/sub-ghz-signal-strength-rssi-coverage/" target="_blank" rel="noopener">where to place devices to optimize signal strength</a> and a <a href="https://www.thingsquare.com/blog/articles/sub-ghz-range-reality-check/" target="_blank" rel="noopener">reality check</a> on the theory.</p>
@@ -108,14 +108,14 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>Two very competitive PCB antennas are the PCB helix antenna, for <a href="https://www.thingsquare.com/blog/articles/what-is-subghz-networking/" target="_blank" rel="noopener">sub-GHz devices</a>, and the PIFA antenna, for 2.4 GHz devices. Both very compact, easy to implement, and perform well.</p>
 <p>The drawback of a PCB antenna is that it uses space on the PCB. If the device is intended to be small, this may be a significant problem.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/antenna-pcb.jpg" alt="PCB antenna example"  />
+  <img src="/img/thsq/antenna-pcb.jpg" alt="PCB antenna example" loading="lazy"  />
 </p></p>
 <p>Example, a meandered sub-GHz PCB antenna which is compact and performs well.</p>
 <h3 id="chip-antennas">Chip Antennas <a href="#chip-antennas" class="anchor">🔗</a></h3><p><strong>Chip antennas</strong> are <strong>small electric components</strong> that are placed on the PCB with all the other components. They are compact and can perform well – often better than a PCB antenna.</p>
 <p>But many chip antennas come with design restrictions that may make them use more space than they would seem at first glance. For example, the chip antenna may require that surrounding components are placed with a certain distance from each other. And the chip antenna may need a large ground plane, which will also use space on the PCB</p>
 <p>Chip antennas also cost more than PCB antennas. There is both the cost of component itself and the costs associated with component sourcing, component stocking etc.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/antenna-chip.png" alt="Chip antenna example"  />
+  <img src="/img/thsq/antenna-chip.png" alt="Chip antenna example" loading="lazy"  />
 </p></p>
 <p>Example chip antenna.</p>
 <h3 id="whip-antennas">Whip Antennas <a href="#whip-antennas" class="anchor">🔗</a></h3><p>Whip antennas are the type of antennas that stick out into the air from the device. They could be as simple as a bare wire soldered onto the PCB. Or could have the plastic look that are common on WiFi routers.</p>
@@ -124,11 +124,11 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>Consider a bare wire antenna soldered to a PCB, sticking out into the air. That&rsquo;s the conductor. The return path is often the ground plane on the PCB.</p>
 <p>Now twist that bare wire around in circles, and you get a helix whip antenna. Put it in plastic, add a screw-on connector, and you have the typical antenna found on WiFi routers.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/antenna-whip.png" alt="Whip antenna example"  />
+  <img src="/img/thsq/antenna-whip.png" alt="Whip antenna example" loading="lazy"  />
 </p></p>
 <p>Example whip antenna.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/helical_antennas_linx_tech.jpg" alt="Whip antenna internals"  />
+  <img src="/img/thsq/helical_antennas_linx_tech.jpg" alt="Whip antenna internals" loading="lazy"  />
 </p></p>
 <p>Whip antennas are often helical antennas in a plastic shell. Here we see two made for different bands.</p>
 <h3 id="other-kinds-of-antennas">Other Kinds of Antennas <a href="#other-kinds-of-antennas" class="anchor">🔗</a></h3><p>There is a <a href="https://en.wikipedia.org/wiki/Antenna_types" target="_blank" rel="noopener">wide range of different antenna types</a> that are designed for a whole range of types of communication. But for the 1-2 GHz frequency range, the one used in IoT devices, the antennas above are the most common.</p>
@@ -145,7 +145,7 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>Since the look of the antenna very rarely tell what band the antenna is made for, this is something that must be learned from the antenna datasheet.</p>
 <p>Meaning, antennas are not interchangeable and you must know what band you&rsquo;ll be using, and that the antenna is intended for that band.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/tuning.png" alt="Antenna is tuned for another band."  />
+  <img src="/img/thsq/tuning.png" alt="Antenna is tuned for another band." loading="lazy"  />
 </p></p>
 <p>Good tuning for the 915 MHz band, but not for 863 MHz. <a href="http://www.scielo.br/scielo.php?script=sci_arttext&amp;pid=S2179-10742017000400922" target="_blank" rel="noopener">Source.</a></p>
 <h3 id="problem-2-it-is-designed-for-another-device">Problem 2: It is Designed for Another Device <a href="#problem-2-it-is-designed-for-another-device" class="anchor">🔗</a></h3><p>Every antenna have requirements on the device to which they are attached.</p>
@@ -154,7 +154,7 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>Here comes the tricky part. Antennas can be come with or without the counterpoise, called monopole and dipole respectively. With whip antennas, when a counterpoise is included (that is, a dipole antenna) it is usually a metal pipe with a radiator on top. When a monopole antenna is used, the product must provide one, for example by leveraging a metal enclosure.</p>
 <p>With chip antennas, there must often be a significant ground plane. This makes claims of low space requirements more complex than the footprint of the chip itself - you also need to take the counterpoise board space into account.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/groundplane.png" alt="Antenna groundplane."  />
+  <img src="/img/thsq/groundplane.png" alt="Antenna groundplane." loading="lazy"  />
 </p></p>
 <p>Antennas may have requirements such as a <strong>large ground plane</strong>. Make sure you pay close attention to the datasheet and see that it matches your product requirements.</p>
 <p>Another complexity is the characteristic impedance of the antenna. Most products and antennas in this space use a de facto standardized 50 ohm impedance, but specialized products may use 75 or 100 ohm.</p>
@@ -164,7 +164,7 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>Antennas do typically not radiate in a sphere-like pattern, uniform in every direction. One such ideal antenna is said to be isotropic. Real antennas will divert some of that energy into specific directions, depending on how it is constructed. The resulting power pattern may look like a donut.</p>
 <p>The metric of such directionality gain is measured in dBi, ie how much it would differ from an ideal isotropic antenna.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/radpat.png" alt="Antenna radiation pattern example."  />
+  <img src="/img/thsq/radpat.png" alt="Antenna radiation pattern example." loading="lazy"  />
 </p></p>
 <p>Example radiation pattern from a PCB antenna. The pattern is <strong>omnidirectional</strong> - close to isotropic in two dimensions and anisotropic in the third.</p>
 <p>Some regulation, for example <strong>FCC 15.247</strong> for the 915 MHz band, allow average output power, ie some directionality is ok. Strong directionality on the other hand, ie a very anisotropic antenna pattern, requires you to lower the transmission power.</p>
@@ -174,7 +174,7 @@ Photo by <a href="https://unsplash.com/@giggiulena?utm_source=unsplash&amp;utm_m
 <p>The regulatory body in the USA, FCC, does not want the end user being able to replace the antenna themselves. The end user might use an antenna that is unsuitable for the product, throwing the tuning out of match and thus end up with a very noisy transmitter that pollutes the spectrum.</p>
 <p>Thus, the product designer must use nonstandard, proprietary, or permanent connection to the antenna. The regular reverse-polarity connector is sufficient though.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/sma-rpsma.jpg" alt="Antenna SMA connectors."  />
+  <img src="/img/thsq/sma-rpsma.jpg" alt="Antenna SMA connectors." loading="lazy"  />
 </p></p>
 <p>A selection of antenna connectors. These are the kind that most whip antennas use.</p>
 <h2 id="conclusion">Conclusion <a href="#conclusion" class="anchor">🔗</a></h2><p>Every IoT device needs an antenna.</p>

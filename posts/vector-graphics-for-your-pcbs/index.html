@@ -90,7 +90,7 @@ I&#39;ve long wanted to make my PCBs more beautiful, taking the few &quot;colors
 <h1 id="why">Why <a href="#why" class="anchor">🔗</a></h1><p>Technology can even in its most raw and bare form certainly be beautiful. The bottom of a motherboard, with long, parallell, impedance-matched traces from PCI-connectors is a good example. A large BGA is another, with traces extending in every direction.</p>
 <p>I've long wanted to make my PCBs more beautiful, taking the few &quot;colors&quot; into full use. By chosing carefully where you have soldermask, no soldermask, silkscreen, copper, etc, you actually get a few dimensions to play with.</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/jmne-pcb.jpg" alt="Pic of Finished PCB"  />
+  <img src="/img/bithappens/jmne-pcb.jpg" alt="Pic of Finished PCB" loading="lazy"  />
 </p></p>
 <p>I use Cadsoft Eagle for my designs, not because it's particularly stellar, but because it's one of the least bad alternatives, it's free, files are in XML-format, but perhaps most importantly, because I used it in school and had to climb that steep learning curve. Eagle has crappy support for using external files or graphics. There are plugins that you can download that imports 2-bit bmp's, that creates a small rectangle fill for each pixel. Not very user friendly, not very efficient, not very nice. I want vector graphics with nice bezier curves and scalability properties. There is a plugin (an .ulp) for that, but when I tried it, it didn't work although I was closely following the instructions. And, I couldn't understand why, because the .ulp uses Eagle-specific code that I didn't want to sink time into learning. To be fair, I didn't look more than a few seconds on the code.</p>
 <h1 id="svg-parser-tool">SVG parser tool <a href="#svg-parser-tool" class="anchor">🔗</a></h1><p>So I wrote a new tool for myself. It parses a SVG vector graphics file (from eg Inkscape) and creates a script that when run in Eagle creates a set of polygons at any given size and rotation and so on.</p>
@@ -98,33 +98,33 @@ I&#39;ve long wanted to make my PCBs more beautiful, taking the few &quot;colors
 <h1 id="how-to">How to <a href="#how-to" class="anchor">🔗</a></h1><p>Here's an guide through images on how to use it.</p>
 <p>First, start with a picture. I like William Gibson so here's Johnny Mnemonic.</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/jmne-original.jpg" alt="Pic of Original movie screenshot"  />
+  <img src="/img/bithappens/jmne-original.jpg" alt="Pic of Original movie screenshot" loading="lazy"  />
 </p></p>
 <p>Then, I mirrored it (cause I wanted to) and made it black and white.</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/jmne-bw.png" alt="Pic of Johnny black and white"  />
+  <img src="/img/bithappens/jmne-bw.png" alt="Pic of Johnny black and white" loading="lazy"  />
 </p>
 <p class="markdown-image">
-  <img src="/img/bithappens/jmne-inv.png" alt="Pic of Johnny inverted"  />
+  <img src="/img/bithappens/jmne-inv.png" alt="Pic of Johnny inverted" loading="lazy"  />
 </p></p>
 <p>Then, I worked it up really good with Inkscape to get a vector graphics image. Save it as a &quot;plain SVG&quot; (in Inkscape).</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/jmne-inv.svg" alt="Pic of Johnny vector graphic"  />
+  <img src="/img/bithappens/jmne-inv.svg" alt="Pic of Johnny vector graphic" loading="lazy"  />
 </p></p>
 <p>Next, treat it according to the instructions you find in the README in the repo (removing curves etc).</p>
 <p>Run the tool over it. Now we have a Eagle script that will create the polygons needed.</p>
 <p>Start Eagle. Open your project. Switch to board design view. Run the script we just created menues -&gt; &quot;Run user script&hellip;&quot;.</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/eagle-script.png" alt="Pic of Run script in Eagle"  />
+  <img src="/img/bithappens/eagle-script.png" alt="Pic of Run script in Eagle" loading="lazy"  />
 </p></p>
 <p>This creates polygons from the image. These can be put on the silk screen layer, or as I did, put it on the Top copper layer. To make the metal show, we also have an exact copy of the polygon but on the tStop layer. Chosing layers etc are done when you run the tool, not in Eagle.</p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/eagle-copper.png" alt="Pic of Johnny made of copper now"  />
+  <img src="/img/bithappens/eagle-copper.png" alt="Pic of Johnny made of copper now" loading="lazy"  />
 </p></p>
 <p>Create the Gerbers, just as you would normally do. Verify them using some Gerber viewer. Send it to e.g. OSHpark or Seeedstudio.</p>
 <p><strong>Enjoy the results.</strong></p>
 <p><p class="markdown-image">
-  <img src="/img/bithappens/jmne-pcb.jpg" alt="Pic of Finished PCB"  />
+  <img src="/img/bithappens/jmne-pcb.jpg" alt="Pic of Finished PCB" loading="lazy"  />
 </p></p>
 
     </div>

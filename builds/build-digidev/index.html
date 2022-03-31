@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
 The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
-The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.">
+The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), and adjusting the RF path accordingly (RF feedline 51&ndash;58&ndash;66 mil, keepaway 128 mil), the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.">
 <meta name="generator" content="Hugo 0.96.0" />
 
 
@@ -71,13 +71,13 @@ The Result 🔗Using the thinnest PCB stackup the board house offers, and adjust
           ·
         </span>
         <span>
-          75 words
+          233 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          1 minute read
+          2 minute read
         </span>
     </div>
 
@@ -87,12 +87,30 @@ The Result 🔗Using the thinnest PCB stackup the board house offers, and adjust
 
     <div class="content">
       <h1 id="buildlog-digidev">Buildlog: DigiDev <a href="#buildlog-digidev" class="anchor">🔗</a></h1><p><p class="markdown-image">
-  <img src="/img/builds/pcbs/digidev.jpg" alt="The result."  />
+  <img src="/img/builds/pcbs/digidev/digidev.jpg" alt="The result." loading="lazy"  />
 </p></p>
 <h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><p>Design a board using inexpensive 2-layer design.</p>
 <h2 id="the-challenge">The Challenge <a href="#the-challenge" class="anchor">🔗</a></h2><p>2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.</p>
-<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</p>
-<h3 id="mechanics-enclosure">Mechanics, enclosure <a href="#mechanics-enclosure" class="anchor">🔗</a></h3><h3 id="schematics">Schematics <a href="#schematics" class="anchor">🔗</a></h3><h3 id="layout">Layout <a href="#layout" class="anchor">🔗</a></h3>
+<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>Using the thinnest PCB stackup the board house offers (0.8mm), and adjusting the RF path accordingly (RF feedline 51&ndash;58&ndash;66 mil, keepaway 128 mil), the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</p>
+<p>The top layer contains components and signals, including 3.3V. The bottom layer is mostly GND as much as possible.</p>
+<p>The antenna is a PCB monopole antenna, TI design as on the cc1310 Launchpad. I shortened the antenna to the single-band version, yet leaved a little for tuning purposes.</p>
+<p>Power comes either from USB (which goes over a low-loss LDO to 3.3V) or coin cell battery. It can use either,</p>
+<ul>
+<li>cr2477 (900&ndash;1000 mAh) but are hard to find in stores (eg no in Kjell, CO)</li>
+<li>cr2450 (500&ndash;600 mAh), can be bought in stores</li>
+</ul>
+<p>The battery input is polarity protected via a PMOS transistor</p>
+<p>Programming is done over a Tag-connect connector.</p>
+<p>First revision had a silly mistake where GND and power was switched in schematics on the RF module, but fixed to the second.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/digidev/unmodulated.png" alt="Unmodulated transmission spectrum view." loading="lazy"  />
+</p>
+<em>Here we see a nice strong signal without spurs, and spot on freq chosen. Measured radiated</em></p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/digidev/modulated.png" alt="Modulated transmission spectrum view." loading="lazy"  />
+</p>
+<em>Same here, but on modulated signal, 2-GFSK</em></p>
+
     </div>
 
     

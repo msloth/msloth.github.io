@@ -13,18 +13,22 @@
       <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tiliaradix.com/builds/build-subwooferbase/</guid>
-      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
-Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗It stands.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure so the big badabooms doesn&amp;rsquo;t make for disturbance calls.
 Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won&amp;rsquo;t hit it.</description>
     </item>
     
     <item>
       <title>Build: Big Red Button</title>
       <link>https://tiliaradix.com/builds/build-big-red-button/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
-      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗The Big Red Button is a product from Sparkfun that evokes memories of arcade games.
+With an appealing dome and satisfying loud click, you cannot not click the button. But it lacks an equally appealing enclosure.
+Let&amp;rsquo;s build one out of concrete.
+For this project, I used
+ 1 Texas Instruments Sensortag 1 Adafruit Big Red Button 1 RGB LED Prototyping cables Concrete Various things for concrete mold  Why 🔗Why not?</description>
     </item>
     
   </channel>

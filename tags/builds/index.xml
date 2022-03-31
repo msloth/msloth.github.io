@@ -6,15 +6,26 @@
     <description>Recent content in builds on Tiliaradix Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/builds/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/builds/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build: Barnfind (in progress)</title>
+      <link>https://tiliaradix.com/builds/build-barnfind/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-barnfind/</guid>
+      <description>Buildlog: Barnfind (in progress) 🔗Sneak peek 🔗Meta 🔗It&amp;rsquo;s not unusual for various barn finds to pop into existance. The term more or less signifies something rare, forgotten in time and found way later. Often a rural farmer or excentric collector. While tanks aren&amp;rsquo;t that usual, more common is it to find old cars.
+This diorama is a play on that theme.
+Here, a farmer had a German WW2 tank in his barn, forgotten in time.</description>
+    </item>
+    
     <item>
       <title>Build: Subwoofer base</title>
       <link>https://tiliaradix.com/builds/build-subwooferbase/</link>
       <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tiliaradix.com/builds/build-subwooferbase/</guid>
-      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗The thing upside down, painted.
-Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure.
+      <description>Buildlog: Subwoofer base 🔗Sneak peek 🔗It stands.
+Why 🔗We recently bought a soundbar system for our TV. The system includes a subwoofer. Not great, not terrible, but enough to potentially disturb neighbors. This calls for some kind of stand to separate the subwoofer-structure from the house-structure so the big badabooms doesn&amp;rsquo;t make for disturbance calls.
 Also, the sides are dressed in a fabric mesh, and I want to raise it from the floor enough so that the vacuum cleaner won&amp;rsquo;t hit it.</description>
     </item>
     
@@ -45,25 +56,6 @@ Brief synopsis courtesy of Wikipedia:
     </item>
     
     <item>
-      <title>Build: Barnfind</title>
-      <link>https://tiliaradix.com/builds/build-barnfind/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiliaradix.com/builds/build-barnfind/</guid>
-      <description>Buildlog: Barnfind 🔗Sneak peek 🔗Meta 🔗Tiger II 🔗3D print 🔗Cover 🔗Paint 🔗Base 🔗The base is a rectangular piece of plain MDF, 18 mm thick. It is sealed by a couple of layers of PVA glue (wood glue). Then painted black on the sides, and rubber feet on the bottom.
-Barn 🔗House frame 🔗Roof 🔗Roof 🔗</description>
-    </item>
-    
-    <item>
-      <title>Build: Big Red Button</title>
-      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
-      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗Why 🔗Red Button 🔗Concrete 🔗Result 🔗</description>
-    </item>
-    
-    <item>
       <title>Build: Brewtag</title>
       <link>https://tiliaradix.com/builds/build-brewtag/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
@@ -82,7 +74,7 @@ The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
       <guid>https://tiliaradix.com/builds/build-digidev/</guid>
       <description>Buildlog: DigiDev 🔗The Goal 🔗Design a board using inexpensive 2-layer design.
 The Challenge 🔗2-layer designs present challenges with RF compared to 4-layer designs, since the larger distance from signal layer to ground plane affects the RF negatively.
-The Result 🔗Using the thinnest PCB stackup the board house offers, and adjusting the RF path accordingly, the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
+The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), and adjusting the RF path accordingly (RF feedline 51&amp;ndash;58&amp;ndash;66 mil, keepaway 128 mil), the board has excellent RF performance while being a more cost efficient alternative to 4-layer designs.</description>
     </item>
     
     <item>
@@ -93,8 +85,8 @@ The Result 🔗Using the thinnest PCB stackup the board house offers, and adjust
       <guid>https://tiliaradix.com/builds/build-eth1310/</guid>
       <description>Buildlog: eth1310 🔗The Goal 🔗Design a sub-GHz to Ethernet gateway that is cost efficient. Minimize size while still being able to solder by hand.
 The Challenge 🔗Ethernet and the CC1310 sub-GHz both present EMI challenges if not properly handled. RF and oscillator components should be as small as possible.
-The Result 🔗A 4 by 10 cm board with excellent RF performance, power from USB-C, and no EMI issues.
-Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+The Result 🔗4 layer stack-up, impedance controlled boards made by JLCPCB.
+Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnetics.</description>
     </item>
     
     <item>
@@ -112,7 +104,23 @@ Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tiliaradix.com/builds/build-wifi1310/</guid>
-      <description>Buildlog: wifi1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+      <description>Buildlog: wifi1310 🔗The Goal 🔗I wanted to make a small, user-friendly gateway. It should connect a sub-GHz 6lowpan mesh network (think eg Thread, or Amazon Sidewalk) to the Internet, via Wi-Fi.
+The Challenge 🔗Without the budget for custom RF work, nor space enough to be comfortable, make it work 😄.
+Obviously RF must work and be compliant.
+It must fit in a nice commercial off the shelf (COTS) pre-made enclosure, and provide mechanisms for USB power, status LEDs, button, programming and test points.</description>
+    </item>
+    
+    <item>
+      <title>Build: Big Red Button</title>
+      <link>https://tiliaradix.com/builds/build-big-red-button/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-big-red-button/</guid>
+      <description>Buildlog: Big Red Button 🔗Sneak peek 🔗Meta 🔗The Big Red Button is a product from Sparkfun that evokes memories of arcade games.
+With an appealing dome and satisfying loud click, you cannot not click the button. But it lacks an equally appealing enclosure.
+Let&amp;rsquo;s build one out of concrete.
+For this project, I used
+ 1 Texas Instruments Sensortag 1 Adafruit Big Red Button 1 RGB LED Prototyping cables Concrete Various things for concrete mold  Why 🔗Why not?</description>
     </item>
     
     <item>
@@ -148,12 +156,14 @@ The soldered clock from above and bottom. There is a lot of solder flux residue,
     </item>
     
     <item>
-      <title>New HTPC with NES</title>
-      <link>https://tiliaradix.com/posts/new-htpc-with-nes/</link>
+      <title>Build: HTPC in NES enclosure</title>
+      <link>https://tiliaradix.com/builds/build-nes-htpc/</link>
       <pubDate>Sat, 02 Apr 2011 11:35:26 +0000</pubDate>
       
-      <guid>https://tiliaradix.com/posts/new-htpc-with-nes/</guid>
-      <description>So Roger (a friend of mine) and I each bought ourselves a new HTPC. It is based on an Asus AT3IonT-I deluxe Mini-ITX motherboard in a NES chassis. The mobo has hardware accelerated decoding of HD material, built in WiFi, Bluetooth, comes with an IR remote, is fanless and uses a power brick instead of an ATX PSU. This last point (and HW decoding of course) is key. This way, the mobo can be fitted in a very small case, the Nintendo 8-bit NES being of ideal size, fitting the mobo, a 2.</description>
+      <guid>https://tiliaradix.com/builds/build-nes-htpc/</guid>
+      <description>So Roger (a friend of mine) and I each bought ourselves a new HTPC. It is based on an Asus AT3IonT-I deluxe Mini-ITX motherboard in a NES chassis. The mobo has hardware accelerated decoding of HD material, built in WiFi, Bluetooth, comes with an IR remote, is fanless and uses a power brick instead of an ATX PSU.
+Finished look. There&amp;rsquo;s an IR receiver eye in the black part.
+This last point (and HW decoding of course) is key.</description>
     </item>
     
   </channel>

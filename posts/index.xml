@@ -506,15 +506,6 @@ SIGSTOP (19) stops the process, halts all execution but does not kill it. It can
     </item>
     
     <item>
-      <title>New HTPC with NES</title>
-      <link>https://tiliaradix.com/posts/new-htpc-with-nes/</link>
-      <pubDate>Sat, 02 Apr 2011 11:35:26 +0000</pubDate>
-      
-      <guid>https://tiliaradix.com/posts/new-htpc-with-nes/</guid>
-      <description>So Roger (a friend of mine) and I each bought ourselves a new HTPC. It is based on an Asus AT3IonT-I deluxe Mini-ITX motherboard in a NES chassis. The mobo has hardware accelerated decoding of HD material, built in WiFi, Bluetooth, comes with an IR remote, is fanless and uses a power brick instead of an ATX PSU. This last point (and HW decoding of course) is key. This way, the mobo can be fitted in a very small case, the Nintendo 8-bit NES being of ideal size, fitting the mobo, a 2.</description>
-    </item>
-    
-    <item>
       <title>Error uploading to JCreate</title>
       <link>https://tiliaradix.com/posts/error-uploading-to-jcreate/</link>
       <pubDate>Fri, 11 Mar 2011 16:01:11 +0000</pubDate>

@@ -88,13 +88,13 @@ We build a prototype of our device and go through the technical details involved
     <div class="content">
       <p>(<strong>This is a repost of a blog post made for <a href="thingsquare.com">thingsquare.com</a>, slightly edited to fit this format.</strong>)</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/solar-battery-charge.gif" alt="Solar battery charging"  />
+  <img src="/img/thsq/solar-battery-charge.gif" alt="Solar battery charging" loading="lazy"  />
 </p></p>
 <p>We have previously looked at how to make a <a href="https://www.thingsquare.com/blog/articles/sensortag-power/" target="_blank">wireless device live for years on one tiny coin cell battery</a>. This time we up the game and make it live forever, using solar power and off-the-shelf hardware.</p>
 <p>We  build a prototype of our device and go through the technical details involved in designing for solar power. We use off-the-shelf hardware running the latest version of the Thingsquare ultra low-power software. Light does not provide a lot of power, so we need software that can make the most of it.</p>
 <h2 id="what-we-want-to-achieve">What We Want to Achieve <a href="#what-we-want-to-achieve" class="anchor">🔗</a></h2><p>Light gives us the possibility to have unlimited power. This means that we will not have to worry about battery depletion and will not have to change batteries, which opens up new possibilities, such as large-scale monitoring of places that are otherwise hard to reach.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/solar-arch.png" alt="IoT architecture for a solar powered wireless network"  />
+  <img src="/img/thsq/solar-arch.png" alt="IoT architecture for a solar powered wireless network" loading="lazy"  />
 </p></p>
 <p>Our wireless network is connected to the Internet via a gateway. The wireless nodes are powered by light. The distance between devices can easily reach kilometers.</p>
 <p>There are many situations in which we would like a wireless network that lasts forever:</p>
@@ -108,7 +108,7 @@ We build a prototype of our device and go through the technical details involved
 <h2 id="feasibility-can-we-do-it">Feasibility: Can We Do it? <a href="#feasibility-can-we-do-it" class="anchor">🔗</a></h2><p>To get a first peek at the feasibility of our system, we look at the power needed to run the system. A wireless end-device with a 2-hour sensor update rate <a href="https://www.thingsquare.com/blog/articles/sensortag-power/" target="_blank">needs about 0.1 mW</a>. Wireless mesh routers need about 20 times more since they need to use the radio more.</p>
 <p>By comparison, a <strong>Raspberry Pi Zero W</strong>, which is a relatively low-power general purpose computer, needs about <strong>0.5-1 W</strong>. This leads to a much larger solar cell area, as seen in the comparison below.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/solar-cell-comparison.png" alt="Solar cell comparison for solar powered wireless IoT networks"  />
+  <img src="/img/thsq/solar-cell-comparison.png" alt="Solar cell comparison for solar powered wireless IoT networks" loading="lazy"  />
 </p></p>
 <p>Relative solar cell panel sizes. Absolute sizes are determined by the geographical location at which the device is intended to be used. The <strong>leaf device</strong> panel size vary between <strong>0.5 x 0.5 cm</strong> (0.2 x 0.2 inches) for deployment near the equator, to <strong>2 x 2 cm</strong> (0.8 x 0.8 inches) for deployment in Stockholm, Sweden.</p>
 <p>A solar-powered system needs a solar cell and a small rechargeable battery to store power when direct light is not available. We compute a reasonable solar cell area needed by looking at existing solar cell technologies and their power efficiency.</p>
@@ -116,27 +116,27 @@ We build a prototype of our device and go through the technical details involved
 <h2 id="is-indoor-light-enough">Is Indoor Light Enough? <a href="#is-indoor-light-enough" class="anchor">🔗</a></h2><p>The sun radiates an immense amount of energy. Indoor lighting is very energy-poor in comparison. For our nodes in life-time mode though, we don&rsquo;t need much, just a few milliwatt. But not only is the intensity of the light much less, the spectrum of the light is much smaller too. Solar panels for outdoor applications work badly indoors.</p>
 <h2 id="ok-lets-do-it">Ok, Let&rsquo;s do it! <a href="#ok-lets-do-it" class="anchor">🔗</a></h2><p>Now that we know that our goal is feasible, we can build our first prototype.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/solar-device.png" alt="Solar panels drive energy storage that drive a wireless microprocessor that is connected to sensors"  />
+  <img src="/img/thsq/solar-device.png" alt="Solar panels drive energy storage that drive a wireless microprocessor that is connected to sensors" loading="lazy"  />
 </p></p>
 <p>The components of a solar-powered wireless device: a set of solar cells, an energy store, a wireless microprocessor, and sensors.</p>
 <p>We will build a prototype of an <strong>air quality monitoring system</strong>. We all breath air, so air quality affects us all. Being able to always monitor it means that we can improve it.</p>
 <p>Air quality can be measured both indoors and outdoors. We start with making an outdoor version of our system, as we are likely to have more light in an outdoor environment, so it should be easier to design for.</p>
 <p>We use an <a href="http://www.ti.com/tool/TIDA-00756" target="_blank" rel="noopener">existing reference design</a> for our hardware, but we replace its battery with a solar power mechanism (solar panel, rechargeable battery, and battery charger). The reference design uses the CC2650 wireless SoC but we can use its sub-GHz counterparts CC1350 or CC1310 to get a better range.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/tida-board.jpg" alt="Air quality sensor reference design"  />
+  <img src="/img/thsq/tida-board.jpg" alt="Air quality sensor reference design" loading="lazy"  />
 </p></p>
 <p>The air quality sensor reference design.</p>
 <h2 id="the-hardware-prototype">The Hardware Prototype <a href="#the-hardware-prototype" class="anchor">🔗</a></h2><p>We build a hardware prototype with a <a href="http://www.ti.com/tool/LAUNCHXL-CC1350" target="_blank" rel="noopener">Texas Instruments CC1350 Launchpad</a> which contains the low-power wireless chip that runs the software of the system. It is powered with a solar panel, one rechargeable battery, a few electronic circuits for controlling the recharging of the battery, all of it consumer-grade off-the-shelf hardware.</p>
 <p>Putting it together, we end up with the hardware that we see in the picture below.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/sunny-prototype.jpg" alt="IoT prototype hardware that consists of a solar cell, one rechargeable battery, and one wireless TI Launchpad device"  />
+  <img src="/img/thsq/sunny-prototype.jpg" alt="IoT prototype hardware that consists of a solar cell, one rechargeable battery, and one wireless TI Launchpad device" loading="lazy"  />
 </p></p>
 <p>The prototype hardware consists of a solar cell, one rechargeable battery, and one wireless TI Launchpad device. Clearly, this prototype won&rsquo;t win any contests based on its looks.</p>
 <p>At this stage, the hardware is not pretty. But this is ok, as we will be able to make a more polished version later, once we have have seen that we can build and run the prototype.</p>
 <h2 id="solar-power-in-action">Solar Power in Action <a href="#solar-power-in-action" class="anchor">🔗</a></h2><p>We set up our hardware prototype and <a href="https://www.thingsquare.com/blog/articles/wireless-sensor-network-raspberry-pi-zero-w/" target="_blank">connect it</a> to one of the wireless networks in our office.</p>
 <p>We configure the software to read the voltage from the solar panel and from the battery. The battery should provide a stable 3.3 V voltage, whereas we expect the solar panel&rsquo;s voltage to vary over the course of the day. We see the results in the graph below.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/adc-input.png" alt="Graph showing how the voltage from the solar panel, which we use to charge the battery, varies over the day"  />
+  <img src="/img/thsq/adc-input.png" alt="Graph showing how the voltage from the solar panel, which we use to charge the battery, varies over the day" loading="lazy"  />
 </p></p>
 <p>The voltage from the solar panel, which we use to charge the battery, varies over the day. September 24 was a sunny day, hence we saw more power from the solar panel.</p>
 <p>We now have made a wireless device that lasts forever. Or at least for as long as we have enough light to sustain it.</p>
@@ -151,7 +151,7 @@ We build a prototype of our device and go through the technical details involved
 <h3 id="design-for-the-worst-case">Design for the Worst Case <a href="#design-for-the-worst-case" class="anchor">🔗</a></h3><p>Since our product is likely to be left out in the wild in the hopes of not needing to touch it ever again, we need to design for the worst case. And then more. This is a trade-off of course - a larger panel and larger battery costs more and takes more space.</p>
 <p>This means that we need to know a few things to be able to size the solar panel and battery.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/sunshine.jpg" alt="Hours of sunshine in different places in the world"  />
+  <img src="/img/thsq/sunshine.jpg" alt="Hours of sunshine in different places in the world" loading="lazy"  />
 </p></p>
 <p>Hours of sunshine in different places in the world. Souce: Landsberg, H. E. in Pinna, M. L&rsquo;atmosfera e il clima, Torino, UTET, 1978, p. 63., Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=8353036" target="_blank" rel="noopener">Link</a>.</p>
 <h3 id="assertions-assumptions-guesses">Assertions, Assumptions, Guesses <a href="#assertions-assumptions-guesses" class="anchor">🔗</a></h3><p>We need to know how much sunlight will be available for harvest by the product. This varies with <strong>location, the geography, how the panel is positioned, and with season</strong>. This can be found through weather data and websites offering such information. Note that we must use the worst case in every aspect or we might find that the product won&rsquo;t work during the winter. For the worst place, find the worst month, worst angle, worst direction, and use that number.</p>
@@ -170,7 +170,7 @@ We build a prototype of our device and go through the technical details involved
 <li><strong>Panel compass orientation:</strong> design for worst case, for horizontal flat surface the compass orientation it doesn&rsquo;t matter</li>
 </ul>
 <p><p class="markdown-image">
-  <img src="/img/thsq/solar-irradiance.png" alt="Solar irradiance in Stockholm, Sweden"  />
+  <img src="/img/thsq/solar-irradiance.png" alt="Solar irradiance in Stockholm, Sweden" loading="lazy"  />
 </p></p>
 <p>Solar irradiance in Stockholm, Sweden.</p>
 <p>The result is a worst DNI of <strong>250Wh per m<sup>2</sup> panel and day</strong> in December. If we can handle December, we can also handle July, but not vice versa. This is the theoretical average maximum we can get in the worst case, with a 100% efficient panel. This is an average over several years. For comparison, a panel in Washington DC, USA, would during the worst month get 3220 Wh/m<sup>2</sup>/day if mounted at the optimum angle, facing south.</p>
@@ -198,7 +198,7 @@ We build a prototype of our device and go through the technical details involved
 <li>Compensating with a temperature compensation factor, if the product is used in the cold</li>
 </ul>
 <p><p class="markdown-image">
-  <img src="/img/thsq/temperature-capacity.png" alt="Battery capacity versus temperature. When it is -20° C, the capacity is just a fourth the room temperature capacity (source Sanyo li-poly &lt;code&gt;upf454261&lt;/code&gt; datasheet)."  />
+  <img src="/img/thsq/temperature-capacity.png" alt="Battery capacity versus temperature. When it is -20° C, the capacity is just a fourth the room temperature capacity (source Sanyo li-poly &lt;code&gt;upf454261&lt;/code&gt; datasheet)." loading="lazy"  />
 </p></p>
 <p>Battery capacity versus temperature. When it is -20° C, the capacity is just a fourth the room temperature capacity (source: Sanyo li-poly <code>upf454261</code> datasheet).</p>
 <p>We use the following assumptions,</p>
@@ -212,11 +212,11 @@ We build a prototype of our device and go through the technical details involved
 <p>The resulting battery size is a minimum <strong>3.7V 260mAh</strong> capacity. That is about the size of a coin cell battery, meaning this would be a very small product.</p>
 <h3 id="what-about-indoor">What About Indoor? <a href="#what-about-indoor" class="anchor">🔗</a></h3><p>Indoor has a lot less available light energy, which is harder to harvest due to a more <strong>limited light spectrum</strong>. For indoor use, we need a special panel that is suitable for this kind of condition. One manufacturer of such is <strong>Ixys</strong> and we use the values from their datasheet and marketing material.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/ixys.png" alt="Ixys retails solar cells and panels adjusted for indoor lighting. They are typically monocrystalline silicon cells with a 22% efficiency and can harvest a wide light spectrum."  />
+  <img src="/img/thsq/ixys.png" alt="Ixys retails solar cells and panels adjusted for indoor lighting. They are typically monocrystalline silicon cells with a 22% efficiency and can harvest a wide light spectrum." loading="lazy"  />
 </p></p>
 <p><a href="http://www.ixys.com/ProductPortfolio/GreenEnergy.aspx" target="_blank" rel="noopener">Ixys</a> retails solar cells and panels adjusted for indoor lighting. They are typically monocrystalline silicon cells with a 22% efficiency and can harvest a wide light spectrum.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/available-light.png" alt="Ixys available light power indoors is much lower than outdoors, ca 5 to 15 W per m2 panel and day"  />
+  <img src="/img/thsq/available-light.png" alt="Ixys available light power indoors is much lower than outdoors, ca 5 to 15 W per m2 panel and day" loading="lazy"  />
 </p></p>
 <p>The available light power indoors is much lower than outdoors, ca 5 to 15 W per m<sup>2</sup> panel and day <a href="http://ixapps.ixys.com/datasheet/ixys_solar.pdf" target="_blank" rel="noopener">(source)</a>.</p>
 <p>Let&rsquo;s assume the following changes compared with before,</p>

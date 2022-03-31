@@ -91,13 +91,13 @@ Behind every successful product is a successful hardware design.">
 <p>Inside each connected product is a piece of hardware. This hardware typically has to be custom designed for each product, but the level of customization varies depending on the product.</p>
 <p>Designing hardware for a Thingsquare-compatible product is straightforward because there are ready-made reference designs to use as a starting point.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/finished-product.jpg" alt=""  />
+  <img src="/img/thsq/finished-product.jpg" alt="" loading="lazy"  />
 </p></p>
 <p>Behind every successful product is a successful hardware design.</p>
 <h2 id="supported-wireless-chips">Supported Wireless Chips <a href="#supported-wireless-chips" class="anchor">🔗</a></h2><p>Each wireless hardware design is is based on a wireless System-on-a-Chip (SoC) or combination of wireless chips.</p>
 <p>Thingsquare supports the following chips in the CC13xx / CC26xx family, all 128 kB flash and 20 kB RAM variants:</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/cc1350.jpg" alt="The TI CC1350 System-on-a-Chip."  />
+  <img src="/img/thsq/cc1350.jpg" alt="The TI CC1350 System-on-a-Chip." loading="lazy"  />
 </p></p>
 <p>The TI CC1350 System-on-a-Chip.</p>
 <ul>
@@ -131,7 +131,7 @@ Behind every successful product is a successful hardware design.">
 <p>The product owner typically must consider the cost-benefit trade-off in this decision. Generally speaking, when manufacturing in low volume, it makes sense to buy modules from a 3rd party vendor. When volume increases, it might start making sense to design the RF parts yourself, either as a one-off, or designing a module.</p>
 <h3 id="third-party-modules">Third-party Modules <a href="#third-party-modules" class="anchor">🔗</a></h3><p>Third-party modules are typically designed according to the reference design by vendors with a high degree of expertise in RF. Many come with integrated <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">PCB- or chip-antenna</a>, making the rest of the hardware design a breeze. Examples of modules include the <a href="http://www.ti.com/product/CC2650MODA" target="_blank" rel="noopener">CC2650Moda</a>.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/2650moda.png" alt="Picture of a CC2650MODA module."  />
+  <img src="/img/thsq/2650moda.png" alt="Picture of a CC2650MODA module." loading="lazy"  />
 </p></p>
 <p>The CC2650MODA is a 2.4 GHz radio module based on CC2650 and a chip antenna.</p>
 <h4 id="pros">Pros <a href="#pros" class="anchor">🔗</a></h4><ul>
@@ -173,7 +173,7 @@ Behind every successful product is a successful hardware design.">
 <p>Using a reference design in a good way to avoid problems with regulatory requirements.</p>
 <h2 id="reference-designs">Reference Designs <a href="#reference-designs" class="anchor">🔗</a></h2><p>There are reference designs available for free and without any associated royalty costs (subject to the respective owners) from the device manufacturers. See the respective manufacturer for up to date rules and conditions. Follow the links below to find design documents on the following reference designs.</p>
 <h3 id="based-on-the-texas-instruments-launchpad">Based on the Texas Instruments Launchpad <a href="#based-on-the-texas-instruments-launchpad" class="anchor">🔗</a></h3><p><p class="markdown-image">
-  <img src="/img/thsq/cc1310lp-assy.png" alt="The Texas Instruments Launchpad reference design."  />
+  <img src="/img/thsq/cc1310lp-assy.png" alt="The Texas Instruments Launchpad reference design." loading="lazy"  />
 </p></p>
 <p>The Texas Instruments Launchpad reference design.</p>
 <h4 id="based-on-the-cc1310-launchpad">Based on the CC1310 Launchpad <a href="#based-on-the-cc1310-launchpad" class="anchor">🔗</a></h4><p>The <a target="_blank" href="http://www.ti.com/tool/LAUNCHXL-CC1310">CC1310 Launchpad </a> has a differential antenna output, by default routed to the PCB antenna. By changing a couple of SMD components in the signal path, it routes the signal to a Hirose U.FL connector instead.</p>
@@ -194,14 +194,14 @@ RESET       PC7
 </code></pre><h2 id="hardware-components">Hardware Components <a href="#hardware-components" class="anchor">🔗</a></h2><h3 id="rf-components">RF Components <a href="#rf-components" class="anchor">🔗</a></h3><p>We strongly recommend to <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">think about the antenna</a> from the start of the design. This is a trade-off, like everything else. Design, enclosure, environment, cost, size, performance, COTS availability factors in. A certification may be bound to using a specific antenna too, creating a dependence on availability of the antenna.</p>
 <h4 id="pcb-antenna">PCB Antenna <a href="#pcb-antenna" class="anchor">🔗</a></h4><p>The TI Launchpad, TI 2.4 GHz Sensortag, and TI sub-GHz Sensortag use PCB antennas. Ie, the antenna is a printed directly on the PCB as part of the copper layer. This kind of antenna is inexpensive and simple. It does have a limited radiation pattern and limited range but price/performance is very good. Even very slight dimension changes, or not following the guidelines regarding ground plane and via stitching, will affect performance so follow the reference design with great care.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/1350pcb2.png" alt=""  />
+  <img src="/img/thsq/1350pcb2.png" alt="" loading="lazy"  />
 </p></p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/2650tag-assy.png" alt=""  />
+  <img src="/img/thsq/2650tag-assy.png" alt="" loading="lazy"  />
 </p></p>
 <p>The Texas Instruments Sensortags show three different PCB antennas. First, the CC1350 Sensortag has a <a href="http://www.ti.com/lit/an/swra117d/swra117d.pdf" target="_blank">&ldquo;Small Size 2.4 GHz PCB antenna&rdquo;</a>, together with a <a href="http://www.ti.com/lit/an/swra416/swra416.pdf" target="_blank">&ldquo;Miniature Helical PCB Antenna&rdquo;</a>. The CC2650 Sensortag has a <a href="http://www.ti.com/lit/an/swru120c/swru120c.pdf" target="_blank">inverted-F antenna</a>.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/subantenna-2.png" alt=""  />
+  <img src="/img/thsq/subantenna-2.png" alt="" loading="lazy"  />
 </p></p>
 <p>There are many antenna designs <a href="http://www.ti.com/lit/an/swra351a/swra351a.pdf" target="_blank">available</a>. Dimensions and other important factors are found in the application note respectively.</p>
 <h4 id="chip-antenna">Chip Antenna <a href="#chip-antenna" class="anchor">🔗</a></h4><p>Chip antennas are SMD components that uses a smaller PCB area than a <a href="/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/">PCB antenna</a>, at a higher BOM cost. Chip antennas are supported too, follow directions for the SOC in use and the chip antenna to design a matching network of supporing components.</p>
@@ -216,7 +216,7 @@ select        IOID_1
 <h4 id="external-lna-pa">External LNA, PA <a href="#external-lna-pa" class="anchor">🔗</a></h4><p>To extend range, a product can incorporate external power amplifier (PA) and/or low noise amplifier (LNA). This can be configured in customer application on bootup. Contact us for more information.</p>
 <h3 id="external-flash">External Flash <a href="#external-flash" class="anchor">🔗</a></h3><p>In order to accomodate firmware updates over the air (FOTA), hardware building on CC13xx or CC26xx hardware must have an external flash chip. We support two main kinds: Macronix and Winbond. The storage area should be at least 512 kB large, but since the cost difference is very small, larger ones are preferred for flexibility reasons.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/extflash.png" alt=""  />
+  <img src="/img/thsq/extflash.png" alt="" loading="lazy"  />
 </p></p>
 <h4 id="macronix">Macronix <a href="#macronix" class="anchor">🔗</a></h4><p>Macronix external flash chips are preferred since they have lower steady-state power consumption than Winbond. The Launchpad and (newer) Sensortag reference designs make use of the <code>MX25R8035FZUIL0</code> chip. The package is of no importance to the system, only that the command set is the same, and factors such as sector size etc.</p>
 <h4 id="winbond">Winbond <a href="#winbond" class="anchor">🔗</a></h4><p>Old CC2650 sensortag designs use the Winbond <code>W25X40CLUXI</code> chip. It has slightly higher power consumption than the Macronix. Base new designs on the Macronix chip per above.</p>
@@ -244,7 +244,7 @@ SPI CS         PD5
 SPI MISO       PA4
 SPI MOSI       PA5
 </code></pre><h2 id="other-components-and-guidelines">Other Components and Guidelines <a href="#other-components-and-guidelines" class="anchor">🔗</a></h2><h3 id="buttons">Buttons <a href="#buttons" class="anchor">🔗</a></h3><p><p class="markdown-image">
-  <img src="/img/thsq/buttons.png" alt=""  />
+  <img src="/img/thsq/buttons.png" alt="" loading="lazy"  />
 </p></p>
 <h4 id="reset-button">Reset Button <a href="#reset-button" class="anchor">🔗</a></h4><p>Including a reset button is always good, at least during the development phase. We suggest that if you leave out the reset button in production, you must ensure the reset line is strongly held so that no unintentional reset on the system is caused by EMI.</p>
 <h4 id="user-button">User Button <a href="#user-button" class="anchor">🔗</a></h4><p>User buttons are not necessary as far as the system goes. You may add such for user-interfacing activities though.</p>
@@ -268,7 +268,7 @@ active high by default
 </code></pre><h4 id="other-leds">Other LEDs <a href="#other-leds" class="anchor">🔗</a></h4><p>LEDs for eg Lighting applications are typically driven with a customer-specific driver for this purpose, and as such is not limited to the API or conventions.</p>
 <h3 id="jtag-programming-header">JTAG Programming Header <a href="#jtag-programming-header" class="anchor">🔗</a></h3><p>Unless you buy pre-programmed SOCs, you need to have a way to program the device during manufacturing. This is done over the JTAG interface. For simplicity, we suggest using the standard JTAG 2-by-5 pin connector with 1.27 mm pitch. Include a footprint for a male pin header, or receptables for pogo-pin fixture.</p>
 <p><p class="markdown-image">
-  <img src="/img/thsq/jtag.png" alt=""  />
+  <img src="/img/thsq/jtag.png" alt="" loading="lazy"  />
 </p></p>
 <p>The firmware locks down all debug and programming interfaces. To reprogram the device after flashing with a Thingsquare firmware image, you need to perform a full erase before being able to program it again. This can only be done over the JTAG interface.</p>
 <p>Regarding JTAG, do make sure that it is not susceptible to reasonable EMI. Refer to the <a target="_blank" href="http://www.ti.com/lit/pdf/swcu117">CC13xx/CC26xx technical reference manual</a>, sections 5.4 and 5.6.</p>
