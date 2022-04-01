@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>How We Do It: Making Things Happen At Specific Times of the Day | Tiliaradix Blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Connected products need scheduled actions. Scheduled actions require time synchronized deceives. Here is we make that happen.
+In our daily lives, we are governed by time and schedules. We may wake up at 6:30 AM, take the bus at 7:34 AM, start work at 8:10 AM, pick up from school at 4:00 PM - based on synchronized and often fixed times of day.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">How We Do It: Making Things Happen At Specific Times of the Day</h1>
+
+    <div class="tip">
+        <time datetime="2021-11-24 00:00:00 &#43;0000 UTC">Nov 24, 2021</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1257 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          6 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>(<strong>This is a repost of a blog post made for <a href="thingsquare.com">thingsquare.com</a>, slightly edited to fit this format.</strong>)</p>
+<p>Connected products need scheduled actions. Scheduled actions require time synchronized deceives. Here is we make that happen.</p>
+<p>In our daily lives, we are governed by time and schedules. We may wake up at 6:30 AM, take the bus at 7:34 AM, start work at 8:10 AM, pick up from school at 4:00 PM - based on synchronized and often fixed times of day.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/debby-hudson-TqKFiMR9O6s-unsplash.jpg" alt="Picture of a coffee cup and a calendar." loading="lazy"  />
+</p>
+<em>Source: Debbie Hudson, @hudsoncrafted at Unsplash.</em></p>
+<p>The same goes for connected products. Connected products are made to work with us and for us, so they need to follow schedules too.</p>
+<p>A few examples:</p>
+<ul>
+<li>Street lights should turn on and off at specific times of the day.</li>
+<li>Horticultural lighting devices follow complex lighting patterns to ensure maximum growth of the plants.</li>
+<li>Wireless sensors can be turned off at night to save battery power.</li>
+</ul>
+<p>These are slightly different use cases. But they share the same underlying mechanism: scheduling and time synchronization.</p>
+<p>Many of the <a href="www.thingsquare.com/customers" target="_blank">many connected products and IoT systems</a> that we have built at Thingsquare rely on scheduling.</p>
+<p>Today we look at how we implement scheduling in the <a href="www.thingsquare.com/iot-platform/" target="_blank">Thingsquare IoT system</a>.</p>
+<h2 id="the-basis-time-synchronization-and-distribution">The Basis: Time Synchronization and Distribution <a href="#the-basis-time-synchronization-and-distribution" class="anchor">🔗</a></h2><p>The basis of scheduling is time. Without knowing what time it is, scheduling is useless.</p>
+<p><p class="markdown-image">
+  <img src="/img/thsq/aron-visuals-BXOXnQ26B7o-unsplash.jpg" alt="Picture of an hour glass." loading="lazy"  />
+</p>
+<em>Source: Aron Visuals, @aronvisuals at Unsplash.</em></p>
+<p>But how can devices know what time it is? In general, time synchronization is a <a href="https://en.wikipedia.org/wiki/Clock_synchronization" target="_blank">complex problem</a> with many different solutions.</p>
+<p>But for our purposes, the device only needs two things:</p>
+<ul>
+<li>An internal clock that runs at a reasonably precise speed.</li>
+<li>A way to synchronize the internal clock with the current world clock.</li>
+</ul>
+<p>Once the device has synchronized with the global time, it can run by itself without having to be synchronized again. At least until its internal clock drifts too far away from the global clock, or until the device drops power.</p>
+<p>In the Thingsquare system, devices already are synchronized with each other as part of the built-in <a href="www.thingsquare.com/blog/articles/channel-hopping/" target="_blank">wireless channel hopping</a> mechanism. On top of this, the backend distributes an absolute time offset.</p>
+<p>With the network in synch, and with knowledge of what the global clock is, all devices know the absolute time.</p>
+<p>Devices use their notion of time both to timestamp all their data and for scheduled actions.</p>
+<h2 id="scheduling-the-details">Scheduling: The Details <a href="#scheduling-the-details" class="anchor">🔗</a></h2><p>All Thingsquare devices know what time it is. How do we use this information to schedule actions?</p>
+<p>The basis for schedules in the Thingsquare system is a week. This is because most real-world schedules are based on weekly events.</p>
+<p>To figure out what day of the week it is, devices use the current global time and make a simple computation: compute the number of seconds from a known Monday.</p>
+<p>Based on this information, events can be scheduled. When an event occurs, a callback function inside the firmware of the device is called.</p>
+<p>Our callback function will be invoked at a combination of <strong>weekday and time of day</strong>. We also pair an <strong>action argument</strong> to the datetime. The argument is used when the callback is invoked, so we can tell what to do.</p>
+<p>In the callback, we may do whatever action we want.</p>
+<p>For example, it may be an event that is conditional, so we may check if those are met. We may start a calibration of a sensor, or turn lights on.</p>
+<h3 id="setting-it-up">Setting it up <a href="#setting-it-up" class="anchor">🔗</a></h3><p>Here, we&rsquo;ll use the example of a <strong>device that needs calibration twice a day</strong>. This may be an industrial tool for example.</p>
+<p>For periodic sensor samples, we have another mechanism that is even better suited, namely the Thingsquare callback with <code>THSQ_PERIOD</code> argument, but that is for another blog post.</p>
+<p>So, to begin with, we&rsquo;ll need some basic setup. We will give the schedule a name, so we&rsquo;ll be able to override the schedule in-situ.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">struct</span> thsq_schedule calib_schedule;
+</span></span><span style="display:flex;"><span>thsq_schedule_init(<span style="color:#f92672">&amp;</span>calib_schedule, <span style="color:#e6db74">&#34;calsched&#34;</span>, calib_cb);
+</span></span></code></pre></div><h3 id="add-events">Add events <a href="#add-events" class="anchor">🔗</a></h3><p>Then, we should <strong>add events to the schedule</strong>. For this, we need a buffer and  a couple of convenience function calls.</p>
+<p>By default, the arguments we register with each event is three bytes long. Perfect for lighting applications with RGB channels. That can be changed though.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/* create the events */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">thsq_schedule_build_schedule_action</span>(<span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>buf,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> mon, <span style="color:#66d9ef">int</span> tue, <span style="color:#66d9ef">int</span> wed, <span style="color:#66d9ef">int</span> thu, <span style="color:#66d9ef">int</span> fri,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> sat, <span style="color:#66d9ef">int</span> sun,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">uint8_t</span> hours, <span style="color:#66d9ef">uint8_t</span> minutes,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">uint8_t</span> red, <span style="color:#66d9ef">uint8_t</span> green, <span style="color:#66d9ef">uint8_t</span> blue);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define INSTRUMENT_0 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define INSTRUMENT_1 100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span> events[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> EVENT_LEN]; <span style="color:#75715e">/* room for two events */</span>
+</span></span><span style="display:flex;"><span>thsq_schedule_build_schedule_action(<span style="color:#f92672">&amp;</span>events[EVENT_LEN <span style="color:#f92672">*</span> <span style="color:#ae81ff">0</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* mon-fri */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* 0600 in the morning */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">06</span>, <span style="color:#ae81ff">00</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* arguments */</span>
+</span></span><span style="display:flex;"><span>            INSTRUMENT_0, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>thsq_schedule_build_schedule_action(<span style="color:#f92672">&amp;</span>events[EVENT_LEN <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* mon-fri */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* 1830 in the evening */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">30</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* arguments */</span>
+</span></span><span style="display:flex;"><span>            INSTRUMENT_1, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>);
+</span></span></code></pre></div><h3 id="add-events-to-schedule">Add events to schedule <a href="#add-events-to-schedule" class="anchor">🔗</a></h3><p>Now we defined the schedule and the events, we just need to associate them together.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  thsq_schedule_set_default(<span style="color:#f92672">&amp;</span>calib_schedule, events, <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> EVENT_LEN);
+</span></span></code></pre></div><h3 id="callback">Callback <a href="#callback" class="anchor">🔗</a></h3><p>The final piece of the puzzle is to create the actual callback.</p>
+<p>Since <strong>the same callback can be used with different schedules</strong>, we will get a pointer to the schedule that triggered. We also get a pointer to the arguments, and the length of the arguments.</p>
+<p>In our example, the callback will be invoked with <code>arglen</code> equal <code>3</code>, and <code>arg</code> equal to <code>[0, 1, 2]</code> or <code>[100, 3, 4]</code>, and we here use that in the callback to indicate to our application how to run.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">calib_cb</span>(<span style="color:#66d9ef">struct</span> thsq_schedule <span style="color:#f92672">*</span>s, <span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>arg, <span style="color:#66d9ef">int</span> arglen)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> instrument <span style="color:#f92672">=</span> arg[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> calib_arg1 <span style="color:#f92672">=</span> arg[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> calib_arg2 <span style="color:#f92672">=</span> arg[<span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>  instrument_calibrate(instrument, calib_arg1, calib_arg2);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="changes-after-deployment">Changes after deployment <a href="#changes-after-deployment" class="anchor">🔗</a></h3><p>Now, say that we&rsquo;ve deployed devices with the above schedule. Let&rsquo;s say that one customer prefers not to run a calibration event in the morning. How can we make that happen?</p>
+<p>The simplest way would be to push <code>d.calsched</code> with the new schedule, without the morning event. That&rsquo;s easy since the event list is just a buffer.</p>
+<p>If they later change their mind, we could yet again push an updated <code>d.calsched</code>.</p>
+<h3 id="adding-randomness">Adding randomness <a href="#adding-randomness" class="anchor">🔗</a></h3><p>Often, randomness is a good thing. Especially when it comes to pushing data over the network.</p>
+<p>Having hundreds of devices pushing data at the same time can overload the network, surpassing the available bandwidth.</p>
+<p>We can add some randomness to the above quite easily. We just need to ensure the calibration doesn&rsquo;t run exactly when the callback is invoked, but at a later, bounded randomized point in time. Or, we could calibrate at the fixed time but push the calibration result data at a later, random time.</p>
+<p>Here&rsquo;s how that would look.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/* -------------------------------------------------------------------------- */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* calibrate; invoked at a randomized timeout */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">do_calibrate</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>)arg;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> instrument <span style="color:#f92672">=</span> p[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> calib_arg1 <span style="color:#f92672">=</span> p[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> calib_arg2 <span style="color:#f92672">=</span> p[<span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  instrument_calibrate(instrument, calib_arg1, calib_arg2);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* -------------------------------------------------------------------------- */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* scheduled event; sets random timer to calibrate */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">calib_cb</span>(<span style="color:#66d9ef">struct</span> thsq_schedule <span style="color:#f92672">*</span>s, <span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>arg, <span style="color:#66d9ef">int</span> arglen)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define TIMEOUT (CLOCK_MINUTE * 2)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span> argbuf[<span style="color:#ae81ff">3</span>]; <span style="color:#75715e">/* three args, one byte each */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">struct</span> ctimer calibrate_timer;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* store the arguments, and set a timer */</span>
+</span></span><span style="display:flex;"><span>  memcpy((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)argbuf, (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)arg, <span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>  ctimer_set(<span style="color:#f92672">&amp;</span>calibrate_timer,
+</span></span><span style="display:flex;"><span>    random_rand32_interval_upper_half(TIMEOUT),
+</span></span><span style="display:flex;"><span>    do_calibrate, (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)argbuf);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* -------------------------------------------------------------------------- */</span>
+</span></span></code></pre></div><h2 id="your-turn">Your turn <a href="#your-turn" class="anchor">🔗</a></h2><p>Would you like to hear more about how Thingsquare can help your product come alive? We&rsquo;re looking forward to talking to you! Drop us an email, or start a chat with us.</p>
+<p>Feel free to use the <a href="www.thingsquare.com/start/" target="_blank">IoT solution planner</a> to get an automated time and cost estimate of your product.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/electronics">electronics</a>
+            
+                <a href="https://tiliaradix.com/tags/embedded">embedded</a>
+            
+                <a href="https://tiliaradix.com/tags/wireless">wireless</a>
+            
+                <a href="https://tiliaradix.com/tags/thingsquare">thingsquare</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>

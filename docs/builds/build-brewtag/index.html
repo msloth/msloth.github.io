@@ -6,9 +6,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
+<meta name="description" content="Buildlog: Brewtag 🔗Soldered.
+The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors.
+The use case is to measure ambient pressure differences of an elevator moving from floor to floor, to keep track of what floors are visited and when.
 The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
-The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
+The pressure differences are quite small in the short travel distance between floors, so the pressure sensor must be quite accurate.">
 <meta name="generator" content="Hugo 0.96.0" />
 
 
@@ -66,18 +68,18 @@ The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
     <h1 class="title">Build: Brewtag</h1>
 
     <div class="tip">
-        <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>
+        <time datetime="2019-04-13 00:00:00 &#43;0000 UTC">Apr 13, 2019</time>
         <span class="split">
           ·
         </span>
         <span>
-          61 words
+          568 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          1 minute read
+          3 minute read
         </span>
     </div>
 
@@ -87,11 +89,74 @@ The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
 
     <div class="content">
       <h1 id="buildlog-brewtag">Buildlog: Brewtag <a href="#buildlog-brewtag" class="anchor">🔗</a></h1><p><p class="markdown-image">
-  <img src="/img/builds/pcbs/brewtag.jpg" alt="The result." loading="lazy"  />
-</p></p>
-<h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><p>Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.</p>
+  <img src="/img/builds/pcbs/brewtag/brewtag.jpg" alt="The result." loading="lazy"  />
+</p>
+<em>Soldered.</em></p>
+<h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><p>Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors.</p>
+<p>The use case is to measure ambient pressure differences of an elevator moving from floor to floor, to keep track of what floors are visited and when.</p>
 <h2 id="the-challenge">The Challenge <a href="#the-challenge" class="anchor">🔗</a></h2><p>Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.</p>
-<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><h3 id="mechanics-enclosure">Mechanics, enclosure <a href="#mechanics-enclosure" class="anchor">🔗</a></h3><h3 id="schematics">Schematics <a href="#schematics" class="anchor">🔗</a></h3><h3 id="layout">Layout <a href="#layout" class="anchor">🔗</a></h3>
+<p>The pressure differences are quite small in the short travel distance between floors, so the pressure sensor must be quite accurate.</p>
+<p>The ambient air pressure also changes over time, even across a day, so it cannot be the only sensor for detecting movement. For this, we also use an accelerometer.</p>
+<p>An ambient light sensor (ALS), and an air relative humidity sensor, for recording environmental factors and gain some multi-use of the platform.</p>
+<p>All these sensors must be very low-power, primarily in sleep since they will be sleeping most of the time.</p>
+<p>The accelerometer must be very low-power, while still providing a wake-up signal when the elevator moves. This then activates the rest of the sensor sampling procedures.</p>
+<h2 id="implementation">Implementation <a href="#implementation" class="anchor">🔗</a></h2><p>The board is a 1.6mm <strong>4-layer, impedance controlled</strong> substrate from JLCPCB (7628). Stack-up, from top to bottom copper layers:</p>
+<ul>
+<li>components, signals, GND plane</li>
+<li>GND plane</li>
+<li>Vcc</li>
+<li>GND plane, signals</li>
+</ul>
+<p>The device can be powered from <strong>coin cell battery</strong>. Depending on what battery holder is mounted, it can use either,</p>
+<ul>
+<li>CR2477 (900&ndash;1000 mAh) but are hard to find in stores (eg not in Kjell, Clas Ohlson)</li>
+<li>CR2450 (500&ndash;600 mAh), can be bought in most stores</li>
+</ul>
+<p>These two are a bit wider in diameter than the most common CR2032 (24 vs 20 mm) and is thicker (5.0/7.7 vs 3.2 mm) but in turn have a <em>much</em> higher capacity (CR2032 typically 200-250 mAh) and the size increase isn&rsquo;t too bad.</p>
+<p>The battery input is <strong>polarity protected</strong> via a PMOS transistor</p>
+<p>Programming is done over a <strong>Tag-connect</strong> connector.</p>
+<p>The RH-sensor is surrounded by slots, since it was temperature sensitive and the potentially increased temperature from radio could affect it.</p>
+<p><strong>One LED and one button</strong> for interactive purposes. Testpads to measure signal integrity, and debug points for power and UART in/out.</p>
+<p>The <strong>Radiocontrolli RC1310 RF module</strong> with an CC1310 system-on-a-chip is used, which has a sub-GHz radio.</p>
+<p>The antenna is a <strong>PCB helix antenna</strong> suitable for both 868 MHz and 915 MHz bands (ETSI in Europe and FCC in USA). RF microstrip trace for 50 ohm impedance: width 11.55 mil, keep-away 32 mil. Footprints for a pi-filter is added for tuning. Footprints are added so that an uFL connector can be added, should one not want to use the PCB-antenna.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/brewtag/brewtag-pcb.jpg" alt="PCB both sides." loading="lazy"  />
+</p>
+<em>Both sides of the PCB</em></p>
+<h3 id="sensors">Sensors <a href="#sensors" class="anchor">🔗</a></h3><p>The following sensors are used. All of them are fairly low cost, have low sleep power consumption and where interesting also low when active, and they all work in the full voltage range of the battery where it is usable.</p>
+<ul>
+<li>accelerometer: <strong>LIS2DW12TR</strong>
+<ul>
+<li>1 uA 12.5 Hz, 50 nA sleep</li>
+</ul>
+</li>
+<li>pressure: <strong>ST LPS22HH</strong>
+<ul>
+<li>1k: 1,47 €</li>
+<li>active 1 Hz: 4 uA</li>
+<li>sleep: 0,9 uA</li>
+<li>0,0825 m/Pa</li>
+<li>accuracy: relative +-2,5 Pa, absolute +-50 Pa</li>
+</ul>
+</li>
+<li>RH, temperature: <strong>TI HDC2080</strong>
+<ul>
+<li>1,40 €</li>
+<li>active: 650 uA, active 1Hz: 0.55 uA, sleep: 50 nA</li>
+</ul>
+</li>
+<li>ALS: <strong>TI opt3001</strong>
+<ul>
+<li>4 uA active, 0.4 uA in sleep</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>Power consumption is confirmed &lt;10 uA in sleep, RF performance is excellent, no tuning needed on the pi-matching filter.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/brewtag/brewtag-kicad.png" alt="Screenshot." loading="lazy"  />
+</p>
+<em>Screenshot from KiCad</em></p>
+
     </div>
 
     

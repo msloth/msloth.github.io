@@ -6,16 +6,29 @@
     <description>Recent content in electronics on Tiliaradix Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Build: Brewtag</title>
-      <link>https://tiliaradix.com/builds/build-brewtag/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      <title>How We Do It: Making Things Happen At Specific Times of the Day</title>
+      <link>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</link>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
-      <description>Buildlog: Brewtag 🔗The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors, for use in measuring ambient pressure differences of an elevator moving from floor to floor.
-The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
-The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
+      <guid>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Connected products need scheduled actions. Scheduled actions require time synchronized deceives. Here is we make that happen.
+In our daily lives, we are governed by time and schedules. We may wake up at 6:30 AM, take the bus at 7:34 AM, start work at 8:10 AM, pick up from school at 4:00 PM - based on synchronized and often fixed times of day.</description>
+    </item>
+    
+    <item>
+      <title>Build: Nixie (in progress)</title>
+      <link>https://tiliaradix.com/builds/build-nixie/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-nixie/</guid>
+      <description>Buildlog: Nixie (in progress) 🔗Sneak peek 🔗Before hitting the reflow oven.
+Some Nixie tubes, IN-12A.
+Some more Nixie tubes.
+Meta 🔗Previously&amp;hellip; 🔗I saw this project, DekuNuken/exixe, and felt that hey, this is really cool and what I could use! But, I figured I&amp;rsquo;d like them differently.
+For starters, I&amp;rsquo;d like them to run over I2C instead of SPI, to make it easier with strings of nixies. I&amp;rsquo;d also like to use firmware I&amp;rsquo;ve already developed (eg my contiki port for msp430) and chips I already had (msp430), aaaand I thought I could do a cleaner job with the layout of the transistors.</description>
     </item>
     
     <item>
@@ -42,15 +55,6 @@ Ethernet chip is the Microchip ENC28J60. Hanrun connector with integrated magnet
     </item>
     
     <item>
-      <title>Build: SLIP CC1310 Gateway - slip1310</title>
-      <link>https://tiliaradix.com/builds/build-slip1310/</link>
-      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
-      <description>Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗</description>
-    </item>
-    
-    <item>
       <title>Build: Wi-Fi CC1310 Gateway - wifi1310</title>
       <link>https://tiliaradix.com/builds/build-wifi1310/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
@@ -72,6 +76,18 @@ It must fit in a nice commercial off the shelf (COTS) pre-made enclosure, and pr
 When the wireless mesh is unavailable, store data locally.
 A wireless mesh network reliably connects IoT (Internet of Things) devices, even in places where wireless is tricky.
 But even with a wireless mesh network, the IoT devices may become disconnected. We then need to store their data offline – and have them automatically post their data when they come back online.</description>
+    </item>
+    
+    <item>
+      <title>Build: SLIP CC1310 Gateway - slip1310</title>
+      <link>https://tiliaradix.com/builds/build-slip1310/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-slip1310/</guid>
+      <description>Buildlog: serial1310 🔗Here&amp;rsquo;s the final result.
+The Goal 🔗A small sub-GHz serial gateway that can fit in a Raspberry Pi enclosure, without external antenna. It must use a serial connection (UART) to connect to the Raspberry Pi, and in turn to the Internet over SLIP or PPP.
+The Challenge 🔗Radio performance doesn&amp;rsquo;t need to be fantastic, but it cannot be crappy or have compliance-destroying spurious emissions or such.
+Cost-efficient, and simple to assemble.</description>
     </item>
     
     <item>
@@ -109,6 +125,19 @@ Make them good looking, robust, functional, and sellable.
 At Thingsquare we use 3D printing for many of the IoT prototypes we build for customers.
 Here are the top 4 reasons why we do it, and why you should do it too:
  Hide the electronics Make it more functional Make it easier to sell Make it robust  What is 3D Printing?</description>
+    </item>
+    
+    <item>
+      <title>Build: Brewtag</title>
+      <link>https://tiliaradix.com/builds/build-brewtag/</link>
+      <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-brewtag/</guid>
+      <description>Buildlog: Brewtag 🔗Soldered.
+The Goal 🔗Design a small sensor board that runs off coin cell batteries and uses high-accuracy sensors.
+The use case is to measure ambient pressure differences of an elevator moving from floor to floor, to keep track of what floors are visited and when.
+The Challenge 🔗Small size, low cost, RF performance, EMI compliance, and protected against user errors such as battery upside down.
+The pressure differences are quite small in the short travel distance between floors, so the pressure sensor must be quite accurate.</description>
     </item>
     
     <item>

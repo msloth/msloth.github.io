@@ -6,7 +6,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Buildlog: slip1310 🔗The Goal 🔗The Challenge 🔗The Result 🔗Mechanics, enclosure 🔗Schematics 🔗Layout 🔗">
+<meta name="description" content="Buildlog: serial1310 🔗Here&rsquo;s the final result.
+The Goal 🔗A small sub-GHz serial gateway that can fit in a Raspberry Pi enclosure, without external antenna. It must use a serial connection (UART) to connect to the Raspberry Pi, and in turn to the Internet over SLIP or PPP.
+The Challenge 🔗Radio performance doesn&rsquo;t need to be fantastic, but it cannot be crappy or have compliance-destroying spurious emissions or such.
+Cost-efficient, and simple to assemble.">
 <meta name="generator" content="Hugo 0.96.0" />
 
 
@@ -64,12 +67,12 @@
     <h1 class="title">Build: SLIP CC1310 Gateway - slip1310</h1>
 
     <div class="tip">
-        <time datetime="2021-09-13 00:00:00 &#43;0000 UTC">Sep 13, 2021</time>
+        <time datetime="2021-04-20 00:00:00 &#43;0000 UTC">Apr 20, 2021</time>
         <span class="split">
           ·
         </span>
         <span>
-          13 words
+          164 words
         </span>
         <span class="split">
           ·
@@ -84,10 +87,26 @@
 
 
     <div class="content">
-      <h1 id="buildlog-slip1310">Buildlog: slip1310 <a href="#buildlog-slip1310" class="anchor">🔗</a></h1><p><p class="markdown-image">
-  <img src="/img/builds/pcbs/serial1310.jpg" alt="The result." loading="lazy"  />
-</p></p>
-<h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><h2 id="the-challenge">The Challenge <a href="#the-challenge" class="anchor">🔗</a></h2><h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><h3 id="mechanics-enclosure">Mechanics, enclosure <a href="#mechanics-enclosure" class="anchor">🔗</a></h3><h3 id="schematics">Schematics <a href="#schematics" class="anchor">🔗</a></h3><h3 id="layout">Layout <a href="#layout" class="anchor">🔗</a></h3>
+      <h1 id="buildlog-serial1310">Buildlog: serial1310 <a href="#buildlog-serial1310" class="anchor">🔗</a></h1><p><p class="markdown-image">
+  <img src="/img/builds/pcbs/serial1310/serial1310.jpg" alt="The result." loading="lazy"  />
+</p>
+<em>Here&rsquo;s the final result.</em></p>
+<h2 id="the-goal">The Goal <a href="#the-goal" class="anchor">🔗</a></h2><p>A small sub-GHz serial gateway that can fit in a Raspberry Pi enclosure, without external antenna. It must use a serial connection (UART) to connect to the Raspberry Pi, and in turn to the Internet over SLIP or PPP.</p>
+<h2 id="the-challenge">The Challenge <a href="#the-challenge" class="anchor">🔗</a></h2><p>Radio performance doesn&rsquo;t need to be fantastic, but it cannot be crappy or have compliance-destroying spurious emissions or such.</p>
+<p>Cost-efficient, and simple to assemble.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/serial1310/rpi-pinout.png" alt="Raspberry Pi debug header pinout." loading="lazy"  />
+</p>
+<em>Raspberry Pi debug header pinout, with UART RX and TX marked in red.</em></p>
+<h2 id="the-result">The Result <a href="#the-result" class="anchor">🔗</a></h2><p>With a small helix PCB-antenna, and a 4-layer impedance-controlled PCB, RF was compliant-looking, and RF performance was good, considering.</p>
+<p><p class="markdown-image">
+  <img src="/img/builds/pcbs/serial1310/rpi-serial-ap-v1.0.png" alt="KiCad screenshot." loading="lazy"  />
+</p>
+<em>KiCad screenshot.</em></p>
+<p>It gets power directly from the RPi debug header.</p>
+<p>The formfactor was great, and fit perfectly in an RPi enclosure. The pinout is the same across most or all RPis so it could fit in any.</p>
+<p>Used in customer projects as a small, easy gateway that doesn&rsquo;t require much in terms of space or aesthetics.</p>
+
     </div>
 
     

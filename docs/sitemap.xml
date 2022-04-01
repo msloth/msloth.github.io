@@ -38,11 +38,32 @@
     <loc>https://tiliaradix.com/tags/clay/</loc>
     <lastmod>2021-12-05T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://tiliaradix.com/tags/electronics/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/tags/embedded/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/posts/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/tags/thingsquare/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/tags/wireless/</loc>
+    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/builds/build-nixie/</loc>
+    <lastmod>2021-10-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://tiliaradix.com/builds/build-ohmu/</loc>
     <lastmod>2021-10-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tiliaradix.com/builds/build-brewtag/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
+    <loc>https://tiliaradix.com/tags/pcb/</loc>
+    <lastmod>2021-10-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/builds/build-digidev/</loc>
     <lastmod>2021-09-13T00:00:00+00:00</lastmod>
@@ -50,32 +71,14 @@
     <loc>https://tiliaradix.com/builds/build-eth1310/</loc>
     <lastmod>2021-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tiliaradix.com/builds/build-slip1310/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://tiliaradix.com/builds/build-wifi1310/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/electronics/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/embedded/</loc>
     <lastmod>2021-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</loc>
     <lastmod>2021-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tiliaradix.com/tags/pcb/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/posts/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/thingsquare/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/wireless/</loc>
-    <lastmod>2021-09-13T00:00:00+00:00</lastmod>
+    <loc>https://tiliaradix.com/builds/build-slip1310/</loc>
+    <lastmod>2021-04-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/posts/iot-antenna-design-three-ways-your-antenna-deceives-you/</loc>
     <lastmod>2020-11-02T00:00:00+00:00</lastmod>
@@ -85,6 +88,12 @@
   </url><url>
     <loc>https://tiliaradix.com/posts/four-reasons-for-3d-printing-iot-prototypes/</loc>
     <lastmod>2020-02-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/builds/build-brewtag/</loc>
+    <lastmod>2019-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/builds/build-reflow-oven/</loc>
+    <lastmod>2019-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/posts/a-new-way-to-measure-the-power-consumption-of-really-low-power-hardware-for-software-people/</loc>
     <lastmod>2017-12-07T00:00:00+00:00</lastmod>

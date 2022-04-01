@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Tiliaradix Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How We Do It: Making Things Happen At Specific Times of the Day</title>
+      <link>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</link>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</guid>
+      <description>(This is a repost of a blog post made for thingsquare.com, slightly edited to fit this format.)
+Connected products need scheduled actions. Scheduled actions require time synchronized deceives. Here is we make that happen.
+In our daily lives, we are governed by time and schedules. We may wake up at 6:30 AM, take the bus at 7:34 AM, start work at 8:10 AM, pick up from school at 4:00 PM - based on synchronized and often fixed times of day.</description>
+    </item>
+    
     <item>
       <title>How We Do It: Offline IoT</title>
       <link>https://tiliaradix.com/posts/how-we-do-it-offline-iot/</link>

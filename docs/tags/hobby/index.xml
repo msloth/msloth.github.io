@@ -31,6 +31,19 @@ The Clickers are originally humans, that have fallen to a fungus infection. The 
     </item>
     
     <item>
+      <title>Build: Nixie (in progress)</title>
+      <link>https://tiliaradix.com/builds/build-nixie/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/builds/build-nixie/</guid>
+      <description>Buildlog: Nixie (in progress) 🔗Sneak peek 🔗Before hitting the reflow oven.
+Some Nixie tubes, IN-12A.
+Some more Nixie tubes.
+Meta 🔗Previously&amp;hellip; 🔗I saw this project, DekuNuken/exixe, and felt that hey, this is really cool and what I could use! But, I figured I&amp;rsquo;d like them differently.
+For starters, I&amp;rsquo;d like them to run over I2C instead of SPI, to make it easier with strings of nixies. I&amp;rsquo;d also like to use firmware I&amp;rsquo;ve already developed (eg my contiki port for msp430) and chips I already had (msp430), aaaand I thought I could do a cleaner job with the layout of the transistors.</description>
+    </item>
+    
+    <item>
       <title>Build: Ohmu</title>
       <link>https://tiliaradix.com/builds/build-ohmu/</link>
       <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>

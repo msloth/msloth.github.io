@@ -71,7 +71,7 @@ The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), an
           ·
         </span>
         <span>
-          233 words
+          278 words
         </span>
         <span class="split">
           ·
@@ -96,9 +96,10 @@ The Result 🔗Using the thinnest PCB stackup the board house offers (0.8mm), an
 <p>The antenna is a PCB monopole antenna, TI design as on the cc1310 Launchpad. I shortened the antenna to the single-band version, yet leaved a little for tuning purposes.</p>
 <p>Power comes either from USB (which goes over a low-loss LDO to 3.3V) or coin cell battery. It can use either,</p>
 <ul>
-<li>cr2477 (900&ndash;1000 mAh) but are hard to find in stores (eg no in Kjell, CO)</li>
-<li>cr2450 (500&ndash;600 mAh), can be bought in stores</li>
+<li>CR2477 (900&ndash;1000 mAh) but are hard to find in stores (eg not in Kjell, Clas Ohlson)</li>
+<li>CR2450 (500&ndash;600 mAh), can be bought in most stores</li>
 </ul>
+<p>These two are a bit wider in diameter than the most common CR2032 (24 vs 20 mm) and is thicker (5.0/7.7 vs 3.2 mm) but in turn have a <em>much</em> higher capacity (CR2032 typically 200-250 mAh) and the size increase isn&rsquo;t too bad.</p>
 <p>The battery input is polarity protected via a PMOS transistor</p>
 <p>Programming is done over a Tag-connect connector.</p>
 <p>First revision had a silly mistake where GND and power was switched in schematics on the RF module, but fixed to the second.</p>
