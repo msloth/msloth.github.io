@@ -15,7 +15,7 @@
       <guid>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</guid>
       <description>ttag - Simple time tracking 🔗Since I&amp;rsquo;m working a lot in a CLI, and need to keep track of time and events, I&amp;rsquo;ve made this very simplistic time and event tracking utility.
 It&amp;rsquo;s based on a small script that appends a logfile.
-You need three thing:
+You need three things:
  a logfile path the ttag.sh-script adding alias-es to eg ~/.bashrc  Logfile 🔗The logfile is just a text file. You need to determine the absolute path to it and add that to the ttag.</description>
     </item>
     

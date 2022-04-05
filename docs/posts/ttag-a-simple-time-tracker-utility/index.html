@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="ttag - Simple time tracking 🔗Since I&rsquo;m working a lot in a CLI, and need to keep track of time and events, I&rsquo;ve made this very simplistic time and event tracking utility.
 It&rsquo;s based on a small script that appends a logfile.
-You need three thing:
+You need three things:
  a logfile path the ttag.sh-script adding alias-es to eg ~/.bashrc  Logfile 🔗The logfile is just a text file. You need to determine the absolute path to it and add that to the ttag.">
 <meta name="generator" content="Hugo 0.96.0" />
 
@@ -72,13 +72,13 @@ You need three thing:
           ·
         </span>
         <span>
-          292 words
+          574 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          2 minute read
+          3 minute read
         </span>
     </div>
 
@@ -89,26 +89,83 @@ You need three thing:
     <div class="content">
       <h1 id="ttag---simple-time-tracking"><code>ttag</code> - Simple time tracking <a href="#ttag---simple-time-tracking" class="anchor">🔗</a></h1><p>Since I&rsquo;m working a lot in a CLI, and need to keep track of time and events, I&rsquo;ve made this very simplistic time and event tracking utility.</p>
 <p>It&rsquo;s based on a small script that appends a logfile.</p>
-<p>You need three thing:</p>
+<p>You need three things:</p>
 <ul>
 <li>a logfile path</li>
 <li>the <code>ttag.sh</code>-script</li>
 <li>adding <code>alias</code>-es to eg <code>~/.bashrc</code></li>
 </ul>
 <h2 id="logfile">Logfile <a href="#logfile" class="anchor">🔗</a></h2><p>The logfile is just a text file. You need to determine the absolute path to it and add that to the <code>ttag.sh</code> script.</p>
-<h2 id="ttagsh"><code>ttag.sh</code> <a href="#ttagsh" class="anchor">🔗</a></h2><p>The script should be placed somewhere, doesn&rsquo;t matter much where.</p>
-<h2 id="adding-aliases">Adding aliases <a href="#adding-aliases" class="anchor">🔗</a></h2><p>The aliases makes it easier to run the utility.</p>
-<h1 id="github-gist">Github gist <a href="#github-gist" class="anchor">🔗</a></h1><p>The following is the Github gist that holds the <code>ttag.sh</code> and the contents to add to <code>~/.bashrc</code>. Do note that you need to adjust the path to both <code>ttag.sh</code> and the logfile. I&rsquo;ve chosen to put it on dropbox for direct sync across devices.</p>
-<script src="https://gist.github.com/msloth/3886f861330cacc3c586781d53a71c7b.js"></script>
+<p>Eg in <code>/cygdrive/c/Dropbox/tools/ttag/ttag-logfile.txt</code> as I do on Windows + Cygwin.</p>
+<h2 id="ttagsh"><code>ttag.sh</code> <a href="#ttagsh" class="anchor">🔗</a></h2><p>First, adjust the path to <code>LOGFILE</code> if necessary.</p>
+<p>The script should be placed somewhere, doesn&rsquo;t matter much where. Just adopt the path to this in the alias.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># simple script to add timestamp to a log to keep track of time</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># has two timestamps, first to be able to read quickly, second to</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># make it easier to calc timediffs -&gt; activity duration</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># make an alias</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    alias ttag=&#39;/cygdrive/c/tools/ttag/ttag.sh&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    alias ttagcat=&#39;cat /cygdrive/c/tools/ttag/ttag-logfile.txt&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># then run it like so,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    &gt; ttag project1 installing tools</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    &gt; ttag project1 conference call</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    &gt; ttag lunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    &gt; ttag -lunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    &gt; ttagcat</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    2017-03-13 11.32.27 - 1489401147: project1 isntalling tools</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    2017-03-13 11.32.28 - 1489401148: project1 conference call</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    2017-03-13 11.32.28 - 1489401148: lunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    2017-03-13 11.32.28 - 1489401148: -lunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># example log entry</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mon 2017-03-13 13.37.00 - 143242334211: husq installing tools</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># %F     full date; same as %Y-%m-%d</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># %s     seconds since 1970-01-01 00:00:00 UTC</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># date +&#34;%F %H.%M.S - %s:&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># specify the logfile</span>
+</span></span><span style="display:flex;"><span>LOGFILE<span style="color:#f92672">=</span>/cygdrive/c/Dropbox/tools/ttag/ttag-logfile.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># timestamp format</span>
+</span></span><span style="display:flex;"><span>TIMESTAMP_NICE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +<span style="color:#e6db74">&#34;%F %H.%M.%S - %s:&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># always append to the logfile</span>
+</span></span><span style="display:flex;"><span>echo $TIMESTAMP_NICE <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span> &gt;&gt; $LOGFILE
+</span></span></code></pre></div><h2 id="adding-aliases">Adding aliases <a href="#adding-aliases" class="anchor">🔗</a></h2><p>The aliases makes it easier to run the utility.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#------------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># time-tag utility</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This below goes into your ~/.bashrc</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># simple utility that appends to a log, to be able to check for how</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># long time an activity lasted</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># usage</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttag PROJECT ACTIVITY</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># eg</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttag apiary installing tools</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttag apiary setting up branch and stuff</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttag lunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttag back</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   ttagcat</span>
+</span></span><span style="display:flex;"><span>alias ttag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/cygdrive/c/Dropbox/tools/ttag/ttag.sh&#39;</span>
+</span></span><span style="display:flex;"><span>alias ttagcat<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cat /cygdrive/c/Dropbox/tools/ttag/ttag-logfile.txt&#39;</span>
+</span></span><span style="display:flex;"><span>alias ttago<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;open /cygdrive/c/Dropbox/tools/ttag/ttag-logfile.txt&#39;</span>
+</span></span></code></pre></div><h1 id="github-gist">Github gist <a href="#github-gist" class="anchor">🔗</a></h1><p>There&rsquo;s a <a href="https://gist.github.com/msloth/3886f861330cacc3c586781d53a71c7b" target="_blank" rel="noopener">Github gist</a> that holds the <code>ttag.sh</code> and the contents to add to <code>~/.bashrc</code>. Do note that you need to adjust the path to both <code>ttag.sh</code> and the logfile. I&rsquo;ve chosen to put it on dropbox for direct sync across devices.</p>
 <h1 id="usage">Usage <a href="#usage" class="anchor">🔗</a></h1><p>Here&rsquo;s how to use it.</p>
 <h2 id="adding-notes">Adding notes <a href="#adding-notes" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; ttag starting on project X
 </span></span><span style="display:flex;"><span>&gt; ttag going to lunch
 </span></span><span style="display:flex;"><span>&gt; ttag back from lunch
-</span></span></code></pre></div><h2 id="reading-notes">Reading notes <a href="#reading-notes" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; ttagcat 
+</span></span></code></pre></div><h2 id="reading-notes">Reading notes <a href="#reading-notes" class="anchor">🔗</a></h2><p>The alias <code>ttagcat</code> will print out the file. Pipe it to eg <code>tail -n 10</code> for the last ten lines if you prefer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; ttagcat 
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>2022-04-05 13.18.00 - 1649157480: starting on project X
-</span></span><span style="display:flex;"><span>2022-04-05 13.19.11 - 1649157551: going to lunch
-</span></span><span style="display:flex;"><span>2022-04-05 13.19.21 - 1649157561: back from lunch
+</span></span><span style="display:flex;"><span>2022-04-05 13.18.00 - 1649157480: projectX starting
+</span></span><span style="display:flex;"><span>2022-04-05 13.19.11 - 1649157551: lunch
+</span></span><span style="display:flex;"><span>2022-04-05 13.19.21 - 1649157561: -lunch
 </span></span></code></pre></div><h2 id="open-the-logfile-in-a-text-editor">Open the logfile in a text editor <a href="#open-the-logfile-in-a-text-editor" class="anchor">🔗</a></h2><p>In Cygwin, I&rsquo;ve aliased <code>cygstart</code> === <code>open</code>. This is the same as double-clicking (opening) the file in File Explorer, which opens it using the registered application.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>alias open<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cygstart&#39;</span>
 </span></span></code></pre></div><p>Hence, we simply do <code>ttago</code> which opens the file in an editor.</p>
