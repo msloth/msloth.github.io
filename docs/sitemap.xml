@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tiliaradix.com/posts/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/tags/programming/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/tags/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</loc>
+    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://tiliaradix.com/tags/3d-print/</loc>
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,12 +33,6 @@
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/tags/hobby/</loc>
-    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/</loc>
-    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/</loc>
     <lastmod>2022-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/builds/build-subwooferbase/</loc>
@@ -45,9 +54,6 @@
     <lastmod>2021-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/posts/how-we-do-it-making-things-happen-at-specific-times-of-the-day/</loc>
-    <lastmod>2021-11-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/posts/</loc>
     <lastmod>2021-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/tags/thingsquare/</loc>
@@ -117,9 +123,6 @@
     <lastmod>2013-06-06T15:05:41+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/tags/msp430/</loc>
-    <lastmod>2013-06-06T15:05:41+00:00</lastmod>
-  </url><url>
-    <loc>https://tiliaradix.com/tags/programming/</loc>
     <lastmod>2013-06-06T15:05:41+00:00</lastmod>
   </url><url>
     <loc>https://tiliaradix.com/posts/simple-yet-efficient-wireless-with-contiki/</loc>

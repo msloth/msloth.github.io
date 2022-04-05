@@ -6,7 +6,19 @@
     <description>Recent content on Tiliaradix Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ttag - a simple time tracker utility</title>
+      <link>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</guid>
+      <description>ttag - Simple time tracking 🔗Since I&amp;rsquo;m working a lot in a CLI, and need to keep track of time and events, I&amp;rsquo;ve made this very simplistic time and event tracking utility.
+It&amp;rsquo;s based on a small script that appends a logfile.
+You need three thing:
+ a logfile path the ttag.sh-script adding alias-es to eg ~/.bashrc  Logfile 🔗The logfile is just a text file. You need to determine the absolute path to it and add that to the ttag.</description>
+    </item>
+    
     <item>
       <title>Build: Barnfind (in progress)</title>
       <link>https://tiliaradix.com/builds/build-barnfind/</link>
