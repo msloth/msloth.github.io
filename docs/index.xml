@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tiliaradix Blog</title>
+    <title>Tiliaradix log</title>
     <link>https://tiliaradix.com/</link>
-    <description>Recent content on Tiliaradix Blog</description>
+    <description>Recent content on Tiliaradix log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buyers guide: toaster</title>
+      <link>https://tiliaradix.com/posts/buyers-guide-toaster/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/buyers-guide-toaster/</guid>
+      <description>Buyers guide: toaster 🔗When the previous old toaster literally went up in flames, we needed a new one. The market for toasters seems to follow a bathtub-curve when it comes to price. There are a lot of really cheap ones, and quite many pretty expensive ones.
+Why so? Toasters are a solved problem since a century and the technology is simple and inexpensive. So one can assume the pricier ones are priced so mainly for the brand stamp.</description>
+    </item>
+    
+    <item>
+      <title>Monitor bonanza</title>
+      <link>https://tiliaradix.com/posts/monitor-bonanza/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/monitor-bonanza/</guid>
+      <description>Here follows a couple of tips on monitor use in Windows.
+Monitor brightness 🔗I find myself often wanting to adjust the brightness of the monitor on the laptop, but since I&amp;rsquo;m using an external keyboard I have no access to those keys on the laptop.
+Also, I most often press wrong once first before remembering that I need to also not hold Fn to get to the adjust-brightness-functionality since they are dual-use with F4 and F5.</description>
+    </item>
+    
     <item>
       <title>ttag - a simple time tracker utility</title>
       <link>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</link>
@@ -732,9 +753,8 @@ The TI Launchpad is a small fun developers platform, perhaps most suited for beg
       
       <guid>https://tiliaradix.com/about/</guid>
       <description>This is the site for Marcus Linderoth and my company Tiliaradix AB. As such, it&amp;rsquo;s a mix of personal and apersonal matters.
-I am co-founder and VP of engineering at Thingsquare. We help our customers build IoT products quickly, robust, and feature-rich thanks to our IoT-platform.
-The blog is a mix of everything - personal notes, travel notes, posts about tech/wireless/embedded/programming, build diaries, etc.
-You can find me on these sites:</description>
+I am co-founder and VP of engineering at Thingsquare. We help our customers build IoT products quickly, robust, and feature-rich thanks to our IoT-platform. This site is my own and does not reflect the views of Thingsquare.
+The blog is a mix of everything - personal notes, travel notes, posts about tech/wireless/embedded/programming, build diaries, etc.</description>
     </item>
     
   </channel>

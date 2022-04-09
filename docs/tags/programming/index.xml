@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programming on Tiliaradix Blog</title>
+    <title>programming on Tiliaradix log</title>
     <link>https://tiliaradix.com/tags/programming/</link>
-    <description>Recent content in programming on Tiliaradix Blog</description>
+    <description>Recent content in programming on Tiliaradix log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tiliaradix.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitor bonanza</title>
+      <link>https://tiliaradix.com/posts/monitor-bonanza/</link>
+      <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiliaradix.com/posts/monitor-bonanza/</guid>
+      <description>Here follows a couple of tips on monitor use in Windows.
+Monitor brightness 🔗I find myself often wanting to adjust the brightness of the monitor on the laptop, but since I&amp;rsquo;m using an external keyboard I have no access to those keys on the laptop.
+Also, I most often press wrong once first before remembering that I need to also not hold Fn to get to the adjust-brightness-functionality since they are dual-use with F4 and F5.</description>
+    </item>
+    
     <item>
       <title>ttag - a simple time tracker utility</title>
       <link>https://tiliaradix.com/posts/ttag-a-simple-time-tracker-utility/</link>

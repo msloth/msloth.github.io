@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Monitor bonanza | Tiliaradix log</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Here follows a couple of tips on monitor use in Windows.
+Monitor brightness 🔗I find myself often wanting to adjust the brightness of the monitor on the laptop, but since I&rsquo;m using an external keyboard I have no access to those keys on the laptop.
+Also, I most often press wrong once first before remembering that I need to also not hold Fn to get to the adjust-brightness-functionality since they are dual-use with F4 and F5.">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tiliaradix.comcss/video-shortcode.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/posts/portfolio/">Publications</a>
+	
+		<a href="/tags/travel/">Travel</a>
+	
+		<a href="/tags/builds/">Builds</a>
+	
+		<a href="https://github.com/msloth">Github</a>
+	
+		<a href="https://www.linkedin.com/in/marcus-linderoth-3579a48/">LinkedIn</a>
+	
+
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Monitor bonanza</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-05 00:00:00 &#43;0000 UTC">Apr 5, 2022</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          266 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p>Here follows a couple of tips on monitor use in Windows.</p>
+<h1 id="monitor-brightness">Monitor brightness <a href="#monitor-brightness" class="anchor">🔗</a></h1><p>I find myself often wanting to adjust the brightness of the monitor on the laptop, but since I&rsquo;m using an external keyboard I have no access to those keys on the laptop.</p>
+<p>Also, I most often press wrong once first before remembering that I need to also <em>not</em> hold <code>Fn</code> to get to the adjust-brightness-functionality since they are dual-use with <code>F4</code> and <code>F5</code>.</p>
+<p>Instead, I&rsquo;m using <a href="https://www.nirsoft.net/utils/nircmd.html" target="_blank" rel="noopener">Nirsoft</a> <code>nircmd</code> and an alias in <code>.bashrc</code> to do this from the terminal.</p>
+<p>Put <code>nircmd</code> in <code>PATH</code> and add this alias:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># https://nircmd.nirsoft.net/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nircmd multitool utility</span>
+</span></span><span style="display:flex;"><span>alias nircmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/cygdrive/c/Dropbox/tools/nirsoft/nircmd/nircmd.exe&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1..100</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># bri 90</span>
+</span></span><span style="display:flex;"><span>alias bri<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nircmd setbrightness&#39;</span>
+</span></span></code></pre></div><p>This allows you to run eg <code>bri 90</code> for 90% brightness.</p>
+<h2 id="bonus">Bonus <a href="#bonus" class="anchor">🔗</a></h2><p><code>nircmd</code> can do a lot. Here are two additional useful aliases. Use them eg to signal end of long-running scripts, or errors, or something.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Will use TTS and speak the sentence</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># say &#34;script finished&#34;</span>
+</span></span><span style="display:flex;"><span>alias say<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nircmd speak text&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Shows a dialog box</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># box &#34;All done.&#34; &#34;Wake up&#34; </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># box &#34;All done.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># box &#34;Box text.&#34; &#34;Title&#34; </span>
+</span></span><span style="display:flex;"><span>alias box<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nircmd infobox&#39;</span>
+</span></span></code></pre></div><p><p class="markdown-image">
+  <img src="/img/hello.png" alt="Infobox." loading="lazy"  />
+</p></p>
+<h1 id="windowgroomer">Windowgroomer <a href="#windowgroomer" class="anchor">🔗</a></h1><p>I dislike having to find the few pixels that activates the &ldquo;resize-window&rdquo;, and sometimes it&rsquo;s not even possible. The window can have become stuck so far to the side of the screen that you can&rsquo;t use the mouse pointer to drag the window.</p>
+<p><a href="https://github.com/aarmea/WindowGroomer" target="_blank" rel="noopener">Windowgroomer</a> by <code>aarmea</code> is a very straight-forward small application that when invoked via keyboard shortcut will allow you to select how large the window should become, and where to position it.</p>
+<p><p class="markdown-image">
+  <img src="/img/groomer.png" alt="Interface." loading="lazy"  />
+</p></p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://tiliaradix.com/tags/programming">programming</a>
+            
+        </div>
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.github.com/msloth" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        © Copyright 2022 Tiliaradix AB
+    
+    </div>
+
+    
+</footer>
+
+
+
+  </body>
+</html>
